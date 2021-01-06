@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html lang="kr">
+    <head>
+        <title>Home - My fist website.</title>
+        <style>
+            body{
+                height: 1000vh;
+                margin: 50px;
+                }
+            div p span{color:white;}
+            span{color:teal;
+            background-color: yellowgreen;
+            padding: 10px;
+            border-radius: 10px;}
+            span + p{text-decoration: underline;}
+            p>span{text-decoration:underline ;}
+        </style>
+    </head>
+    <body>
+        <div>
+            <span>hello</span>
+            <p>
+                The calculated value overrides the specified 
+                value and becomes zero. In the table, none 
+                has the lowest priority when offsetting the 
+                boundaries of the compartments. <span>inside</span>
+            </p>
+        </div>
+    </body>
+</html>
+
+ 
+    <!--
+        OOO > OOO : 바로 밑 자식으로 속성을 부여하는 것
+        ex) div > span
+        OOO + OOO : 함께 있는 형제를 선택하여 속성을 부여
+        ex) span + p
+
+    -->  

@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="kr">
+    <head>
+        <title>Home - My fist website.</title>
+        <style>
+            body{display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            }
+            div {background-color: teal;
+            width: 200px;
+            height: 200px;}
+        @media screen and (max-width:600px){
+            div{background-color: lightcyan;}}
+        @media screen and (min-width: 601px) and (max-width:900px){
+            div{background-color: lightblue;}}
+        @media screen and (min-width:1200px) and (orientation: landscape){
+            div{background-color: skyblue;}
+        }
+        span {font-size: 36px;}
+        @media screen and (orientation: landscape) {
+            span {display:none;}
+        </style>
+            
+    </head>
+    <body>
+        <div></div>
+        <span>스마트폰을 가로로 눕혀주세요 oㅁo</span>
+    </body>
+</html>
+
+
+<!-- /* @media screen and : 웹사이트를 보는 스크린의 크기에 따라
+                    반응형 웹사이트를 만들 수 있음.
+
+min-device-width, max-device-width는 스마트폰에서만 적용되는 코드
+그 외 다양한 기기구분, 모드가 있음
+@media screen and (orientation: landscape) 스마트폰 가로모드
+
+@media screen and (max-width:600px){
+    div{background-color: lightcyan;}}
+@media screen and (min-width: 601px) and (max-width:900px){
+    div{background-color: lightblue;}}
+@media screen and (min-width:1200px) and (orientation: landscape){
+    div{background-color: skyblue;}
+}
+span {font-size: 36px;}
+@media screen and (orientation: landscape) {
+    span {display:none;} */ -->

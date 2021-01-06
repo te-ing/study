@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html lang="kr">
+    <head>
+        <title>Home - My fist website.</title>
+        <link href="styles.css" rel="stylesheet" />
+        <style>
+            html{
+                background-color: tomato;
+            }
+            body {
+                margin: 20px 15px; 
+                /* margin 값이 하나면 상하좌우,
+                두개면 상하, 좌우 네개면 상하좌우를 말함. */
+                background-color: thistle;
+            }
+            div {
+                margin-left: 50px;
+                height: 150px;
+                width: 150px;
+                background-color: whitesmoke;
+            }
+            span{
+                display:block;
+                background-color: turquoise;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+        </div>
+    </body>
+    </html>
+
+    <!-- span을 inline(block)으로 바꾸는 것을 display 속성이라 함  -->
+    <!-- inline은 높이와 넓이(height, width)를 가질 수 없음
+         block만 높이와 넓이(height, width)를 가짐
+        
+    margin: box의 경계(border) 바깥에 있는 공간 ; 여백
+    collapsing margins 현상: 경계가 같은 box의 margin(여백)이 똑같아지는 현상
+        
+    높이와 넓이가 없는 inline은     
+    padding(안쪽 여백)을 상하좌우로 가질 수 있지만,
+    margin(외부 여백)은 양옆으로만 가질 수 있음.
+    margin을 가지기 위해서는 inline을 block으로 바꿔야함
+-->

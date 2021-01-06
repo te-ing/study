@@ -1,0 +1,5 @@
+body {
+  background-color: whitesmoke;
+}
+/* html 내부에서 CSS파일을 포함하는 것은 inline CSS 
+외부에서 CSS파일을 포함하는 것은 external CSS 라고 함 */

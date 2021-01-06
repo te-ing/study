@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html lang="kr">
+    <head>
+        <title>Home - My fist website.</title>
+        <style>
+            body{
+                height: 100vh;
+                margin: 20px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-wrap: wrap-reverse;
+                flex-direction:row-reverse;
+                }
+            div {
+                width: 300px;
+                height: 300px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color:teal;
+                font: size 28;
+                color: white;}
+                #second{background-color: wheat;
+                }
+        </style>
+    </head>
+    <body>
+        <div>1</div>
+        <div id=second>2</div>
+        <div>3</div>
+    </body>
+    </html>
+
+    <!-- 
+    flexbox : box를 어느 곳에든 자유롭게 둘 수 있음
+              부모 엘리먼트에만 적용하고,
+              자식 엘리먼트에는 아무것도 적으면 안됨  
+              flexbox 이후 jutify~~ 설정가능
+              flexbox의 주축은 수평, 교차축은 수직
+              justify-content는 주축
+              align-item은 교차축
+    vh: Viewport(screen) Height라는 뜻. vh100은 화면 높이의 100%
+    flex-direction: column; -> 주축을 수직, 교차축은 수평으로 변경 
+                    raw가 기본값이며 column-reverse 사용가능
+    flex-wrap: wrap 박스의 크기를 유지,
+               크기가 커지면 줄이지 않고 다음 칸으로 넘김-->

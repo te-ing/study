@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html lang="kr">
+    <head>
+        <title>Home - My fist website.</title>
+        <style>
+            :root{--main-color: #fcce00;}
+            body{
+                height: 1000vh;
+                margin: 50px;
+                }
+            input::placeholder{color:lightsalmon;}
+            p::first-letter{font-size: 50px;}
+            p::selection{background-color: lightblue;
+                        color:var(--main-color);}
+            
+        </style>
+    </head>
+    <body>
+        <form>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore aliquid modi, vitae iure natus architecto consequatur reiciendis ipsam impedit debitis nulla. Totam aliquam ut quis et voluptatum mollitia officia eveniet?</p>>
+        </form>
+        <input placeholder="입력하세요"/>
+    </body>
+</html>
+
+ 
+    <!--
+        input::placeholder{color: xxx;}: placehorder의 글씨만 바꿔줌
+        p::selection{background-color: xxx} p가 선택되었을 때(드래그) 속성부여
+        p::firstletter : p의 첫글자에만 속성부여
+
+        1. hexadecimal color(16진수 컬러) ex) #FCCE00
+        2. rgb(252, 206, 0) // rgba (252, 206, 0, 0) a는 투명도
+        3. :root{--main-color: #fcce00}: :root, --xxx- 변수 지정하기
+
+
+    -->  
+
+    
