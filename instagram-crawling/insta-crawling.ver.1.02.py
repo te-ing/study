@@ -11,7 +11,7 @@ post = int(input("원하는 크롤링 포스트 수를 입력하세요: "))
 YOUR_ID = input("당신의 아이디를 입력하세요: ")
 print(YOUR_ID)
 YOUR_PW = input("당신의 비밀번호를 입력하세요: ")
-print(YOUR_PW)
+# print(YOUR_PW)
 user_agent = input("당신의 User-agent 값을 입력하세요 만약 모른다면 아래의 웹사이트를 참고하세요\nhttps://www.whatismybrowser.com/detect/what-is-my-user-agent: ")
 
 options = webdriver.ChromeOptions()
