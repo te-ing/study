@@ -1,17 +1,19 @@
+.screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 25px;
+}
+
 .screen-header__title {
-  position: fixed;
-  padding: 64px 25px;
-  box-sizing: border-box;
   font-weight: 800;
   font-size: 25px;
 }
 
 .header__icons {
-  position: fixed;
-  padding: 70px 20px 0px 0px;
-  right: 0px;
-  font-size: 17px;
   box-sizing: border-box;
+  font-size: 17px;
 }
 .fa-search,
 .fa-music,
