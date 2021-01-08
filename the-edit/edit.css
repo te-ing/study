@@ -1,0 +1,9 @@
+.nav > div {
+  display: inline-flex;
+  margin: 20px 20px;
+}
+
+.logo {
+  width: 300px;
+  object-fit: contain;
+}

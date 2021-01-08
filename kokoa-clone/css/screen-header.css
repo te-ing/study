@@ -1,0 +1,20 @@
+.screen-header__title {
+  position: fixed;
+  padding: 64px 25px;
+  box-sizing: border-box;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.header__icons {
+  position: fixed;
+  padding: 70px 20px 0px 0px;
+  right: 0px;
+  font-size: 17px;
+  box-sizing: border-box;
+}
+.fa-search,
+.fa-music,
+.fa-cog {
+  margin: 0px 6px;
+}
