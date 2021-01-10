@@ -38,15 +38,35 @@
         <i class="fas fa-chevron-right fa-sm"></i>
     </a>
 
-    <div class="user-component">
-        <div class="user-component__column">
-            <img src=kokoa-img\profile.jpg class=user-component__avatar>
-            <div class="user-component__text"><h4 class="user-component__title">태중</h4></div>
+    <main class="friends-screen">
+        <div class="user-component">
+            <div class="user-component__column">
+                <img src=kokoa-img\profile.jpg class="user-component__avatar user-component__avatar--xl"/>
+                <div class="user-component__text">
+                    <h4 class="user-component__title">태중</h4>
+                    <!-- <h6 class="user-component__subtitle">안녕 친구</h6> -->
+                </div>
+            <div class="user-component__column"></div>
         </div>
-        <div class="user-component__column"></div>
-    </div>
 
-    <!-- <div class=profile><img src=kokoa-img\profile.jpg>태중</div> -->
+        <div class="friends-screen__channel">
+            <div class="friends-screen__channel-header">
+                <span>Channel</span></div>
+            <i class="fas fa-chevron-up fa-sm"></i>
+        </div>
+
+        <div class="user-component">
+            <div class="user-component__column">
+                <img src=kokoa-img\channel.png class="user-component__avatar user-component__avatar--ms"/>
+                <div class="user-component__text">
+                    <h4 class="user-component__title-ms">Channel</h4>
+                </div>
+            <div class="user-component__column"></div>
+            <div class="user-component__number">2
+                <i class="fas fa-chevron-right fa-sm"></i>
+            </div>
+        </div>
+    </main>
 
     <nav class="nav">
         <ul class="nav__list">
@@ -55,9 +75,12 @@
                     <i class="fas fa-user fa-lg"></i>
                 </a>
             </li>
-            <li class="nav__btn"><a class="nav__link" href="#">
+            <li class="nav__btn">
+                <a class="nav__link" href="chatting.html">
                 <span class="nav__notify">1</span>
-                <i class="far fa-comment fa-lg"></i></a></li>
+                <i class="far fa-comment fa-lg"></i>
+                </a>
+            </li>
             <li class="nav__btn"><a class="nav__link" href="#"><i class="fas fa-search fa-lg"></i></a></li>
             <li class="nav__btn"><a class="nav__link" href="#"><i class="fas fa-ellipsis-h fa-lg"><div class=nav__notify2></div></i></a></li>
         </ul>
