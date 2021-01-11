@@ -1,0 +1,53 @@
+body {
+  background-color: lightgray;
+  font-family: "Times New Roman", Times, serif;
+  height: 100vh;
+  width: 50vh;
+  display: flex;
+}
+
+h1 {
+  position: fixed;
+  top: 5px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.color--list {
+  margin: 0px 10px 5px 0px;
+  height: 200px;
+  width: 120px;
+  border: solid white 3px;
+}
+
+.color--list--item {
+  margin-top: 10px;
+  background-color: white;
+  padding: 1px 0px;
+}
+h4,
+h6 {
+  line-height: 0px;
+}
+
+.color--list:nth-child(2) {
+  background-color: tomato;
+}
+
+.color--list:nth-child(3) {
+  background-color: teal;
+}
+
+.color--list:nth-child(4) {
+  background-color: burlywood;
+}
+
+.color--list:nth-child(5) {
+  background-color: thistle;
+}
