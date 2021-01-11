@@ -1,0 +1,16 @@
+.nav__notify {
+  background-color: tomato;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 17.5px;
+  letter-spacing: -1px;
+  position: absolute;
+  left: 11px;
+  bottom: 12px;
+}

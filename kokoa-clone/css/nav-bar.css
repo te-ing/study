@@ -17,23 +17,6 @@
   position: relative;
 }
 
-.nav__notify {
-  background-color: tomato;
-  color: white;
-  display: flex;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 17.5px;
-  letter-spacing: -1px;
-  position: absolute;
-  left: 11px;
-  bottom: 12px;
-}
-
 .nav__notify2 {
   background-color: tomato;
   display: flex;
@@ -44,4 +27,13 @@
   position: absolute;
   left: 22px;
   bottom: 17px;
+}
+
+.nav__notify3 {
+  background-color: tomato;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin-bottom: 13px;
 }
