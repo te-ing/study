@@ -5,12 +5,14 @@
 @import "nav-bar.css";
 @import "login.css";
 @import "screen-header.css";
+@import "alt-screen-header.css";
 @import "friends.css";
 @import "profile.css";
 @import "chats.css";
 @import "batge.css";
 @import "find.css";
 @import "icon-row.css";
+@import "more.css";
 body {
   font-family: "Open Sans", sans-serif;
 }

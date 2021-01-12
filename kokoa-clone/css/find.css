@@ -1,5 +1,5 @@
 .recommended-friends {
-  margin: 20px 10px;
+  margin: 10px 10px;
   padding: 15px 10px;
   border-top: var(--main-border);
   border-bottom: var(--main-border);
@@ -19,7 +19,7 @@
 }
 
 .open-chat__header {
-  padding: 0px 20px;
+  padding: 0px 5px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
@@ -33,7 +33,7 @@
 
 .open-post {
   display: flex;
-  padding: 0px 20px;
+  padding: 0px 10px;
   justify-content: space-between;
   align-items: center;
 }

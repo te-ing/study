@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to kokoaTalk</title>
+    <title>Settings - kokoaTalk</title>
 </head>
 <body>
     <div class="status-bar">
@@ -23,30 +23,17 @@
         </div>
     </div>
 
-    <header class="screen-header">
-        <h1 class="screen-header__title">Chats</h1>
-        <div class="header__icons">
-            <span><i class="fas fa-search"></i></span>
-            <span><i class="far fa-comment-dots"></i></span>
-            <span><i class="fas fa-music"></i></span>
-            <span><a href="settings.html"><i class="fas fa-cog"></i></a></span>            
+    <header class="alt-header">
+        <div class="alt-header__column fa-2x">
+            <i class="fas fa-angle-left fa-lg"></i>
         </div>
+        <div class="alt-header__column"></div>
+        <div class="alt-header__column"></div>
     </header>
 
-    <main class="friends-screen">
-        <div class="user-component">
-            <div class="user-component__column">
-                <img src=kokoa-img\profile.jpg class="user-component__avatar user-component__avatar--ms"/>
-                <div class="user-component__text">
-                    <div>
-                        <h4 class="user-component__title">태중</h4>
-                        <h6 class="user-component__subtitle">안녕 친구</h6>
-                    </div>
-                </div>
-            <div class="user-component__column"></div>
-        </div>
+    <main class="friends-screen more-screen">
     </main>
-    
+
     <div class=end-margin></div>
     <nav class="nav">
         <ul class="nav__list">
@@ -57,13 +44,14 @@
             </li>
             <li class="nav__btn">
                 <a class="nav__link" href="chats.html">
-                <span class="nav__notify">1</span>
-                <i class="fas fa-comment fa-lg"></i>
+                <span class="nav__notify badge">1</span>
+                <i class="far fa-comment fa-lg"></i>
                 </a>
             </li>
             <li class="nav__btn"><a class="nav__link" href="find.html"><i class="fas fa-search fa-lg"></i></a></li>
             <li class="nav__btn"><a class="nav__link" href="more.html"><i class="fas fa-ellipsis-h fa-lg"><div class=nav__notify2></div></i></a></li>
         </ul>
+        
     </nav>
 
 
@@ -73,4 +61,3 @@
     crossorigin="anonymous"></script>
 </body>
 </html>
-
