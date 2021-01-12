@@ -1,53 +1,90 @@
 body {
-  background-color: lightgray;
-  font-family: "Times New Roman", Times, serif;
+  background-color: black;
   height: 100vh;
-  width: 50vh;
   display: flex;
-}
-
-h1 {
-  position: fixed;
-  top: 5px;
-}
-
-form {
-  display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 70px;
 }
 
-.color--list {
-  margin: 0px 10px 5px 0px;
-  height: 200px;
-  width: 120px;
-  border: solid white 3px;
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 80vh;
+  height: 70vh;
+  background-color: cadetblue;
 }
 
-.color--list--item {
-  margin-top: 10px;
+.circle {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  animation: circle-rotate 1s ease infinite;
+}
+
+@keyframes circle-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.moving-circle {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
   background-color: white;
-  padding: 1px 0px;
-}
-h4,
-h6 {
-  line-height: 0px;
+  margin: 10px;
 }
 
-.color--list:nth-child(2) {
-  background-color: tomato;
+.square {
+  display: flex;
+  justify-content: space-around;
 }
 
-.color--list:nth-child(3) {
-  background-color: teal;
+.moving-square {
+  height: 50px;
+  width: 10px;
+  background-color: white;
+  margin: 3px;
 }
 
-.color--list:nth-child(4) {
-  background-color: burlywood;
+.moving-square:nth-child(1){
+  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite;
 }
 
-.color--list:nth-child(5) {
-  background-color: thistle;
+.moving-square:nth-child(2){
+  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite .2s;
 }
+
+.moving-square:nth-child(3){
+  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite .4s;
+}
+
+.moving-square:nth-child(4){
+  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite .6s;
+}
+
+.moving-square:nth-child(5){
+  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite .8s;
+}
+
+@keyframes up-down {
+  0% {
+    transform: scale(1, 1) ;
+  }
+  25% {
+    transform: scale(1, 1.5);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
