@@ -41,3 +41,12 @@
 .user-component {
   padding-bottom: 10px;
 }
+
+.fa-exclamation-circle {
+  color: red;
+  opacity: 0.4;
+}
+
+/* .friends-screen {
+  margin: 0px 15px;
+} */

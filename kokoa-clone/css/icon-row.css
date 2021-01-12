@@ -1,0 +1,22 @@
+.find-icons {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.find-icon__icon {
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.find-icon__icon i {
+  font-size: 22px;
+}
+
+.find-icon__icon span {
+  margin-top: 10px;
+}
