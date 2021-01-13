@@ -3,11 +3,30 @@
   margin-bottom: 15px;
   padding: 15px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .alt-header__title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
+}
+
+.alt-header__column {
+  width: 33%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.alt-header__column:nth-child(2) {
+  display: flex;
+  justify-content: center;
+}
+
+.alt-header__column:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alt-header__column span :last-child {
+  margin-left: 20px;
 }

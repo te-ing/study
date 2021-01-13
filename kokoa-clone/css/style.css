@@ -8,12 +8,13 @@
 @import "alt-screen-header.css";
 @import "friends.css";
 @import "profile.css";
-@import "chats.css";
 @import "batge.css";
 @import "find.css";
 @import "icon-row.css";
 @import "more.css";
 @import "settings.css";
+@import "chats.css";
+@import "chat.css";
 body {
   font-family: "Open Sans", sans-serif;
 }

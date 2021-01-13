@@ -1,0 +1,163 @@
+#chat-screen {
+  background-color: #abc1d1;
+  height: 11000vh;
+}
+
+#chat-screen .alt-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #abc1d1;
+}
+
+#chat-screen .status-bar {
+  background-color: #abc1d1;
+}
+
+.main-chat {
+  margin-top: 85px;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.chat__timestamp {
+  color: white;
+  background-color: #92a4b2;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message__author {
+  opacity: 0.8;
+  font-size: 12px;
+  margin-bottom: 4px;
+  margin-top: 3px;
+  display: block;
+}
+
+.message__bubble {
+  background-color: white;
+  padding: 10px;
+  border-radius: 12px;
+  border-top-left-radius: 0px;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.message__time {
+  opacity: 0.8;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.message-row--own {
+  justify-content: flex-end;
+}
+
+.message-row--own .message__bubble {
+  background-color: #fee500;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 12px;
+  margin-right: 0px;
+  margin-left: 5px;
+}
+
+/* .message-row--own .message__bubble {
+  order: 1;
+  order : flex children에만 적용되는 코드
+}
+.message-row--own .message__time {
+  order: 0;
+} */
+
+.message-row--own .message__info {
+  flex-direction: row-reverse;
+}
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 25px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.reply .reply__column:first-child {
+  width: 5%;
+  margin-left: -13px;
+}
+
+.reply .reply__column:last-child {
+  width: 95%;
+  position: relative;
+}
+
+.reply i {
+  opacity: 0.8;
+}
+
+.reply input {
+  height: 24px;
+  width: 82%;
+  border: rgba(128, 128, 128, 0.5) 1px solid;
+  border-radius: 15px;
+  padding-left: 10px;
+}
+
+.reply__column:last-child > i {
+  position: absolute;
+  left: 250px;
+  top: 7px;
+}
+
+.reply__column:last-child button {
+  position: absolute;
+  right: -18px;
+  top: 2px;
+  background-color: #fee500;
+  border: none;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+}
+
+.reply__column:last-child i {
+  right: 30px;
+}
+
+.reply__column button i {
+  opacity: 1;
+}
+
+.reply__column button:focus,
+.reply__column button:active {
+  outline: none;
+}
