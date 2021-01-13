@@ -1,90 +1,159 @@
+li {
+  list-style: none;
+  padding-left: 0px;
+}
+
 body {
-  background-color: black;
-  height: 100vh;
+  padding: 10px;
+  padding: 300px 10px 0 10px;
+  border: lightseagreen 4px solid;
+  position: relative;
+}
+.fix-background {
+  display: flex;
+  position: fixed;
+  top: 30px;
+  background-color: white;
+  width: 80%;
+  height: 272px;
+}
+.fix-ui {
+  position: fixed;
+  top: 5px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+header {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
-.loading {
+h2 {
+  padding-right: 60px;
+  font-size: 22px;
+  font-weight: 600;
+}
+.close-btn {
+  position: absolute;
+  left: 10px;
+  font-size: 12px;
+}
+
+.album {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  width: 80vh;
-  height: 70vh;
-  background-color: cadetblue;
-}
-
-.circle {
-  display: flex;
-  height: 100px;
-  align-items: center;
-  animation: circle-rotate 1s ease infinite;
-}
-
-@keyframes circle-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(180deg);
-  }
-}
-
-.moving-circle {
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: white;
-  margin: 10px;
-}
-
-.square {
-  display: flex;
   justify-content: space-around;
 }
 
-.moving-square {
+.album-img {
+  width: 100px;
+  height: 100px;
+  background-color: gold;
+  border-radius: 15%;
+  border: black 2px solid;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.album-txt {
+  flex-direction: column;
+  margin-right: 35px;
+  line-height: 30px;
+}
+.album-txt-by {
+  font-size: 14px;
+  line-height: 0px;
+}
+
+.play-btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  margin: 30px 35px 0px -10px;
+  font-size: 22px;
+}
+
+.play-btn-main {
+  width: 150px;
   height: 50px;
-  width: 10px;
-  background-color: white;
-  margin: 3px;
+  border: black 2px solid;
+  border-bottom: black 6px solid;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
 }
 
-.moving-square:nth-child(1){
-  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite;
+.fa-caret-right {
+  margin-right: 5px;
+  font-size: 26px;
 }
 
-.moving-square:nth-child(2){
-  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite .2s;
+.play-btn-sub {
+  width: 50px;
+  height: 50px;
+  border: black 2px solid;
+  border-bottom: black 6px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
-.moving-square:nth-child(3){
-  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite .4s;
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
-.moving-square:nth-child(4){
-  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite .6s;
+.li-album-img {
+  width: 40px;
+  height: 40px;
+  /* background-color: gold; */
+  border-radius: 15%;
+  border: black 2px solid;
+  margin-right: 5px;
 }
 
-.moving-square:nth-child(5){
-  animation: up-down 2s cubic-bezier(0.250, 0.100, 0.250, 1.000) infinite .8s;
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
 
-@keyframes up-down {
-  0% {
-    transform: scale(1, 1) ;
-  }
-  25% {
-    transform: scale(1, 1.5);
-  }
-  50% {
-    transform: scale(1, 1);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
+.album-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 60px;
+  margin-top: -26px;
+}
+h3 {
+  margin: -20px 0px;
+}
+
+.tomato {
+  background-color: tomato;
+}
+
+.palevioletred {
+  background-color: palevioletred;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.ediumaquamarine {
+  background-color: mediumaquamarine;
+}
