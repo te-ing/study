@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&family=Stylish&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.05);
+  width: 400px;
+  height: 1000px;
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #79c5c5;
+  width: 100%;
+  height: 100px;
+  padding: 0px 20px 20px 20px;
+  font-size: 14px;
+  z-index: 1;
+}
+header h1 {
+  font-size: 26px;
+}
+
+.search {
+  position: absolute;
+  top: 74px;
+}
+
+.search-text input {
+  width: 310px;
+  height: 40px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  padding: 5px 20px;
+}
+
+button {
+  background-color: white;
+  color: white;
+}
+
+.search-text button {
+  position: absolute;
+  margin-top: 12px;
+  right: 10px;
+  color: rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+form {
+  margin-top: 100px;
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+}
+
+.form-main {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.form-main img {
+  height: 180px;
+  width: 120px;
+  margin-right: 20px;
+}
+
+h1 {
+  font-family: "Gamja Flower", cursive;
+}
+h2 {
+  font-size: 26px;
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+h6 {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.review {
+  color: #f0c14d;
+}
+
+.form-main-book {
+  line-height: 0px;
+  margin-top: 5px;
+}
+.genre {
+  margin-top: 30px;
+}
+
+span {
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+.form-main-button button {
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  background-color: #79c5c5;
+  border-radius: 10px;
+  border-style: none;
+  width: 50px;
+  height: 40px;
+}
+
+.form-main-button button:first-child {
+  margin-top: 130px;
+  margin-left: -80px;
+}
+
+.form-best {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.form-best-books-book {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+}
+
+.form-best-books-book span {
+  font-size: 14px;
+}
+
+.form-best-books-book img {
+  height: 100px;
+  width: 70px;
+  border-radius: 5px;
+}
+
+.authors {
+  line-height: 20px;
+}
+.authors img {
+  height: 160px;
+  width: 120px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
