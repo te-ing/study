@@ -138,7 +138,7 @@
 
 .reply input {
   height: 24px;
-  width: 82%;
+  width: 91%;
   border: rgba(128, 128, 128, 0.5) 1px solid;
   border-radius: 15px;
   padding-left: 10px;
@@ -146,9 +146,9 @@
 }
 
 .reply__column:last-child > i {
-  position: absolute;
+  /* position: absolute;
   left: 262px;
-  top: 7px;
+  top: 7px; */
 }
 
 .reply__column:last-child button {

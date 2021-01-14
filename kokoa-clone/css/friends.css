@@ -52,7 +52,7 @@
   margin: 0px 15px;
 } */
 
-@keyframes hideSplashScreen {
+/* @keyframes hideSplashScreen {
   from {
     opacity: 1;
   }
@@ -60,7 +60,7 @@
     opacity: 0;
     visibility: hidden;
   }
-}
+} */
 
 #splash-screen {
   background-color: #fee500;
