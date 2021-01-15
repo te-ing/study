@@ -1,0 +1,161 @@
+body {
+  background-color: rgba(0, 0, 0, 0.08);
+  width: 1000px;
+  height: 1000px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+form {
+  width: 400px;
+  height: 855px;
+  background-color: white;
+  border-radius: 40px;
+  padding: 20px;
+  margin: 0px 30px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px 10px 0px;
+}
+header button {
+  background-color: white;
+  border: none;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin: 0;
+  margin-right: 50px;
+  font-size: 22px;
+}
+
+h3 {
+  margin: 0px 5px 10px 5px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.img__artist {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.song-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.song-btn button {
+  width: 120px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+  border: none;
+}
+
+.song-btn__type {
+  background-color: black;
+  color: white;
+}
+
+.song-btn__like {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.fa-heart {
+  color: black;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+ul {
+  padding: 20px;
+  margin-bottom: -25px;
+}
+
+.song-list {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.img__song {
+  display: flex;
+  width: 65px;
+  height: 65px;
+  border-radius: 10px;
+  margin-right: 25px;
+  margin-top: 5px;
+}
+
+.fa-ellipsis-v {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.6);
+  right: 10px;
+  margin-top: 5px;
+}
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 50px;
+  z-index: 0;
+}
+
+.player__info {
+  margin-left: 20px;
+}
+
+.player__info__artist {
+  color: rgb(143, 143, 143);
+  margin-bottom: 3px;
+}
+.player__info__song {
+  color: white;
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.player__ui button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  margin-right: 15px;
+}
+
+.fa-stop {
+  font-size: 25px;
+}
+
+.play-form-song {
+  height: 300px;
+  width: 300px;
+  border-radius: 40px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
