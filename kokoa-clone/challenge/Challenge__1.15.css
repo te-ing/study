@@ -10,7 +10,11 @@ body {
 form {
   width: 400px;
   height: 855px;
+<<<<<<< HEAD
   background-color: white;
+=======
+  background-color: #e9e5e0;
+>>>>>>> master
   border-radius: 40px;
   padding: 20px;
   margin: 0px 30px;
@@ -21,8 +25,14 @@ header {
   padding: 20px 0px 10px 0px;
 }
 header button {
+<<<<<<< HEAD
   background-color: white;
   border: none;
+=======
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 23px;
+>>>>>>> master
 }
 
 .song-info {
@@ -44,7 +54,11 @@ h2 {
 }
 
 h3 {
+<<<<<<< HEAD
   margin: 0px 5px 10px 5px;
+=======
+  margin: 0px 5px 10px 15px;
+>>>>>>> master
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -100,6 +114,25 @@ ul {
   position: relative;
 }
 
+<<<<<<< HEAD
+=======
+.playing {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 10px;
+  margin-right: 25px;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  z-index: 20;
+}
+
+>>>>>>> master
 .img__song {
   display: flex;
   width: 65px;
@@ -109,7 +142,11 @@ ul {
   margin-top: 5px;
 }
 
+<<<<<<< HEAD
 .fa-ellipsis-v {
+=======
+.song-list-more {
+>>>>>>> master
   position: absolute;
   color: rgba(0, 0, 0, 0.6);
   right: 10px;
@@ -159,3 +196,73 @@ ul {
   margin-top: 60px;
   margin-bottom: 30px;
 }
+<<<<<<< HEAD
+=======
+
+.play-form .song-info-ui h3 {
+  margin: 10px 0px 20px 15px;
+}
+
+.play-bar-time {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.play-bar-time span {
+  margin: 5px 20px;
+  margin-bottom: 10px;
+}
+
+.play-bar {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.play-bar .play-bar-played {
+  width: 200px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 30px;
+  margin-left: 15px;
+  position: relative;
+  z-index: 0;
+}
+
+.play-bar-unplay {
+  width: 175px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+}
+
+.fa-circle {
+  position: absolute;
+  right: -2px;
+  bottom: -5px;
+  z-index: 30;
+}
+
+.play-form-play-ui {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  margin-top: 80px;
+}
+
+.play-form-play-ui button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 12;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.play-form-play-ui button:first-child {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.play-form-play-ui button:last-child {
+  color: rgba(0, 0, 0, 0.3);
+}
+>>>>>>> master
