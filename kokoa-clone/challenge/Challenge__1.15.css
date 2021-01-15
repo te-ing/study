@@ -10,11 +10,7 @@ body {
 form {
   width: 400px;
   height: 855px;
-<<<<<<< HEAD
-  background-color: white;
-=======
   background-color: #e9e5e0;
->>>>>>> master
   border-radius: 40px;
   padding: 20px;
   margin: 0px 30px;
@@ -25,14 +21,9 @@ header {
   padding: 20px 0px 10px 0px;
 }
 header button {
-<<<<<<< HEAD
-  background-color: white;
-  border: none;
-=======
   background-color: rgba(0, 0, 0, 0);
   border: none;
   font-size: 23px;
->>>>>>> master
 }
 
 .song-info {
@@ -54,11 +45,7 @@ h2 {
 }
 
 h3 {
-<<<<<<< HEAD
-  margin: 0px 5px 10px 5px;
-=======
   margin: 0px 5px 10px 15px;
->>>>>>> master
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -114,8 +101,6 @@ ul {
   position: relative;
 }
 
-<<<<<<< HEAD
-=======
 .playing {
   position: absolute;
   width: 65px;
@@ -132,7 +117,6 @@ ul {
   z-index: 20;
 }
 
->>>>>>> master
 .img__song {
   display: flex;
   width: 65px;
@@ -142,11 +126,7 @@ ul {
   margin-top: 5px;
 }
 
-<<<<<<< HEAD
-.fa-ellipsis-v {
-=======
 .song-list-more {
->>>>>>> master
   position: absolute;
   color: rgba(0, 0, 0, 0.6);
   right: 10px;
@@ -196,8 +176,6 @@ ul {
   margin-top: 60px;
   margin-bottom: 30px;
 }
-<<<<<<< HEAD
-=======
 
 .play-form .song-info-ui h3 {
   margin: 10px 0px 20px 15px;
@@ -265,4 +243,4 @@ ul {
 .play-form-play-ui button:last-child {
   color: rgba(0, 0, 0, 0.3);
 }
->>>>>>> master
+/*  */
