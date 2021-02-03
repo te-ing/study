@@ -43,3 +43,17 @@ logger(22);
     console.log(age1, age2);
 
     */
+
+// Arrow function 한가지 매개 변수만 가지고 있을 때 유용
+const calcAge3 = birthYear => 2037 - birthYear;
+const age3 = calcAge3(1991);
+console.log(age3);
+console.log(calcAge3(1996));
+
+const yearsUntilRetirement = birthYear =>{
+  const age = 2037 - birthYear;
+  const retirement = 65 - age;
+  return retirement;
+}
+
+yearsUntilRetirenment(1991);
