@@ -403,47 +403,35 @@ for (let exercise = 1; exercise < 4; exercise++) {
 // 4.2 평균계산을 위해 
 // 5. 함수와 함께 totals. 정렬을 사용해라
 
-let = bills = [22, 295, 176, 440, 37, 105, 101, 100 ,86, 52]
-let = tips = []
-let = totals = []
-
-console.log(bills)
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100 ,86, 52]
+const tips = []
+const totals = []
 
 
+function calcTip(bill){
+  return bill <= 50 || bill >= 300 ?
+  bill*0.2 : bill*0.15;
+}
 
-for (let i = 0; i < 10; i++) {
-  const calcTip = calcTip=> bills[i] >= 50 || bills[i] <= 300 ? bills[i]*0.15 : bills[i]*0.15;
+for (let i = 0; i < bills.length; i++) {
   tips.push(calcTip(bills[i]));
   totals.push(bills[i]+tips[i]);
 }
 
-console.log(tips);
-console.log(totals);
+console.log(bills, tips, totals)
 
-arr = {
+const arr = {
   bills,
   tips,
   totals,
-  caclAverage: function(){
+  calcAverage: function(array){
     let sum = 0;
-    for ( let j = 0; j < this.length -1; j++){
-      sum+this[j]
-  } return sum / this.length -1
+    for ( let i = 0; i < array.length; i++) {
+      sum += array[i]
+    }
+    return sum / array.length;
   }
 }
 
-console.log(arr.caclAverage(totals)
-
-
-// calcBMI : function(){
-//   return this.mass / (this.height**2)
-
-
-
-
-// const calcAge3 = birthYear => 2037 - birthYear; //한가지 매개 변수만 가지고 있을 때 유용
-// const age3 = calcAge3(1991);
-// console.log(age3);
-
-// const drink = age >= 18 ? 'wine' : 'milk🥛';
-// console.log(drink);
+console.log(arr.calcAverage(totals));
+console.log(arr.calcAverage(tips));
