@@ -1,0 +1,36 @@
+header {
+}
+
+.header-top {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50px;
+  width: 100%;
+  top: 0px;
+  background-color: white;
+  border-bottom: rgba(0, 0, 0, 0.15) 1px solid;
+}
+
+.header-top > button {
+  margin-right: 10px;
+  background-color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.header-top > button:last-child {
+  margin-right: 10%;
+}
+
+.header-main {
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 300px;
+}

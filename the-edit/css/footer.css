@@ -1,0 +1,24 @@
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  border-bottom: rgba(0, 0, 0, 0.15) 1px solid;
+}
+.page-button {
+  width: 36px;
+  height: 32px;
+  border: rgba(0, 0, 0, 0.05) 1px solid;
+  border-radius: 0px;
+  margin: 10px 6px;
+  color: rgb(90, 90, 90);
+  font-weight: 600;
+  font-size: 14px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.next-button {
+  width: 70px;
+}

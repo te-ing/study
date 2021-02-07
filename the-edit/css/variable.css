@@ -1,0 +1,33 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label {
+}
+
+body {
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+h2 {
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+h6 {
+  color: whitesmoke;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+span {
+  color: whitesmoke;
+  font-size: 15px;
+  margin-left: 10px;
+}
