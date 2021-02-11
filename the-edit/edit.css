@@ -2,6 +2,7 @@
 @import "/the-edit/css/variable.css";
 @import "/the-edit/css/header.css";
 @import "/the-edit/css/article.css";
+@import "/the-edit/css/menu.css";
 @import "/the-edit/css/footer.css";
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 font-family: "Nanum Myeongjo", serif; /* font-family: 'Noto Sans KR', sans-serif; */
