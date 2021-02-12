@@ -12,6 +12,10 @@
   box-shadow: 5px 0px 20px rgba(46, 46, 46, 0.603);
 }
 
+.hidden {
+  display: none;
+}
+
 .menu-close {
   width: 25px;
   height: 25px;
