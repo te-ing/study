@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct node{
+    int data;
+    struct node* next;
+} Node;
+
+void append(Node* head, int data) {
+    // 이 부분을 작성해 주세요!
+    
+}
+
+int getLastNode (Node* head, int k) {
+    // 이 부분을 작성해 주세요!
+}
+
+void printList(Node* head) {
+    // 이 부분을 작성해 주세요!
+}
+
+int main() {
+    Node* head = (Node*)malloc(sizeof(Node));
+    append(head, 9);
+    append(head, 8);
+    append(head, 4);
+    append(head, 14);
+    append(head, 5);
+
+    printList(head);
+
+    printf("\n%dth last node is %d\n", 2, getLastNode(head, 2));
+}
