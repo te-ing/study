@@ -9,7 +9,7 @@
   height: 330px;
   padding: 5px;
 }
-#target, #decode, #secondeTarget, #secondeDecode{
+#target, #decode, #secondeTarget, #secondeDecode, #composedDecode, #result, #secondeComposedTarget, #secondeResult{
   width: 330px;
   height: 330px;
   border: 1px black solid;
