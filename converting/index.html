@@ -7,20 +7,20 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="main">
-    <form method="GET" class="source textform">
-      <input type="text" class="source-text" onkeyup="print()">
-    </form>
-    <div class="target textform">
-      <div type="text" class="target-text"></div>
-    <div class="btn">
-      <button class="btn-convert">변환</button>
-      <button class="btn-copy">복사</button>
-    </div>
-  </div>
 
-  <input id='name' onkeyup='printName()'/>
-<div id='result'></div>
+  <div class="main">
+    <span>맥OS</span>
+      <input id="source" onkeyup="printSource()" />
+      <div id="target"></div>
+      <div id="decode"></div>
+    </div>
+
+  <div class="main">
+    <span>윈OS</span>
+      <input id="secondeSource" onkeyup="secondePrintSource()" />
+      <div id="secondeDecode"></div>
+      <div id="secondeTarget"></div>
+    </div>
 
   <script src="index.js"></script>
 </body>
