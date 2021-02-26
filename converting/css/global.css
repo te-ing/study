@@ -1,0 +1,12 @@
+body{
+  font-size: 18px;
+}
+
+h1{
+  font-size: 1.8em;
+}
+
+button{
+  outline: 0;
+  cursor: pointer;
+}
