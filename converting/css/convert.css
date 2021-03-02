@@ -51,5 +51,23 @@ header{
 }
 
 .hidden{
-  display: none;
+  /* display: none; */
 }
+
+.copyNotify{
+  opacity: 0;
+}
+
+.fade {
+	animation: fadeInOut 1s cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }}
