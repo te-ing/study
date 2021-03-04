@@ -21,5 +21,20 @@
     <ClCompile Include="printfscanf.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="loop.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="condition.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="random.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="function.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="array.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

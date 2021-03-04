@@ -1,7 +1,7 @@
+/*
 #include <stdio.h>
 int main(void)
 {
-	/*
 	int age = 12;
 	printf("%d\n", age);
 	age = 13;
@@ -28,9 +28,11 @@ int main(void)
 	printf("첫번째 값 : %d\n", one);
 	printf("두번째 값 : %d\n", two);
 	printf("세번째 값 : %d\n", three);
-	*/
 
-
+	char str[256]; //str의 크기를 256으로 지정
+	scanf_s("%s", str, sizeof(str)); // sizeof(str) 256개의 문자만 받겠다는 뜻
+	printf("%s\n", str);
 
 	return 0;
 }
+*/
