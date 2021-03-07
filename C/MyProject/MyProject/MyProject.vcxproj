@@ -142,13 +142,16 @@
     <ClCompile Include="array.c" />
     <ClCompile Include="array_project.c" />
     <ClCompile Include="condition.c" />
+    <ClCompile Include="file.c" />
     <ClCompile Include="function.c" />
     <ClCompile Include="helloworld.c" />
     <ClCompile Include="loop.c" />
+    <ClCompile Include="m_array.c" />
     <ClCompile Include="pointer.c" />
     <ClCompile Include="pointer_project.c" />
     <ClCompile Include="printfscanf.c" />
     <ClCompile Include="random.c" />
+    <ClCompile Include="struct.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
