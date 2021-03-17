@@ -1,10 +1,60 @@
 .menu{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 20px;
+  width: 1280px;
+  height: 140px;
+}
+
+.logo{
+  width: 120px;
+  margin-right: 100px
 }
 
 .depth{
-  width: 70vh;
+  width: 700px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.util{
+  width: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.util > a {
+  width: 90px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 20px;
+}
+
+.recrut{
+  background-color: #ffbc0d;
+}
+.eng{
+  background-color: #264a36;
+}
+
+.utilSearch{
+  width: 50px;
+  height: 50px;
+  margin: 0px 30px;
+  background-color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.depth2Line{
+  border-top: whitesmoke solid 2px;
+}
+
+.depth2 > div{
+  display: flex;
+  flex-direction: column;
 }
