@@ -23,6 +23,9 @@ header{
 
 .depthList{
   width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
 }
 
 .util{
@@ -74,9 +77,12 @@ header{
   width: 150px;
 }
 
-
 .depth2List > a {
   height: 30px;
   margin-top: 15px;
   font-size: 16px;
+}
+
+.hidden{
+  display: none;
 }
