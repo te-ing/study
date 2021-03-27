@@ -1,3 +1,44 @@
 .bannerForm{
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+.banner{
   width: 300vw;
+}
+.bannerImg{
+  width: 100vw;
+  float: left;
+}
+
+.leftBtn{
+  position: absolute;
+  left: 0;
+  top: 270px;
+  width: 80px; 
+  height: 80px;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.rightBtn{
+  position: absolute;
+  right: 0;
+  top: 270px;
+  width: 80px; 
+  height: 80px;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  outline: 0;
+  cursor: pointer;
 }
