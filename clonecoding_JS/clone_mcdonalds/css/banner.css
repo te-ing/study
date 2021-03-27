@@ -5,6 +5,7 @@
 }
 .banner{
   width: 300vw;
+  transition: transform 0.5s;
 }
 .bannerImg{
   width: 100vw;
@@ -14,7 +15,7 @@
 .leftBtn{
   position: absolute;
   left: 0;
-  top: 270px;
+  top: 100px;
   width: 80px; 
   height: 80px;
   font-size: 40px;
@@ -30,7 +31,7 @@
 .rightBtn{
   position: absolute;
   right: 0;
-  top: 270px;
+  top: 100px;
   width: 80px; 
   height: 80px;
   font-size: 40px;
@@ -41,4 +42,66 @@
   border-bottom-left-radius: 15px;
   outline: 0;
   cursor: pointer;
+}
+
+.playBar{
+  width: 300px;
+  height: 10px;
+  border-radius: 3px;
+  background-color: var(--mainColor);
+  position: absolute;
+  top: 230px;
+  left: 350px;
+  z-index: 2;
+  animation: slideBar 5s infinite;
+}
+
+@keyframes slideBar{
+  from{
+    width: 0px;
+  }
+  to{
+    width: 300px;
+  }
+}
+
+.stopBar{
+  width: 300px;
+  height: 10px;
+  border-radius: 3px;
+  background-color: white;
+  position: absolute;
+  top: 230px;
+  left: 350px;
+  z-index: 1;
+}
+
+.playBtn{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  background-color: var(--mainColor);
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 220px;
+  left: 310px;
+  z-index: 1;
+}
+
+.stopBtn{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  background-color: var(--mainColor);
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 220px;
+  left: 310px;
+  z-index: 2;
 }
