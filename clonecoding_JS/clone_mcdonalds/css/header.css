@@ -65,6 +65,8 @@ header{
   border-top: whitesmoke solid 2px;
   background-color: lightgray;
   height: 350px;
+  position: absolute;
+  z-index: 3;
 }
 
 .depth2 > div{

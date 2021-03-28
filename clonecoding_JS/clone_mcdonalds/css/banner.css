@@ -46,7 +46,7 @@
 
 .playBar{
   width: 300px;
-  height: 10px;
+  height: 5px;
   border-radius: 3px;
   background-color: var(--mainColor);
   position: absolute;
@@ -67,7 +67,7 @@
 
 .stopBar{
   width: 300px;
-  height: 10px;
+  height: 5px;
   border-radius: 3px;
   background-color: white;
   position: absolute;
