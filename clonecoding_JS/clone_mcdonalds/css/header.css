@@ -1,5 +1,6 @@
-header{
+.header{
   position: fixed;
+  z-index: 3;
 }
 
 .menu{
@@ -8,6 +9,7 @@ header{
   align-items: center;
   width: 1280px;
   height: 140px;
+  background-color: white;
 }
 
 .logo{
@@ -66,7 +68,6 @@ header{
   background-color: lightgray;
   height: 350px;
   position: absolute;
-  z-index: 3;
 }
 
 .depth2 > div{
@@ -87,4 +88,8 @@ header{
 
 .hidden{
   display: none;
+}
+
+.headerMargin{
+height: 140px;
 }
