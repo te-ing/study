@@ -1,3 +1,7 @@
+*{
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
 body{
   width: 100vw;
   height: 200vh;
@@ -6,3 +10,4 @@ body{
 :root{
   --mainColor: #ffba00;
 }
+
