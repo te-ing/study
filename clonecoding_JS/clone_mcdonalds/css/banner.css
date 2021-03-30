@@ -15,7 +15,7 @@
 .leftBtn{
   position: absolute;
   left: 0;
-  top: 100px;
+  top: 10vw;
   width: 80px; 
   height: 80px;
   font-size: 40px;
@@ -31,7 +31,7 @@
 .rightBtn{
   position: absolute;
   right: 0;
-  top: 100px;
+  top: 10vw;
   width: 80px; 
   height: 80px;
   font-size: 40px;
@@ -50,8 +50,8 @@
   border-radius: 3px;
   background-color: var(--mainColor);
   position: absolute;
-  top: 230px;
-  left: 350px;
+  top: 25vw;
+  left: 43vw;
   z-index: 2;
   animation: slideBar 5s infinite;
 }
@@ -71,8 +71,8 @@
   border-radius: 3px;
   background-color: white;
   position: absolute;
-  top: 230px;
-  left: 350px;
+  top: 25vw;
+  left: 43vw;
   z-index: 1;
 }
 
@@ -86,8 +86,8 @@
   outline: 0;
   cursor: pointer;
   position: absolute;
-  top: 220px;
-  left: 310px;
+  top: 24.3vw;
+  left: 40vw;
   z-index: 1;
 }
 
@@ -101,7 +101,7 @@
   outline: 0;
   cursor: pointer;
   position: absolute;
-  top: 220px;
-  left: 310px;
+  top: 24.3vw;
+  left: 40vw;
   z-index: 2;
 }
