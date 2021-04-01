@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 // console.log(me);
 // console.log(job);
 // console.log(year);
@@ -15,6 +16,8 @@
 // console.log(x == window.x);
 // console.log(y == window.y); // 윈도우에 속성을 만들지 않음.
 // console.log(z == window.z);
+
+// 98. 정규함수와 화살표함수
 
 var firstName = 'Matilada'; // 글로벌 객체에 속성 생성
 
@@ -65,3 +68,28 @@ var addArrow = (a, b) => {
   return a+b;
 };
 addArrow(2,5,8); // Arrow function에서는 많은 것을 넣으면 문제발생
+*/
+
+// 99  기본유형과 객체 사이의 저장 및 메로리
+// 상황 1.
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age); // 31 출력
+console.log(oldAge); // 30 출력
+
+// 상황 2.
+const me = {
+  name: 'Jonas',
+  age: 30,
+};
+const friend = me;
+friend.age = 27;
+console.log('Friend', friend); // { name: 'Jonas', age: 27 } 출력
+console.log('Me', me); // { name: 'Jonas', age: 27 } 출력
+
+// 다른 결과가 나타나는 이유:
+// 상황1의 age는 콜스택에 저장되며 서로 다른 주소를 할당한다.
+// 하지만 상황2 에서는 'me'는 스택에 저장되기 너무 크기 때문에 
+//힙에 저장되며 차례로 힙에 있는 me의 메모리 조각을 가리킨다.
+// me와 friend는 콜스택에서 같은 주소를 가르키고, 이것은 힙에서 불러온다.
