@@ -70,7 +70,7 @@ var addArrow = (a, b) => {
 addArrow(2,5,8); // Arrow function에서는 많은 것을 넣으면 문제발생
 */
 
-// 99  기본유형과 객체 사이의 저장 및 메로리
+// 99  프리미티브 객체를 사용할 때 생기는 오류
 // 상황 1.
 let age = 30;
 let oldAge = age;
@@ -93,3 +93,33 @@ console.log('Me', me); // { name: 'Jonas', age: 27 } 출력
 // 하지만 상황2 에서는 'me'는 스택에 저장되기 너무 크기 때문에 
 //힙에 저장되며 차례로 힙에 있는 me의 메모리 조각을 가리킨다.
 // me와 friend는 콜스택에서 같은 주소를 가르키고, 이것은 힙에서 불러온다.
+
+// 100 프리미티브 객체를 사용할 때 생기는 오류2
+const jessica = {
+  firstNam: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica
+marriedJessica.lastName = 'David';
+console.log('Before marriage: ', jessica);
+console.log('After marriage: ',marriedJessica);
+
+const jessica2 = {
+  firstNam: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2); // Object.assign 은 오브젝트를 병합하는 기능으로, 빈 오브젝트와 결합하여 얕게 복사 가능
+jessicaCopy.lastname = 'Davis'; // 새로운 오브젝트를 만들어 수정하면 정상적으로 작동. 이는 새로운 객체가 힙에 생성되었다는 뜻
+console.log('Before marriage: ', jessica2);
+console.log('After marriage: ',jessicaCopy);
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before marriage: ', jessica2);
+console.log('After marriage: ', jessicaCopy);
+// 하지만 이 경우 배열을 변경하면 다른 쪽에서도 변경된다. 이를 해결하기 위해서는 외부 라이브러리를 이용하여 해결해야 한다.
