@@ -12,10 +12,6 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },    
-
   openingHours: {
     thu: {
       open: 12,
@@ -30,10 +26,31 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },    
+
+  orderDelivery: function ({starterIndex = 0, mainIndex, time, address}) {
+    console.log(`주문이 들어왔습니다! [${time}] ${address}에서 ${this.starterMenu[starterIndex]}, ${this.mainMenu[mainIndex]}를 주문하였습니다.`);
+  },
 };
 
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'kyeongmyeongload, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+// starterIndex 선택안한 주문
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'kyeongmyeongload, 21',
+  mainIndex: 1,
+});
+
 /*
-// 103 객체분해
+// 103 배열분해
 // 변수 선언
 const arr = [2,3,4];
 const a = arr[0];
@@ -69,4 +86,30 @@ console.log(i,j,k);
 const [p=1, q=1, r=1] = [8,9];
 console.log(p, q, r); // r은 정의되지 않았지만 undefined 대신 1로 출력됨
 */
+
+// 104 객체분해
+
+const { name, openingHours, categories} = restaurant;
+console.log(name, openingHours, categories);
+// 새로운 변수 이름선언
+const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// 새로운 변수 이름선언 예시
+// 기본 값
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// 변수 변경
+let a = 111;
+let b = 999;
+const obj = {a: 23, b: 7, c: 14};
+
+// let {a, b} = obj; //{}를 넣으면 자바스크립트는 코드블럭을 찾지 못하는 오류가 발생
+({a, b} = obj); // 괄호로 묶는 트릭
+console.log(a, b);
+
+// Nested objects
+const {fri: {open: o, close: c} } = openingHours;
+console.log(o, c); //console.log(open, close);
 
