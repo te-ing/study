@@ -26,16 +26,17 @@ const restaurant = {
       close: 24,
     },
   },
-
+  
   order: function(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },    
-
+  
   orderDelivery: function ({starterIndex = 0, mainIndex, time, address}) {
     console.log(`주문이 들어왔습니다! [${time}] ${address}에서 ${this.starterMenu[starterIndex]}, ${this.mainMenu[mainIndex]}를 주문하였습니다.`);
   },
 };
 
+/*
 restaurant.orderDelivery({
   time: '22:30',
   address: 'kyeongmyeongload, 21',
@@ -49,7 +50,6 @@ restaurant.orderDelivery({
   mainIndex: 1,
 });
 
-/*
 // 103 배열분해
 // 변수 선언
 const arr = [2,3,4];
@@ -85,7 +85,6 @@ console.log(i,j,k);
 // Default values 기본값
 const [p=1, q=1, r=1] = [8,9];
 console.log(p, q, r); // r은 정의되지 않았지만 undefined 대신 1로 출력됨
-*/
 
 // 104 객체분해
 
@@ -113,3 +112,30 @@ console.log(a, b);
 const {fri: {open: o, close: c} } = openingHours;
 console.log(o, c); //console.log(open, close);
 
+*/
+
+// 105 spread operator
+
+const arr = [7,8,9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const justArr = [1,2, arr]
+const newArr = [1,2, ...arr]; // 스프레드 연산자 : 배열에서 모든 요소를 꺼냄
+console.log(justArr);
+console.log(newArr);
+
+const newMenu = [...restaurant.mainMenu, 'hamberger'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Iterables : arrays, strings, maps, sets. Not objects
+const str = 'Jonas';
+const letters = [...str, '', 'S.'];
+console.log(letters);
+//console.log(`${...str} 템플릿 리터럴은 사용불가`);
