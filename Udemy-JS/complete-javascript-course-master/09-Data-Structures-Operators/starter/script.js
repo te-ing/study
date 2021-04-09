@@ -144,7 +144,6 @@ const letters = [...str, '', 'S.'];
 console.log(letters);
 //console.log(`${...str} 템플릿 리터럴은 사용불가`);
 
-*/
 
 // 106 into array
 
@@ -157,24 +156,40 @@ const [a, b, ...others] = [1, 2, 3, 4, 5]
 console.log(a, b, others);
 
 const [pizza, , risotto, ...otherFood] = [
- ...restaurant.mainMenu, ...restaurant.starterMenu,];
-console.log(pizza, risotto, otherFood);
-
-// Objects
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
-
-// 2) Functions
-const add = function(...numbers) { // rest parameters
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-  console.log(sum);
+  ...restaurant.mainMenu, ...restaurant.starterMenu,];
+  console.log(pizza, risotto, otherFood);
   
-}
-add(2, 3)
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 1, 4);
-
-restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach'); // 메인재료와 부차재료
+  // Objects
+  const { sat, ...weekdays } = restaurant.openingHours;
+  console.log(weekdays);
+  
+  // 2) Functions
+  const add = function(...numbers) { // rest parameters
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+    console.log(sum);
+    
+  }
+  add(2, 3)
+  add(5, 3, 7, 2);
+  add(8, 2, 5, 3, 2, 1, 4);
+  
+  restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach'); // 메인재료와 부차재료
 restaurant.orderPizza('mushrooms');
+*/
 
+// 107 Short Circuiting (&& and ||)
+
+console.log( undefined || 0 || '' || 'Hello' || 23 || null);
+console.log( 'Hello' && 23 && null && 'jonas'); // ||와 반대, falty를 출력
+
+// 108 nullish coalescing operator ES2020에 도입됨
+
+const guests = restaurant.numGuests || 0;
+// const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null 과 undefined 만 반환 ( 0 이나 ''에는 반환되지 않음)
+// const guestCorrect = restaurant.numGuests ?? 0;
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
