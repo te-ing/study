@@ -34,6 +34,11 @@ const restaurant = {
   orderDelivery: function ({starterIndex = 0, mainIndex, time, address}) {
     console.log(`주문이 들어왔습니다! [${time}] ${address}에서 ${this.starterMenu[starterIndex]}, ${this.mainMenu[mainIndex]}를 주문하였습니다.`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 /*
@@ -112,7 +117,6 @@ console.log(a, b);
 const {fri: {open: o, close: c} } = openingHours;
 console.log(o, c); //console.log(open, close);
 
-*/
 
 // 105 spread operator
 
@@ -139,3 +143,38 @@ const str = 'Jonas';
 const letters = [...str, '', 'S.'];
 console.log(letters);
 //console.log(`${...str} 템플릿 리터럴은 사용불가`);
+
+*/
+
+// 106 into array
+
+// 1) Destructuring
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+// REST, because on LEFT side of = 
+const [a, b, ...others] = [1, 2, 3, 4, 5]
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+ ...restaurant.mainMenu, ...restaurant.starterMenu,];
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2) Functions
+const add = function(...numbers) { // rest parameters
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+  
+}
+add(2, 3)
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach'); // 메인재료와 부차재료
+restaurant.orderPizza('mushrooms');
+
