@@ -176,7 +176,6 @@ const [pizza, , risotto, ...otherFood] = [
   
   restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach'); // 메인재료와 부차재료
 restaurant.orderPizza('mushrooms');
-*/
 
 // 107 Short Circuiting (&& and ||)
 
@@ -193,3 +192,74 @@ console.log(guests);
 // const guestCorrect = restaurant.numGuests ?? 0;
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
+
+*/
+
+// Coding Challenge #1
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+
+  printGoals : function (name) {
+  }
+};
+
+const { players : [players1, players2] } = game; // 플레이어 배열 생성
+console.log(players1);
+
+const [gk, ...fieldPlayers] = players1 // 골키퍼, 필드플레이어 배열 생성
+console.log(gk)
+console.log(fieldPlayers)
+
+const allPlayers =  [...game.players];
+console.log(allPlayers);
+
+const players1Final = [...players1,'Thiago', 'Coutinho', 'Perisic']; // 배열 변수 추가
+console.log(players1Final);
+
+const {team1, x, team2} = game.odds; // 변수 이름 지정
+const [,draw,] = [team1, x, team2];
+console.log(draw);
+
+game.printGoals('Gnarby');
+
+
+
+
