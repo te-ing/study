@@ -237,18 +237,24 @@ const game = {
     team2: 6.5,
   },
 
-  printGoals : function (name) {
-  }
+  printGoals : function (name) { // task 6
+    for (let i=0; i<game.scored.length; i++){
+      if (name==game.scored[i]){
+        console.log(`${game.scored[i]}는 골을 넣었으며 게임 스코어는 ${game.score}입니다!`);
+      }
+    }
+  },
 };
 
 const { players : [players1, players2] } = game; // 플레이어 배열 생성
+//const [players1, playes2] = game.players;
 console.log(players1);
 
 const [gk, ...fieldPlayers] = players1 // 골키퍼, 필드플레이어 배열 생성
 console.log(gk)
 console.log(fieldPlayers)
 
-const allPlayers =  [...game.players];
+const allPlayers =  [...players1, ...players2];
 console.log(allPlayers);
 
 const players1Final = [...players1,'Thiago', 'Coutinho', 'Perisic']; // 배열 변수 추가
@@ -256,10 +262,13 @@ console.log(players1Final);
 
 const {team1, x, team2} = game.odds; // 변수 이름 지정
 const [,draw,] = [team1, x, team2];
+// const { odds : { team1, x: draw, team2 },} = game;
 console.log(draw);
 
 game.printGoals('Gnarby');
 
+// 낮은 배당률의 팀은 이길 확률이 높다. 더 이길 것 같은 팀을 출력해라
+team1 < team2 ? console.log("team1이 team2보다 이길 확률이 높습니다!") : console.log("team2이 team1보다 이길 확률이 높습니다!");
 
-
-
+// team1 < team2 && console.log("team1이 team2보다 이길 확률이 높습니다!");
+// team1 > team2 && console.log("team2이 team1보다 이길 확률이 높습니다!");
