@@ -193,7 +193,6 @@ console.log(guests);
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
 
-*/
 
 // Coding Challenge #1
 
@@ -236,7 +235,7 @@ const game = {
     x: 3.25,
     team2: 6.5,
   },
-
+  
   printGoals : function (name) { // task 6
     for (let i=0; i<game.scored.length; i++){
       if (name==game.scored[i]){
@@ -272,3 +271,21 @@ team1 < team2 ? console.log("team1이 team2보다 이길 확률이 높습니다!
 
 // team1 < team2 && console.log("team1이 team2보다 이길 확률이 높습니다!");
 // team1 > team2 && console.log("team2이 team1보다 이길 확률이 높습니다!");
+
+*/
+
+// 110. Looping Arrays
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item); // for-of 루프
+
+// for (const item of menu.entries()) { //  예전방식.  entries : 인덱스 
+//   console.log(`${item[0] + 1}: ${item[1]}`); //
+// } 
+
+for (const [i, el] of menu.entries()) { // 현대방식(아이템 구조해체)
+  console.log(`${i + 1}: ${el}`);
+} 
+
+console.log([...menu.entries()]);
