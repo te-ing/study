@@ -307,7 +307,6 @@ for (const [i, el] of menu.entries()) { // 현대방식(아이템 구조해체)
   console.log(`${i + 1}: ${el}`);
 } 
 
-*/
 
 //112 Optional chaining
 
@@ -339,3 +338,30 @@ const users = [
 // else (users[1]?.name ?? 'User array empty'); // 선택적 연결 연산자를 사용하지 않을 때
 console.log(users[0]?.name ?? 'User array empty');
 console.log(users[1]?.name ?? 'User array empty');
+
+*/
+
+// 113 Looping objects: object keys, values, and entries
+
+const properties = Object.keys(openingHour); // Object.keys(배열) 배열의 값
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property Values
+const values = Object.values(openingHour)
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHour);
+console.log(entries);
+
+// [key, value]
+for(const [day, {open, close}] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
