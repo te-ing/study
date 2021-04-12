@@ -5,13 +5,33 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
+
+
+// 111. Enhanced object literals
+const weekdays = ['mon', 'tuw', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHour = {
+  [weekdays[3]]: { // 🔺weekdays 구문을 이용
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  [`day-${2 + 4}`]: {
+    open: 0, 
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
+  openingHour, // 111. ES6 enhanced object literals
   openingHours: {
     thu: {
       open: 12,
@@ -27,7 +47,8 @@ const restaurant = {
     },
   },
   
-  order: function(starterIndex, mainIndex) {
+  // order: function(starterIndex, mainIndex) { // 이전 방식
+  order(starterIndex, mainIndex) { // 현대 방식 (같은 효과)
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },    
   
@@ -272,7 +293,6 @@ team1 < team2 ? console.log("team1이 team2보다 이길 확률이 높습니다!
 // team1 < team2 && console.log("team1이 team2보다 이길 확률이 높습니다!");
 // team1 > team2 && console.log("team2이 team1보다 이길 확률이 높습니다!");
 
-*/
 
 // 110. Looping Arrays
 
@@ -286,3 +306,5 @@ for (const item of menu) console.log(item); // for-of 루프
 for (const [i, el] of menu.entries()) { // 현대방식(아이템 구조해체)
   console.log(`${i + 1}: ${el}`);
 } 
+
+*/
