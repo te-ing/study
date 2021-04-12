@@ -308,3 +308,34 @@ for (const [i, el] of menu.entries()) { // 현대방식(아이템 구조해체)
 } 
 
 */
+
+//112 Optional chaining
+
+if (restaurant.openingHours && restaurant.openingHours.mon) 
+console.log(restaurant.openingHours.mon.open);
+
+// WITH optional chaining ?. // 모든 속성이 정의되지 않았다면 바로 undefined 반환
+console.log(restaurant.openingHours.mon ?. open); 
+console.log(restaurant.openingHours?.mon ?. open); 
+
+const days = ['mon', 'tuw', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed'; 
+  // 대괄호표기법, sat의 open시간은 0이지만 || 연산자를 사용하면 closed로 뜨기 때문에 ?? 연산자(nullish)를 사용
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods 함수가 비어있는지 확인
+console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist'); // undefined를 반환 -> nullish 연산자로 인해 텍스트 반환
+
+// Arrays 배열이 비어있는지 확인
+const users = [
+  {name: 'Jonas', email: 'hello@jonas.io'}
+];
+// if(users.length > 0) console.log(users[0]?.name ?? 'User array empty');
+// else (users[1]?.name ?? 'User array empty'); // 선택적 연결 연산자를 사용하지 않을 때
+console.log(users[0]?.name ?? 'User array empty');
+console.log(users[1]?.name ?? 'User array empty');
