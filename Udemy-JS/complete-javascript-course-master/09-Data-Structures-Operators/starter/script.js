@@ -339,7 +339,6 @@ const users = [
 console.log(users[0]?.name ?? 'User array empty');
 console.log(users[1]?.name ?? 'User array empty');
 
-*/
 
 // 113 Looping objects: object keys, values, and entries
 
@@ -364,4 +363,91 @@ console.log(entries);
 // [key, value]
 for(const [day, {open, close}] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
+
+*/
+
+// Coding Challenge #2
+
+const scored = ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'];
+
+const odds = {
+  team1: 1.33,
+  x: 3.25,
+  team2: 6.5
+}
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored,
+  date: 'Nov 9th, 2037',
+  odds,
+}
+
+// task 1. game.score 배열과 각각의 플레이어 이름을 콘솔에 출력하여라
+// const  playersName  = Object.values(scored)
+// let count= 1
+// for ( const player of playersName)
+// console.log(`Goal ${count++}: ${player} `); 
+
+// task 1.
+for(const [i, player] of game.scored.entries())
+console.log(`Goal ${i + 1}: ${player}`);
+
+// task 2. loop를 이용해 odd의 평균을 구하고 출력해라
+// let average = 0
+// const oddsValues = Object.values(odds)
+// for (let sum of oddsValues){
+// average += sum
+// }
+// console.log(average/oddsValues.length); 
+
+// task 2.
+let average = 0;
+for (const odd of Object.values(game.odds))
+  average += odd;
+  console.log(average);
+  average /= Object.values(game.odds).length;
+  console.log(average);
+
+
+// for ( const a of Object.keys(odds)){
+//   const b = game[a];
+//   console.log(`Odd of victory ${b}: ${odds[a]}`);
+// }
+
+// task 3. o
+for(const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team  === 'x' ? 'draw' : `Victory ${game[team]}`
+  console.log(`Odd of ${teamStr}: ${odd}`);
 }
