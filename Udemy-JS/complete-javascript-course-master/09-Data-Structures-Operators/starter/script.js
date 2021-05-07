@@ -480,45 +480,84 @@ console.log(`Goal ${i + 1}: ${player}`);
     console.log(staff);
     console.log(staffUnique);
     
-*/
-
-// 116. Map
-// object처럼 키와 값을 가지는 데이터구조지만, object에서 키는 string 형태인 반면, map에서는 모든 유형이 가능하다.
-
-const rest = new Map();
-rest.set('name', 'Classiaco Italiano'); // Map에 값을 추가하는 기본적인 방식
-rest.set(1, 'Firenze, Italy');
-console.log(rest.set(2, 'Lisbon, Portugal'));
-
-rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
-.set('open', 11)
-.set('close', 23)
-.set(true, 'We are open :D')
-.set(false, 'We are closed :(')
-
-console.log(rest);
-
-console.log(rest.get('name')); // map의 데이터를 읽는 방법
-console.log(rest.get(true)); 
-
-const time = 21;
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
-
-console.log(rest.has('categories'));
-rest.delete(2);
-console.log(rest);
-rest.set([1,2], 'Test')
-console.log(rest);
-
-console.log(rest.get[1, 2]); // heap 영역에서 'Test'의 [1,2] 와 다른 객체이다
-
-const arr = [1, 2];// 위의 문제를 해결하기 위한 방안
-rest.set(arr, 'Test');
-console.log(rest.get(arr));
-console.log(rest);
-
-rest.set(document.querySelector('h1'), 'Heading'); // document 예시
-console.log(rest);
-
     
+    // 116. Map
+    // object처럼 키와 값을 가지는 데이터구조지만, object에서 키는 string 형태인 반면, map에서는 모든 유형이 가능하다.
     
+    const rest = new Map();
+    rest.set('name', 'Classiaco Italiano'); // Map에 값을 추가하는 기본적인 방식
+    rest.set(1, 'Firenze, Italy');
+    console.log(rest.set(2, 'Lisbon, Portugal'));
+    
+    rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+    .set('open', 11)
+    .set('close', 23)
+    .set(true, 'We are open :D')
+    .set(false, 'We are closed :(')
+    
+    console.log(rest);
+    
+    console.log(rest.get('name')); // map의 데이터를 읽는 방법
+    console.log(rest.get(true)); 
+    
+    const time = 21;
+    console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+    
+    console.log(rest.has('categories'));
+    rest.delete(2);
+    console.log(rest);
+    rest.set([1,2], 'Test')
+    console.log(rest);
+    
+    console.log(rest.get[1, 2]); // heap 영역에서 'Test'의 [1,2] 와 다른 객체이다
+    
+    const arr = [1, 2];// 위의 문제를 해결하기 위한 방안
+    rest.set(arr, 'Test');
+    console.log(rest.get(arr));
+    console.log(rest);
+    
+    rest.set(document.querySelector('h1'), 'Heading'); // document 예시
+    console.log(rest);
+    
+    */
+    
+    // 117. Map: iteration 
+    // Map의 요소를 편집할 때 set 메서드가 아닌 다른 설정방법
+    
+    //const rest = new Map(); // 기존방식
+    //rest.set('name', 'Classiaco Italiano'); // Map에 값을 추가하는 기본적인 방식
+    
+    const question = new Map([
+      ['question', 'What is the best programming language in the world?'],
+      [1, 'C'],
+      [2, 'Java'],
+      [3, 'JavaScript'],
+      ['correct', 3],
+      [true, 'Correct🎉'],
+      [false, 'Try agian!'],
+    ]);
+    console.log(question);
+    
+    // Convert object to map
+    console.log(Object.entries(openingHour));
+    const hourMap = new Map(Object.entries(openingHour));
+    console.log(hourMap);
+    
+    // Map iteration
+    console.log(question.get('question'));
+    for (const [key, value] of question) {
+      if(typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+    }
+    // Quiz app
+    // const answer = Number(prompt('Your answer')) // 문자열 답변을 넘버로 바꿔줌
+    // console.log(answer);
+    
+    // if (answer === question.get('correct'))
+    //   console.log(question.get(true));
+    // else console.log(question.get(false));
+    
+    // Convert map to array
+    console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+
