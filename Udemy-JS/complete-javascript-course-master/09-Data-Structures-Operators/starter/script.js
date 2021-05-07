@@ -365,7 +365,6 @@ for(const [day, {open, close}] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
 
-*/
 
 // Coding Challenge #2
 
@@ -428,26 +427,61 @@ console.log(`Goal ${i + 1}: ${player}`);
 // let average = 0
 // const oddsValues = Object.values(odds)
 // for (let sum of oddsValues){
-// average += sum
-// }
-// console.log(average/oddsValues.length); 
-
-// task 2.
-let average = 0;
-for (const odd of Object.values(game.odds))
+  // average += sum
+  // }
+  // console.log(average/oddsValues.length); 
+  
+  // task 2.
+  let average = 0;
+  for (const odd of Object.values(game.odds))
   average += odd;
   console.log(average);
   average /= Object.values(game.odds).length;
   console.log(average);
+  
+  
+  // for ( const a of Object.keys(odds)){
+    //   const b = game[a];
+    //   console.log(`Odd of victory ${b}: ${odds[a]}`);
+    // }
+    
+    // task 3. o
+    for(const [team, odd] of Object.entries(game.odds)) {
+      const teamStr = team  === 'x' ? 'draw' : `Victory ${game[team]}`
+      console.log(`Odd of ${teamStr}: ${odd}`);
+    }
+    
+*/
 
+// 115. set
+// 세트는 기본적인 컬렉션으로, 중복을 가질 수 없음, 인덱스 없음
+const ordersSet = new Set(['Pasta', 'Pizza','Pizza','Risotto','Pasta','Pizza',]); // 컬렉션 형태, 일반적인 iterable인 배열 예시로 사용
+console.log(ordersSet)
 
-// for ( const a of Object.keys(odds)){
-//   const b = game[a];
-//   console.log(`Odd of victory ${b}: ${odds[a]}`);
-// }
+console.log(new Set('Pasta'));
 
-// task 3. o
-for(const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team  === 'x' ? 'draw' : `Victory ${game[team]}`
-  console.log(`Odd of ${teamStr}: ${odd}`);
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Bread');
+ordersSet.delete('Pizza');
+console.log(ordersSet.has('Bread'));
+console.log(ordersSet.has('Pizza'));
+// ordersSet.clear();
+console.log(ordersSet);
+
+for(const order of ordersSet) {
+console.log(order);
 }
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+const staffUnique = new Set(staff);
+// const staffUnique = [...new Set(staff)]; // 배열형태로 만들 수 있음
+console.log(staff);
+console.log(staffUnique);
+
+
+
+
+  
