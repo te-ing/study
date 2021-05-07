@@ -453,7 +453,7 @@ console.log(`Goal ${i + 1}: ${player}`);
     
     
     // 115. set
-    // 세트는 기본적인 컬렉션으로, 중복을 가질 수 없음, 인덱스 없음
+    // 세트는 기본적인 컬렉션으로, 중복을 가질 수 없음, 인덱스 없음, 항목삭제시 array에서 삭제할 때 보다 빠름
     const ordersSet = new Set(['Pasta', 'Pizza','Pizza','Risotto','Pasta','Pizza',]); // 컬렉션 형태, 일반적인 iterable인 배열 예시로 사용
     console.log(ordersSet)
     
@@ -519,7 +519,6 @@ console.log(`Goal ${i + 1}: ${player}`);
     rest.set(document.querySelector('h1'), 'Heading'); // document 예시
     console.log(rest);
     
-    */
     
     // 117. Map: iteration 
     // Map의 요소를 편집할 때 set 메서드가 아닌 다른 설정방법
@@ -558,6 +557,18 @@ console.log(`Goal ${i + 1}: ${player}`);
     
     // Convert map to array
     console.log([...question]);
-console.log([...question.keys()]);
-console.log([...question.values()]);
+    console.log([...question.keys()]);
+    console.log([...question.values()]);
+    
+*/
 
+// 118. Summary: Which data structure to use?
+
+// arrays vs sets
+// set은 중복된 값을 없애줌, array보다 빠름
+
+// objects vs maps
+// maps은 key의 데이터형식이 자유로움, 반복이 쉬움, 크기를 계산하기 쉬움, 빠름
+// 하지만 JSON과 같은 데이터로 작업할 때에는 objcet의 형태로 데이터를 작업하게 됨
+
+// ES6에서 나온 set과 map이 좋은 성능을 나타내지만, array, object가 기존 개발자들에게 익숙하기 때문에 더 많이 쓰게 될 것
