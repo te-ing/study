@@ -560,15 +560,58 @@ console.log(`Goal ${i + 1}: ${player}`);
     console.log([...question.keys()]);
     console.log([...question.values()]);
     
+    
+    // 118. Summary: Which data structure to use?
+    
+    // arrays vs sets
+    // set은 중복된 값을 없애줌, array보다 빠름
+    
+    // objects vs maps
+    // maps은 key의 데이터형식이 자유로움, 반복이 쉬움, 크기를 계산하기 쉬움, 빠름
+    // 하지만 JSON과 같은 데이터로 작업할 때에는 objcet의 형태로 데이터를 작업하게 됨
+    
+    // ES6에서 나온 set과 map이 좋은 성능을 나타내지만, array, object가 기존 개발자들에게 익숙하기 때문에 더 많이 쓰게 될 것
+    
+    
 */
 
-// 118. Summary: Which data structure to use?
+// 119. Coding challenge #3
 
-// arrays vs sets
-// set은 중복된 값을 없애줌, array보다 빠름
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+  ]);
 
-// objects vs maps
-// maps은 key의 데이터형식이 자유로움, 반복이 쉬움, 크기를 계산하기 쉬움, 빠름
-// 하지만 JSON과 같은 데이터로 작업할 때에는 objcet의 형태로 데이터를 작업하게 됨
+// task 1.
+// const gameEvent = new Set()
+// for (const [key, value] of gameEvents) 
+// gameEvent.add(value); 
+const gameEvent = [...new Set(gameEvents.values())];
+console.log(gameEvent);
 
-// ES6에서 나온 set과 map이 좋은 성능을 나타내지만, array, object가 기존 개발자들에게 익숙하기 때문에 더 많이 쓰게 될 것
+// task 2.
+gameEvents.delete(64);
+console.log(gameEvents);
+
+// task 3.
+const time = [...gameEvents.keys()].pop(); // 배열의 마지막 값
+console.log(time);
+
+console.log(`"An event happened, on average, every ${time/gameEvents.size} minutes"`);
+
+// task 4.
+for (const [key, value] of gameEvents)
+if (key < 45)
+console.log(`[FIRST HALF] ${key}: ${value}`);
+else
+console.log(`[SECOND HALF] ${key}: ${value}`);
+
