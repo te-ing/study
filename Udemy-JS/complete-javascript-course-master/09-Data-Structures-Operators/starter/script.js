@@ -451,37 +451,74 @@ console.log(`Goal ${i + 1}: ${player}`);
       console.log(`Odd of ${teamStr}: ${odd}`);
     }
     
+    
+    // 115. set
+    // 세트는 기본적인 컬렉션으로, 중복을 가질 수 없음, 인덱스 없음
+    const ordersSet = new Set(['Pasta', 'Pizza','Pizza','Risotto','Pasta','Pizza',]); // 컬렉션 형태, 일반적인 iterable인 배열 예시로 사용
+    console.log(ordersSet)
+    
+    console.log(new Set('Pasta'));
+    
+    console.log(ordersSet.size);
+    console.log(ordersSet.has('Pizza'));
+    console.log(ordersSet.has('Bread'));
+    ordersSet.add('Bread');
+    ordersSet.delete('Pizza');
+    console.log(ordersSet.has('Bread'));
+    console.log(ordersSet.has('Pizza'));
+    // ordersSet.clear();
+    console.log(ordersSet);
+    
+    for(const order of ordersSet) {
+      console.log(order);
+    }
+    
+    const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+    
+    const staffUnique = new Set(staff);
+    // const staffUnique = [...new Set(staff)]; // 배열형태로 만들 수 있음
+    console.log(staff);
+    console.log(staffUnique);
+    
 */
 
-// 115. set
-// 세트는 기본적인 컬렉션으로, 중복을 가질 수 없음, 인덱스 없음
-const ordersSet = new Set(['Pasta', 'Pizza','Pizza','Risotto','Pasta','Pizza',]); // 컬렉션 형태, 일반적인 iterable인 배열 예시로 사용
-console.log(ordersSet)
+// 116. Map
+// object처럼 키와 값을 가지는 데이터구조지만, object에서 키는 string 형태인 반면, map에서는 모든 유형이 가능하다.
 
-console.log(new Set('Pasta'));
+const rest = new Map();
+rest.set('name', 'Classiaco Italiano'); // Map에 값을 추가하는 기본적인 방식
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
 
-console.log(ordersSet.size);
-console.log(ordersSet.has('Pizza'));
-console.log(ordersSet.has('Bread'));
-ordersSet.add('Bread');
-ordersSet.delete('Pizza');
-console.log(ordersSet.has('Bread'));
-console.log(ordersSet.has('Pizza'));
-// ordersSet.clear();
-console.log(ordersSet);
+rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+.set('open', 11)
+.set('close', 23)
+.set(true, 'We are open :D')
+.set(false, 'We are closed :(')
 
-for(const order of ordersSet) {
-console.log(order);
-}
+console.log(rest);
 
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+console.log(rest.get('name')); // map의 데이터를 읽는 방법
+console.log(rest.get(true)); 
 
-const staffUnique = new Set(staff);
-// const staffUnique = [...new Set(staff)]; // 배열형태로 만들 수 있음
-console.log(staff);
-console.log(staffUnique);
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+rest.set([1,2], 'Test')
+console.log(rest);
 
+console.log(rest.get[1, 2]); // heap 영역에서 'Test'의 [1,2] 와 다른 객체이다
 
+const arr = [1, 2];// 위의 문제를 해결하기 위한 방안
+rest.set(arr, 'Test');
+console.log(rest.get(arr));
+console.log(rest);
 
-  
+rest.set(document.querySelector('h1'), 'Heading'); // document 예시
+console.log(rest);
+
+    
+    
