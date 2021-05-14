@@ -573,41 +573,39 @@ console.log(`Goal ${i + 1}: ${player}`);
     // ES6에서 나온 set과 map이 좋은 성능을 나타내지만, array, object가 기존 개발자들에게 익숙하기 때문에 더 많이 쓰게 될 것
     
     
-*/
-
-// 119. Coding challenge #3
-
-const gameEvents = new Map([
-  [17, '⚽ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽ GOAL'],
-  [80, '⚽ GOAL'],
-  [92, '🔶 Yellow card'],
-  ]);
-
-// task 1.
-// const gameEvent = new Set()
-// for (const [key, value] of gameEvents) 
-// gameEvent.add(value); 
-const gameEvent = [...new Set(gameEvents.values())];
-console.log(gameEvent);
-
-// task 2.
-gameEvents.delete(64);
-console.log(gameEvents);
-
-// task 3.
-const time = [...gameEvents.keys()].pop(); // 배열의 마지막 값
-console.log(time);
-
-console.log(`"An event happened, on average, every ${time/gameEvents.size} minutes"`);
-
+    // 119. Coding challenge #3
+    
+    const gameEvents = new Map([
+      [17, '⚽ GOAL'],
+      [36, '🔁 Substitution'],
+      [47, '⚽ GOAL'],
+      [61, '🔁 Substitution'],
+      [64, '🔶 Yellow card'],
+      [69, '🔴 Red card'],
+      [70, '🔁 Substitution'],
+      [72, '🔁 Substitution'],
+      [76, '⚽ GOAL'],
+      [80, '⚽ GOAL'],
+      [92, '🔶 Yellow card'],
+    ]);
+    
+    // task 1.
+    // const gameEvent = new Set()
+    // for (const [key, value] of gameEvents) 
+    // gameEvent.add(value); 
+    const gameEvent = [...new Set(gameEvents.values())];
+    console.log(gameEvent);
+    
+    // task 2.
+    gameEvents.delete(64);
+    console.log(gameEvents);
+    
+    // task 3.
+    const time = [...gameEvents.keys()].pop(); // 배열의 마지막 값
+    console.log(time);
+    
+    console.log(`"An event happened, on average, every ${time/gameEvents.size} minutes"`);
+    
 // task 4.
 for (const [key, value] of gameEvents)
 if (key < 45)
@@ -615,3 +613,42 @@ console.log(`[FIRST HALF] ${key}: ${value}`);
 else
 console.log(`[SECOND HALF] ${key}: ${value}`);
 
+*/
+
+// 120. Working with Strings
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log('B737'[0]);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('portugal')); // 소문자 p 찾을 수 없음
+
+console.log(airline.slice(4)); // Air Portugal
+console.log(airline.slice(4, 7)); // Air (4 ~ 7)
+
+console.log(airline.slice(0, airline.indexOf(' '))); 
+console.log(airline.slice(airline.lastIndexOf(' ')+1)); 
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function(seat) {
+ // B and E are middle seats
+ const s = seat.slice(-1);
+ if (s === 'B' || s === 'E') console.log('You got the middle seat!');
+ else console.log('You got lucky');
+}
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas'));
+console.log(typeof new String('jonas'));
+
+console.log(typeof new String('jonas').slice(1));
