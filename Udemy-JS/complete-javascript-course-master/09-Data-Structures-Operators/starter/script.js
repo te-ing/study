@@ -613,7 +613,6 @@ console.log(`[FIRST HALF] ${key}: ${value}`);
 else
 console.log(`[SECOND HALF] ${key}: ${value}`);
 
-*/
 
 // 120. Working with Strings
 
@@ -638,10 +637,10 @@ console.log(airline.slice(-2));
 console.log(airline.slice(1, -1));
 
 const checkMiddleSeat = function(seat) {
- // B and E are middle seats
- const s = seat.slice(-1);
- if (s === 'B' || s === 'E') console.log('You got the middle seat!');
- else console.log('You got lucky');
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat!');
+  else console.log('You got lucky');
 }
 
 checkMiddleSeat('11B');
@@ -652,3 +651,64 @@ console.log(new String('jonas'));
 console.log(typeof new String('jonas'));
 
 console.log(typeof new String('jonas').slice(1));
+
+*/
+
+// 121. Working with Strings Part 2
+
+const airline = 'TAP Air Portugal';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalization in name
+const passenger = 'jonAS';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Comparing emails
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.Io\n';
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();  // trim 공백제거
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email);
+
+// replacing
+
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement = '모든 승객들은 대기 탑승구에서 23 탑승구로 이동하시기 바랍니다!';
+
+console.log(announcement.replace('탑승구', '게이트'));
+
+console.log(announcement.replace(/탑승구/g, '게이트')); // /  /g를 통해 모든 탑승구 변환
+
+const plane = 'A320neo'
+console.log(plane.includes('A320')); // A320이 포함되는지 boolean으로 확인
+console.log(plane.startsWith('Air')); // Air으로 시작하는지
+
+if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+const checkBaggage = function(items) {
+  const baggae = items.toLowerCase();
+  if(baggae.includes('knife') || baggae.includes('gun')){
+    console.log('You are NOT  allowed on board');
+  } else{
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
