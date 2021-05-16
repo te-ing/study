@@ -652,7 +652,6 @@ console.log(typeof new String('jonas'));
 
 console.log(typeof new String('jonas').slice(1));
 
-*/
 
 // 121. Working with Strings Part 2
 
@@ -712,3 +711,46 @@ checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
 
+*/
+
+// 122. Working with Strings Part 3
+
+// split, join
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' '); // join: 콤마 사이에 글자삽입
+console.log(newName);
+
+const capitalizeName = function(name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for(const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1)); 방법1
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase())); // 방법2
+  }
+  console.log(namesUpper.join(' '));
+}
+
+capitalizeName('jessica ann smith davis')
+capitalizeName('kim taejung')
+
+// Padding
+const message = 'Go to gate 23!'
+console.log(message.padStart(25, '+').padEnd(35, '+'));
+
+const maskCreditCard = function(number) {
+  const str = number + '';
+  const last = str .slice(-4);
+  return last.padStart(str.length, '*');
+}
+
+console.log(maskCreditCard('10023023013513'));
+console.log(maskCreditCard(1583186346));
+
+// Repeat
+const message2 = '기상악화... 모든 운항이 지연되고 있습니다...\n';
+console.log(message2.repeat(5));
