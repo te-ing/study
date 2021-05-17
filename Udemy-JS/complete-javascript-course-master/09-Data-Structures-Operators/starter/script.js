@@ -711,7 +711,6 @@ checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
 
-*/
 
 // 122. Working with Strings Part 3
 
@@ -727,7 +726,7 @@ console.log(newName);
 const capitalizeName = function(name) {
   const names = name.split(' ');
   const namesUpper = [];
-
+  
   for(const n of names) {
     // namesUpper.push(n[0].toUpperCase() + n.slice(1)); 방법1
     namesUpper.push(n.replace(n[0], n[0].toUpperCase())); // 방법2
@@ -754,3 +753,24 @@ console.log(maskCreditCard(1583186346));
 // Repeat
 const message2 = '기상악화... 모든 운항이 지연되고 있습니다...\n';
 console.log(message2.repeat(5));
+
+*/
+
+// 123. Coding Challenge #4
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+
+
+document.querySelector('button').addEventListener("click", function(){
+  const texts = document.querySelector('textarea').value.split('\n');
+  for (const [i, text] of texts.entries()){
+    const afterText = text.trim().split('_')
+    const finalText = afterText[0].toLowerCase() + afterText[1][0].toUpperCase() + afterText[1].slice(1);
+    console.log(`${finalText.padEnd(20,' ')}${'✅'.repeat(i+1)}`);
+  }
+});
+
+
+
