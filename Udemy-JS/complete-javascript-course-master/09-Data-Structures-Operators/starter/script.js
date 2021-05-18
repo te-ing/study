@@ -754,7 +754,6 @@ console.log(maskCreditCard(1583186346));
 const message2 = '기상악화... 모든 운항이 지연되고 있습니다...\n';
 console.log(message2.repeat(5));
 
-*/
 
 // 123. Coding Challenge #4
 
@@ -772,5 +771,15 @@ document.querySelector('button').addEventListener("click", function(){
   }
 });
 
+*/
 
+// 124. String methods practice
+
+const getCode = str => str.slice(0,3).toUpperCase();
+
+for(const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴': ''} ${type.replaceAll('_',' ')} from ${getCode(from)} to ${getCode(to)} (${time.replace(':', 'h ')})`.padStart(46);
+  console.log(output);
+}
 
