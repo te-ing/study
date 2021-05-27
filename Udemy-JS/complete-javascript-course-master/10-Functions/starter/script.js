@@ -105,7 +105,6 @@ document.body.addEventListener('click', high5); // 콜백함수
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
 
-*/
 
 // 131. Functions Returning Functions
 
@@ -124,3 +123,44 @@ greet('Hi')('TJ');
 const greetArr = greeting => name => console.log(`${greeting} ${name}`); // return 필요없음
 
 greetArr('hello')('TJ');
+
+*/
+
+// 132. The call and apply methods
+
+const Tway = {
+  airline: 'Tway',
+  iataCode: 'TW',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name});
+  },
+};
+
+Tway.book(239, 'TaeJung Kim');
+Tway.book(635, 'Jonas Schmedtmann');
+console.log(...Tway.bookings);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+}
+
+const book = Tway.book;
+
+// book(23, 'Ino'); // this.를 사용할 수 없음
+
+book.call(eurowings, 23, 'Sara'); // call은 첫번째 인자를 this키워드가 가르키도록 만듬
+console.log(eurowings);
+
+book.call(Tway, 239, 'Minho')
+
+const jeju = {
+  airline:'Jeju Air flight',
+  iataCode: 'JJ',
+  bookings: []
+}
+
+book.call(jeju, 583, 'Tomas')
