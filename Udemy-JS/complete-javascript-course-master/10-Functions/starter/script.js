@@ -74,7 +74,6 @@ checkIn(flight, jonas);
 // - 리턴 값으로 사용할 수 있다.
 // [참고] (https://soeunlee.medium.com/javascript%EC%97%90%EC%84%9C-%EC%99%9C-%ED%95%A8%EC%88%98%EA%B0%80-1%EA%B8%89-%EA%B0%9D%EC%B2%B4%EC%9D%BC%EA%B9%8C%EC%9A%94-cc6bd2a9ecac)
 
-*/
 
 // 130. Function accepting callback functions
 
@@ -91,7 +90,7 @@ const upperFirstWord = function(str) {
 const transformer = function (str, fn) {
   console.log(`Original string: ${str}`);
   console.log(`Transformed string: ${fn(str)}`);
-
+  
   console.log(`Transformed by: ${fn.name}`); // 콜백함수
 }
 
@@ -105,3 +104,23 @@ const high5 = function() {
 document.body.addEventListener('click', high5); // 콜백함수
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+*/
+
+// 131. Functions Returning Functions
+
+const greet = function(greeting) {
+  return function(name) {
+    console.log(`${greeting} ${name}`);
+  }
+}
+
+const greeterHey = greet('Hey');
+greeterHey('TJ');
+greet('Hey');
+greet('Hi')('TJ');
+
+// Arrow function
+const greetArr = greeting => name => console.log(`${greeting} ${name}`); // return 필요없음
+
+greetArr('hello')('TJ');
