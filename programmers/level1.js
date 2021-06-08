@@ -156,12 +156,8 @@ function solution(array, commands) {
   array2 = array.slice(commands[1][0]-1,commands[1][1]);
   array3 = lineup(array.slice(commands[2][0]-1,commands[2][1]));
 
-  console.log(`[${array}]를 ${commands[0][0]}째부터 ${commands[0][1]}번째까지 자른 후 정렬합니다. [${lineup(array1)}]의 세 번째 숫자는 ${lineup(array1)[commands[0][2]-1]}입니다.`);
-  console.log(`[${array}]를 ${commands[1][0]}째부터 ${commands[1][1]}번째까지 자른 후 정렬합니다. [${lineup(array2)}]의 세 번째 숫자는 ${lineup(array2)[commands[1][2]-1]}입니다.`);
-  console.log(`[${array}]를 ${commands[2][0]}째부터 ${commands[2][1]}번째까지 자른 후 정렬합니다. [${lineup(array3)}]의 세 번째 숫자는 ${lineup(array3)[commands[2][2]-1]}입니다.`);
-  
   answer = [lineup(array1)[commands[0][2]-1], lineup(array2)[commands[1][2]-1], lineup(array3)[commands[2][2]-1]]
-  // console.log(answer);
+
   return answer;
 }
 
