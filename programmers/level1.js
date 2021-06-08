@@ -129,36 +129,48 @@ solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]);
 // commands의 길이는 1 이상 50 이하입니다.
 // commands의 각 원소는 길이가 3입니다.
 
+// function solution(array, commands) {
+
+//   let answer = [];
+  
+//   function lineup(line){ 
+//     let temp;
+//     for(i=0; i<line.length; i++){
+//       for(j=0; j<line.length; j++){
+//         if(line[j]>line[j+1]){
+//           temp=line[j];
+//           line[j]=line[j+1];
+//           line[j+1]=temp;
+//         }
+//       }
+//     }
+//     return line;
+//   }
+
+  
+//   array1 = array.slice(commands[0][0]-1,commands[0][1]);
+//   array2 = array.slice(commands[1][0]-1,commands[1][1]);
+//   array3 = lineup(array.slice(commands[2][0]-1,commands[2][1]));
+
+//   answer = [lineup(array1)[commands[0][2]-1], lineup(array2)[commands[1][2]-1], lineup(array3)[commands[2][2]-1]]
+
+//   return answer;
+// }
+
+// solution(array,commands);
+
 const array = [1, 5, 2, 6, 3, 7, 4];
 const commands =[[2, 5, 3], [4, 4, 1], [1, 7, 3]];
 
-
 function solution(array, commands) {
+  var answer = [];
 
-  let answer = [];
-  
-  function lineup(line){ 
-    let temp;
-    for(i=0; i<line.length; i++){
-      for(j=0; j<line.length; j++){
-        if(line[j]>line[j+1]){
-          temp=line[j];
-          line[j]=line[j+1];
-          line[j+1]=temp;
-        }
-      }
-    }
-    return line;
+  for (i=0; i<commands.length; i++){
+    answer.push(array.slice(commands[i][0]-1,commands[i][1]).sort(function(a,b) {
+      return a - b;
+    })[commands[i][2]-1]);
   }
-
-  
-  array1 = array.slice(commands[0][0]-1,commands[0][1]);
-  array2 = array.slice(commands[1][0]-1,commands[1][1]);
-  array3 = lineup(array.slice(commands[2][0]-1,commands[2][1]));
-
-  answer = [lineup(array1)[commands[0][2]-1], lineup(array2)[commands[1][2]-1], lineup(array3)[commands[2][2]-1]]
-
   return answer;
 }
 
-solution(array,commands);
+solution(array,commands)
