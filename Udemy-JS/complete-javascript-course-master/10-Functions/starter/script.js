@@ -124,7 +124,6 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`); // retu
 
 greetArr('hello')('TJ');
 
-*/
 
 // 132. The call and apply methods
 
@@ -164,3 +163,7 @@ const jeju = {
 }
 
 book.call(jeju, 583, 'Tomas')
+
+*/
+
+// 133. The bind method 
