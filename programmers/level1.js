@@ -194,42 +194,85 @@ solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]);
 // 5	[2, 4]	[3]	4
 // 3	[3]	[1]	2
 
-function solution(n, lost, reserve) { //테스트 12번 실패, 다른 방법 찾아야함
-  var answer = n - lost.length;
-  
-  for(lostS of lost){
-      if (reserve.includes(lostS)) {
-          answer ++;
-          reserve.splice(reserve.indexOf(lostS),1);
-          }
-      else if (reserve.includes(lostS-1)) {
-          answer ++;
-          reserve.splice(reserve.indexOf(lostS-1),1);
-          }
-      else if (reserve.includes(lostS+1)) {
-          answer ++;
-          reserve.splice(reserve.indexOf(lostS+1),1);
-          }
-       }
-  return answer;
-}
-  
-
-console.log(solution(10,[3,9,10],[3,8,9]));
-
-// 아래는 틀렸던 코드, 주의점 : 체육복 도난당한 사람은 다른사람 안빌려줌
 // function solution(n, lost, reserve) {
 //   var answer = n - lost.length;
   
 //   for(lostS of lost){
-//       if (reserve.includes(lostS-1) || reserve.includes(lostS) || reserve.includes(lostS+1)) {
+//       if (reserve.includes(lostS)) {
 //           answer ++;
 //           reserve.splice(reserve.indexOf(lostS),1);
-          
+//           }
+//       else if (reserve.includes(lostS-1)) {
+//           answer ++;
+//           reserve.splice(reserve.indexOf(lostS-1),1);
+//           }
+//       else if (reserve.includes(lostS+1)) {
+//           answer ++;
+//           reserve.splice(reserve.indexOf(lostS+1),1);
 //           }
 //        }
 //   return answer;
 // }
+  
+// console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
+
+// // 정답코드
+// function solution(n, lost, reserve) {
+//   let answer = n;
+
+//   for (let i = 0; i < reserve.length; i++) { // 여벌 체육복
+//     if (lost.includes(reserve[i])) { // 체육복을 도난맞은 학생이 여벌 체육복이 있다면
+//       lost.splice(lost.indexOf(reserve[i]), 1); // 도난 체육복에서 여벌 체육복 제외
+//       reserve.splice(i, 1); // 여벌 체육복 제외
+//       i--; // reserve.length가 줄어드므로 i--;
+//     }
+//   }
+
+//   for (let i = 0; i < reserve.length; i++) { 
+//     if (lost.includes(reserve[i] - 1)) {
+//       lost.splice(lost.indexOf(reserve[i] - 1), 1);
+//       reserve.splice(i, 1);
+//       i--;
+//     } else if (lost.includes(reserve[i] + 1)) {
+//       lost.splice(lost.indexOf(reserve[i] + 1), 1);
+//       reserve.splice(i, 1);
+//       i--;
+//     }
+//   }
+//   answer = n - lost.length;
+//   return answer;
+// }
+
+
+// 수정 코드
+function solution(n, lost, reserve) {
+  var answer = n;
+  
+  for(reserveS of reserve){
+      if (lost.includes(reserveS)) {
+        lost.splice(lost.indexOf(reserveS),1);
+        reserve.splice(reserve.indexOf(reserveS),1);
+    }
+  }
+  
+  for(reserveS of reserve){
+      if (lost.includes(reserveS-1)) {
+          lost.splice(lost.indexOf(reserveS-1),1);
+          reserve.splice(reserve.indexOf(reserveS),1);
+          }
+      else if (lost.includes(reserveS+1)) {
+        lost.splice(lost.indexOf(reserveS+1),1);
+        reserve.splice(reserve.indexOf(reserveS),1);
+        }
+       }
+  answer = n - lost.length;
+
+  return answer;
+}
+
+console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
+
+
 
 // arr = [1,2,3,4,5]
 // // 1 있는지 확인
