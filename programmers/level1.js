@@ -174,104 +174,146 @@ solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]);
           
           solution(array,commands)
           
+          
+          // 체육복
+          
+          // 점심시간에 도둑이 들어, 일부 학생이 체육복을 도난당했습니다. 다행히 여벌 체육복이 있는 학생이 이들에게 체육복을 빌려주려 합니다. 학생들의 번호는 체격 순으로 매겨져 있어, 바로 앞번호의 학생이나 바로 뒷번호의 학생에게만 체육복을 빌려줄 수 있습니다. 예를 들어, 4번 학생은 3번 학생이나 5번 학생에게만 체육복을 빌려줄 수 있습니다. 체육복이 없으면 수업을 들을 수 없기 때문에 체육복을 적절히 빌려 최대한 많은 학생이 체육수업을 들어야 합니다.
+          
+          // 전체 학생의 수 n, 체육복을 도난당한 학생들의 번호가 담긴 배열 lost, 여벌의 체육복을 가져온 학생들의 번호가 담긴 배열 reserve가 매개변수로 주어질 때, 체육수업을 들을 수 있는 학생의 최댓값을 return 하도록 solution 함수를 작성해주세요.
+          
+          // 제한사항
+          // 전체 학생의 수는 2명 이상 30명 이하입니다.
+          // 체육복을 도난당한 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.
+          // 여벌의 체육복을 가져온 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.
+          // 여벌 체육복이 있는 학생만 다른 학생에게 체육복을 빌려줄 수 있습니다.
+          // 여벌 체육복을 가져온 학생이 체육복을 도난당했을 수 있습니다. 이때 이 학생은 체육복을 하나만 도난당했다고 가정하며, 남은 체육복이 하나이기에 다른 학생에게는 체육복을 빌려줄 수 없습니다.
+          
+          // n	lost	reserve	return 입출력 예시
+          // 5	[2, 4]	[1, 3, 5]	5
+          // 5	[2, 4]	[3]	4
+          // 3	[3]	[1]	2
+          
+          // function solution(n, lost, reserve) {
+            //   var answer = n - lost.length;
+            
+            //   for(lostS of lost){
+//       if (reserve.includes(lostS)) {
+  //           answer ++;
+  //           reserve.splice(reserve.indexOf(lostS),1);
+  //           }
+  //       else if (reserve.includes(lostS-1)) {
+    //           answer ++;
+    //           reserve.splice(reserve.indexOf(lostS-1),1);
+    //           }
+    //       else if (reserve.includes(lostS+1)) {
+      //           answer ++;
+      //           reserve.splice(reserve.indexOf(lostS+1),1);
+      //           }
+      //        }
+      //   return answer;
+      // }
+      
+      // console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
+      
+      // // 정답코드
+      // function solution(n, lost, reserve) {
+        //   let answer = n;
+        
+        //   for (let i = 0; i < reserve.length; i++) { // 여벌 체육복
+        //     if (lost.includes(reserve[i])) { // 체육복을 도난맞은 학생이 여벌 체육복이 있다면
+        //       lost.splice(lost.indexOf(reserve[i]), 1); // 도난 체육복에서 여벌 체육복 제외
+        //       reserve.splice(i, 1); // 여벌 체육복 제외
+        //       i--; // reserve.length가 줄어드므로 i--;
+        //     }
+        //   }
+        
+        //   for (let i = 0; i < reserve.length; i++) { 
+          //     if (lost.includes(reserve[i] - 1)) {
+            //       lost.splice(lost.indexOf(reserve[i] - 1), 1);
+            //       reserve.splice(i, 1);
+            //       i--;
+            //     } else if (lost.includes(reserve[i] + 1)) {
+              //       lost.splice(lost.indexOf(reserve[i] + 1), 1);
+              //       reserve.splice(i, 1);
+              //       i--;
+              //     }
+              //   }
+              //   answer = n - lost.length;
+              //   return answer;
+              // }
+              
+              
+              // 수정 코드
+              function solution(n, lost, reserve) {
+                var answer = n;
+                
+                for(reserveS of reserve){
+                  if (lost.includes(reserveS)) {
+                    lost.splice(lost.indexOf(reserveS),1);
+                    reserve.splice(reserve.indexOf(reserveS),1);
+                  }
+                }
+                
+                for(reserveS of reserve){
+                  if (lost.includes(reserveS-1)) {
+                    lost.splice(lost.indexOf(reserveS-1),1);
+                    reserve.splice(reserve.indexOf(reserveS),1);
+                  }
+                  else if (lost.includes(reserveS+1)) {
+                    lost.splice(lost.indexOf(reserveS+1),1);
+                    reserve.splice(reserve.indexOf(reserveS),1);
+                  }
+                }
+                answer = n - lost.length;
+                
+                return answer;
+              }
+              
+              console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
+              
 */
 
-// 체육복
+// 모의고사
+// 수포자는 수학을 포기한 사람의 준말입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.
 
-// 점심시간에 도둑이 들어, 일부 학생이 체육복을 도난당했습니다. 다행히 여벌 체육복이 있는 학생이 이들에게 체육복을 빌려주려 합니다. 학생들의 번호는 체격 순으로 매겨져 있어, 바로 앞번호의 학생이나 바로 뒷번호의 학생에게만 체육복을 빌려줄 수 있습니다. 예를 들어, 4번 학생은 3번 학생이나 5번 학생에게만 체육복을 빌려줄 수 있습니다. 체육복이 없으면 수업을 들을 수 없기 때문에 체육복을 적절히 빌려 최대한 많은 학생이 체육수업을 들어야 합니다.
+// 1번 수포자가 찍는 방식: 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ...
+// 2번 수포자가 찍는 방식: 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, ...
+// 3번 수포자가 찍는 방식: 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, ...
 
-// 전체 학생의 수 n, 체육복을 도난당한 학생들의 번호가 담긴 배열 lost, 여벌의 체육복을 가져온 학생들의 번호가 담긴 배열 reserve가 매개변수로 주어질 때, 체육수업을 들을 수 있는 학생의 최댓값을 return 하도록 solution 함수를 작성해주세요.
+// 1번 문제부터 마지막 문제까지의 정답이 순서대로 들은 배열 answers가 주어졌을 때, 가장 많은 문제를 맞힌 사람이 누구인지 배열에 담아 return 하도록 solution 함수를 작성해주세요.
 
-// 제한사항
-// 전체 학생의 수는 2명 이상 30명 이하입니다.
-// 체육복을 도난당한 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.
-// 여벌의 체육복을 가져온 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.
-// 여벌 체육복이 있는 학생만 다른 학생에게 체육복을 빌려줄 수 있습니다.
-// 여벌 체육복을 가져온 학생이 체육복을 도난당했을 수 있습니다. 이때 이 학생은 체육복을 하나만 도난당했다고 가정하며, 남은 체육복이 하나이기에 다른 학생에게는 체육복을 빌려줄 수 없습니다.
+// 제한 조건
+// 시험은 최대 10,000 문제로 구성되어있습니다.
+// 문제의 정답은 1, 2, 3, 4, 5중 하나입니다.
+// 가장 높은 점수를 받은 사람이 여럿일 경우, return하는 값을 오름차순 정렬해주세요.
+// 입출력 예
+// answers	return
+// [1,2,3,4,5]	[1]
+// [1,3,2,4,2]	[1,2,3]
+              
+function solution(answers) {
+  var answer = [];
 
-// n	lost	reserve	return 입출력 예시
-// 5	[2, 4]	[1, 3, 5]	5
-// 5	[2, 4]	[3]	4
-// 3	[3]	[1]	2
-
-// function solution(n, lost, reserve) {
-//   var answer = n - lost.length;
+  let student1 = 0;
+  let student2 = 0;
+  let student3 = 0;
   
-//   for(lostS of lost){
-//       if (reserve.includes(lostS)) {
-//           answer ++;
-//           reserve.splice(reserve.indexOf(lostS),1);
-//           }
-//       else if (reserve.includes(lostS-1)) {
-//           answer ++;
-//           reserve.splice(reserve.indexOf(lostS-1),1);
-//           }
-//       else if (reserve.includes(lostS+1)) {
-//           answer ++;
-//           reserve.splice(reserve.indexOf(lostS+1),1);
-//           }
-//        }
-//   return answer;
-// }
-  
-// console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
+  const answers2 = [2,1,2,3,2,4,2,5];
+  const answers3 = [3,1,2,4,5];
 
-// // 정답코드
-// function solution(n, lost, reserve) {
-//   let answer = n;
-
-//   for (let i = 0; i < reserve.length; i++) { // 여벌 체육복
-//     if (lost.includes(reserve[i])) { // 체육복을 도난맞은 학생이 여벌 체육복이 있다면
-//       lost.splice(lost.indexOf(reserve[i]), 1); // 도난 체육복에서 여벌 체육복 제외
-//       reserve.splice(i, 1); // 여벌 체육복 제외
-//       i--; // reserve.length가 줄어드므로 i--;
-//     }
-//   }
-
-//   for (let i = 0; i < reserve.length; i++) { 
-//     if (lost.includes(reserve[i] - 1)) {
-//       lost.splice(lost.indexOf(reserve[i] - 1), 1);
-//       reserve.splice(i, 1);
-//       i--;
-//     } else if (lost.includes(reserve[i] + 1)) {
-//       lost.splice(lost.indexOf(reserve[i] + 1), 1);
-//       reserve.splice(i, 1);
-//       i--;
-//     }
-//   }
-//   answer = n - lost.length;
-//   return answer;
-// }
-
-
-// 수정 코드
-function solution(n, lost, reserve) {
-  var answer = n;
-  
-  for(reserveS of reserve){
-      if (lost.includes(reserveS)) {
-        lost.splice(lost.indexOf(reserveS),1);
-        reserve.splice(reserve.indexOf(reserveS),1);
-    }
-  }
-  
-  for(reserveS of reserve){
-      if (lost.includes(reserveS-1)) {
-          lost.splice(lost.indexOf(reserveS-1),1);
-          reserve.splice(reserve.indexOf(reserveS),1);
-          }
-      else if (lost.includes(reserveS+1)) {
-        lost.splice(lost.indexOf(reserveS+1),1);
-        reserve.splice(reserve.indexOf(reserveS),1);
+  for (i=0; i<answers.length; i++){
+      if(answers[i] == i%5+1)
+          student1 ++;
+      if(answers[i]==answers2[i%8])
+          student2 ++;
+      if(answers[i]==answers3[i%5])
+          student3 ++;
         }
-       }
-  answer = n - lost.length;
 
-  return answer;
-}
+  return answer
+}              
 
-console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
-
+console.log(solution([2,1,2,3,2,1,2,3,4,5]));
 
 
 // arr = [1,2,3,4,5]
@@ -284,3 +326,4 @@ console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
 // arr.sort(function(a,b){ // 숫자 오름차순 정렬
 //   retrun a - b;
 // });
+              
