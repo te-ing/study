@@ -291,6 +291,72 @@ solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]);
 // [1,2,3,4,5]	[1]
 // [1,3,2,4,2]	[1,2,3]
               
+// 내 풀이
+// function solution(answers) {
+//   var answer = [];
+
+//   let student1 = 0;
+//   let student2 = 0;
+//   let student3 = 0;
+  
+//   const answers2 = [2,1,2,3,2,4,2,5];
+//   const answers3 = [3,3,1,1,2,2,4,4,5,5];
+
+//   for (i=0; i<answers.length; i++){
+//       if(answers[i] == i%5+1)
+//           student1 ++;
+//       if(answers[i]==answers2[i%8])
+//           student2 ++;
+//       if((answers[i])==answers3[i%10])
+//           student3 ++;
+//         }
+
+//   if(student1 > student2 && student1 >  student3){
+//     answer = [1]
+//   }
+//   if(student2 > student1 && student2 > student3){
+//     answer = [2]
+//   }
+//   if(student3 > student1 && student3 > student2){
+//     answer = [3]
+//   }
+//   if(student1 > student3 && student1 == student2){
+//     answer = [1,2]
+//   }
+//   if(student1 > student2 && student1 == student3){
+//     answer = [1,3]
+//   }
+//   if(student2 > student1 && student2 == student3){
+//     answer = [2,3]
+//   }
+//   if(student1 == student2 && student2 == student3 && student1 == student3){
+//     answer = [1,2,3]
+//   }
+
+//   return answer
+// }              
+
+// 다른사람의 풀이
+// function solution(answers) {
+//     var answer = [];
+//     var a1 = [1, 2, 3, 4, 5];
+//     var a2 = [2, 1, 2, 3, 2, 4, 2, 5]
+//     var a3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+
+//     var a1c = answers.filter((a,i)=> a === a1[i%a1.length]).length;
+//     var a2c = answers.filter((a,i)=> a === a2[i%a2.length]).length;
+//     var a3c = answers.filter((a,i)=> a === a3[i%a3.length]).length;
+//     var max = Math.max(a1c,a2c,a3c);
+
+//     if (a1c === max) {answer.push(1)};
+//     if (a2c === max) {answer.push(2)};
+//     if (a3c === max) {answer.push(3)};
+
+//     return answer;
+// }
+
+// 내 풀이 수정
+
 function solution(answers) {
   var answer = [];
 
@@ -298,23 +364,28 @@ function solution(answers) {
   let student2 = 0;
   let student3 = 0;
   
+  const answers1 = [1,2,3,4,5]
   const answers2 = [2,1,2,3,2,4,2,5];
-  const answers3 = [3,1,2,4,5];
+  const answers3 = [3,3,1,1,2,2,4,4,5,5];
 
   for (i=0; i<answers.length; i++){
-      if(answers[i] == i%5+1)
+      if(answers[i] == answers1[i%answers1.length])
           student1 ++;
-      if(answers[i]==answers2[i%8])
+      if(answers[i]== answers2[i%answers2.length])
           student2 ++;
-      if(answers[i]==answers3[i%5])
+      if((answers[i])== answers3[i%answers3.length])
           student3 ++;
         }
+  const max = Math.max(student1,student2,student3);
+        
+  if (student1 == max) {answer.push(1)}
+  if (student2 == max) {answer.push(2)}
+  if (student3 == max) {answer.push(3)}
 
   return answer
-}              
+}
 
-console.log(solution([2,1,2,3,2,1,2,3,4,5]));
-
+// 코딩테스트 자주 쓰는 문법
 
 // arr = [1,2,3,4,5]
 // // 1 있는지 확인
@@ -326,4 +397,7 @@ console.log(solution([2,1,2,3,2,1,2,3,4,5]));
 // arr.sort(function(a,b){ // 숫자 오름차순 정렬
 //   retrun a - b;
 // });
-              
+// filter: 배열을 순회하며 조건을 만족하는 원소 리턴, i%ai.length : 배열 내 인덱스 반복
+// const a1 = [1,2,3,4,5]
+// var newArray = arr.filter((a,i)=> a === a1[i%a1.length]).length
+// Math.max() 입력받은 숫자 중 가장 큰 숫자 반환
