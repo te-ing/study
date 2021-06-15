@@ -405,22 +405,16 @@ function solution(board, moves) {
         }
       }
     }
-    console.log(basket);
 
 for (i=0; i<basket.length; i++){
   if(basket[i]===basket[i+1]){
     basket.splice(i,2);
     answer += 2;
-    i = 0;
+    i = -1; 
   }
 }
-console.log(basket);
   return answer;
 }
-console.log(solution(board,moves));
-
-// 테스트 1,2 실패 정답률 81.8
-
 
 
 // 코딩테스트 자주 쓰는 문법
