@@ -269,9 +269,8 @@ solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]);
                 return answer;
               }
               
-              console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
+console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
               
-*/
 
 // 모의고사
 // 수포자는 수학을 포기한 사람의 준말입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.
@@ -290,10 +289,11 @@ solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]);
 // answers	return
 // [1,2,3,4,5]	[1]
 // [1,3,2,4,2]	[1,2,3]
-              
+
+
 // 내 풀이
 // function solution(answers) {
-//   var answer = [];
+//     var answer = [];
 
 //   let student1 = 0;
 //   let student2 = 0;
@@ -357,33 +357,71 @@ solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]);
 
 // 내 풀이 수정
 
-function solution(answers) {
-  var answer = [];
+// function solution(answers) {
+//   var answer = [];
 
-  let student1 = 0;
-  let student2 = 0;
-  let student3 = 0;
+//   let student1 = 0;
+//   let student2 = 0;
+//   let student3 = 0;
   
-  const answers1 = [1,2,3,4,5]
-  const answers2 = [2,1,2,3,2,4,2,5];
-  const answers3 = [3,3,1,1,2,2,4,4,5,5];
+//   const answers1 = [1,2,3,4,5]
+//   const answers2 = [2,1,2,3,2,4,2,5];
+//   const answers3 = [3,3,1,1,2,2,4,4,5,5];
 
-  for (i=0; i<answers.length; i++){
-      if(answers[i] == answers1[i%answers1.length])
-          student1 ++;
-      if(answers[i]== answers2[i%answers2.length])
-          student2 ++;
-      if((answers[i])== answers3[i%answers3.length])
-          student3 ++;
-        }
-  const max = Math.max(student1,student2,student3);
+//   for (i=0; i<answers.length; i++){
+//       if(answers[i] == answers1[i%answers1.length])
+//           student1 ++;
+//       if(answers[i]== answers2[i%answers2.length])
+//           student2 ++;
+//       if((answers[i])== answers3[i%answers3.length])
+//           student3 ++;
+//         }
+//   const max = Math.max(student1,student2,student3);
         
-  if (student1 == max) {answer.push(1)}
-  if (student2 == max) {answer.push(2)}
-  if (student3 == max) {answer.push(3)}
+//   if (student1 == max) {answer.push(1)}
+//   if (student2 == max) {answer.push(2)}
+//   if (student3 == max) {answer.push(3)}
 
-  return answer
+//   return answer
+// }
+
+*/
+
+//[크레인 인형뽑기 게임](programmers.co.kr/learn/courses/30/lessons/64061)
+
+let board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]
+const moves = [1,5,3,5,1,2,1,4]
+
+function solution(board, moves) {
+  var answer = 0;
+  let basket = []
+
+  for (i=0; i<moves.length; i++){
+      for (j=0; j<board[0].length; j++){
+        if(board[j][moves[i]-1]!==0){
+        basket.push(board[j][moves[i]-1]);
+        board[j][moves[i]-1] = 0;
+        j = board[0].length;
+        }
+      }
+    }
+    console.log(basket);
+
+for (i=0; i<basket.length; i++){
+  if(basket[i]===basket[i+1]){
+    basket.splice(i,2);
+    answer += 2;
+    i = 0;
+  }
 }
+console.log(basket);
+  return answer;
+}
+console.log(solution(board,moves));
+
+// 테스트 1,2 실패 정답률 81.8
+
+
 
 // 코딩테스트 자주 쓰는 문법
 
@@ -392,7 +430,7 @@ function solution(answers) {
 // console.log(arr.indexOf(1)!==-1); 
 // console.log(arr.includes(1));
 // arr.splice(arr.indexOf(1),1); // 1 삭제
-// arr.slice(1,2); // arr 배열의 [1]부터 [2]까지 슬라이스
+// arr.splice(1,2); // arr 배열의 [1]부터 2개 제거
 // arr.sort() // 아즈키코드 오름차순 정렬
 // arr.sort(function(a,b){ // 숫자 오름차순 정렬
 //   retrun a - b;
