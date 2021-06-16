@@ -385,7 +385,6 @@ console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
 //   return answer
 // }
 
-*/
 
 //[크레인 인형뽑기 게임](programmers.co.kr/learn/courses/30/lessons/64061)
 
@@ -395,36 +394,99 @@ const moves = [1,5,3,5,1,2,1,4]
 function solution(board, moves) {
   var answer = 0;
   let basket = []
-
+  
   for (i=0; i<moves.length; i++){
-      for (j=0; j<board[0].length; j++){
-        if(board[j][moves[i]-1]!==0){
+    for (j=0; j<board[0].length; j++){
+      if(board[j][moves[i]-1]!==0){
         basket.push(board[j][moves[i]-1]);
         board[j][moves[i]-1] = 0;
         j = board[0].length;
-        }
       }
     }
-
-for (i=0; i<basket.length; i++){
-  if(basket[i]===basket[i+1]){
-    basket.splice(i,2);
-    answer += 2;
-    i = -1; 
   }
-}
+  
+  for (i=0; i<basket.length; i++){
+    if(basket[i]===basket[i+1]){
+      basket.splice(i,2);
+      answer += 2;
+      i = -1; 
+    }
+  }
   return answer;
 }
+
+*/
+
+//[신규아이디 추천](https://programmers.co.kr/learn/courses/30/lessons/72410)
+
+function solution(new_id) {
+  let answer = '';
+  
+  const ableWord = '0123456789qwertyuiopasdfghjklzxcvbnm-_.'
+  let ableId = [];
+  
+  // 1단계
+  answer = new_id.toLowerCase();
+  
+  // 2단계
+  for (let word of answer){
+      if(ableWord.includes(word)){
+          ableId.push(word);
+      }
+  };
+  // 3단계
+  for(let i=0; i<ableId.length; i++){
+      if (ableId[i-1]=='.' && ableId[i]=='.'){
+          ableId.splice(i,1);
+          i = 0;
+      }
+  };
+  
+  // 4단계
+  if (ableId[0]=='.')
+      ableId.shift();
+  if (ableId[ableId.length-1]=='.')
+      ableId.pop();
+
+  // 5단계
+  if (ableId=='')
+      ableId.push('a')
+  
+  // 6단계
+  if (ableId.length>15)
+      ableId.splice(15,ableId.length);
+  if (ableId[ableId.length-1]=='.')
+      ableId.pop();
+  
+  // 7단계
+  if (ableId.length<3)
+      ableId.push(ableId[ableId.length-1]);
+  if (ableId.length<3)
+      ableId.push(ableId[ableId.length-1]);
+  
+  // 마지막 문자열을 문자로 변환해야함
+  
+    answer = ableId.join('');
+    
+    
+  return answer;
+}
+
+
 
 
 // 코딩테스트 자주 쓰는 문법
 
 // arr = [1,2,3,4,5]
-// // 1 있는지 확인
-// console.log(arr.indexOf(1)!==-1); 
-// console.log(arr.includes(1));
+// console.log(arr.indexOf(1)!==-1);  
+// console.log(arr.includes(1)); // // arr에 1 있는지 확인 후 true나 false 반환
+// arr.pop() // 배열의 마지막 요소 제거 후 반환
+// arr.shift() // 배열의 첫번째 요소 제거 후 반환
+// arr.unshift() // 배열의 앞쪽에 데이터 넣음
+// arr.push() // 배열의 뒤쪽에 데이터 넣음
 // arr.splice(arr.indexOf(1),1); // 1 삭제
 // arr.splice(1,2); // arr 배열의 [1]부터 2개 제거
+// arr.slice(1,2); // arr 배열의 [1] 부터 [2]까지 자르기
 // arr.sort() // 아즈키코드 오름차순 정렬
 // arr.sort(function(a,b){ // 숫자 오름차순 정렬
 //   retrun a - b;
@@ -433,3 +495,9 @@ for (i=0; i<basket.length; i++){
 // const a1 = [1,2,3,4,5]
 // var newArray = arr.filter((a,i)=> a === a1[i%a1.length]).length
 // Math.max() 입력받은 숫자 중 가장 큰 숫자 반환
+// const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi; //  / /gi 의 의미: // 정규식표현 g: 모든 패턴에 대한 전역검색 i:대소문자 구분안함
+// if(regExp.test(Data)){  // test() ㅡ 찾는 문자열이 들어있는지 확인
+//   new_Data = Data.replace(regExp, "")}; // 찾은 특수 문자를 제거
+// let fruit = 'apple, banana, orange';
+// let replaced_fruit = fruit.replace('banana', 'tomato');
+// arr.join(separator) // 배열 arr을 문자열로 바꿈. separator는 문자열 사이마다 들어가는 구분자, defalt값이 , 이므로 없애려면 arr.join('')
