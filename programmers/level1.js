@@ -415,7 +415,6 @@ function solution(board, moves) {
   return answer;
 }
 
-*/
 
 //[신규아이디 추천](https://programmers.co.kr/learn/courses/30/lessons/72410)
 
@@ -436,43 +435,69 @@ function solution(new_id) {
   };
   // 3단계
   for(let i=0; i<ableId.length; i++){
-      if (ableId[i-1]=='.' && ableId[i]=='.'){
+    if (ableId[i-1]=='.' && ableId[i]=='.'){
           ableId.splice(i,1);
           i = 0;
-      }
-  };
-  
-  // 4단계
+        }
+      };
+      
+      // 4단계
   if (ableId[0]=='.')
       ableId.shift();
-  if (ableId[ableId.length-1]=='.')
+      if (ableId[ableId.length-1]=='.')
       ableId.pop();
-
-  // 5단계
+      
+      // 5단계
   if (ableId=='')
-      ableId.push('a')
+  ableId.push('a')
   
   // 6단계
   if (ableId.length>15)
       ableId.splice(15,ableId.length);
-  if (ableId[ableId.length-1]=='.')
+      if (ableId[ableId.length-1]=='.')
       ableId.pop();
-  
+      
   // 7단계
   if (ableId.length<3)
       ableId.push(ableId[ableId.length-1]);
-  if (ableId.length<3)
+      if (ableId.length<3)
       ableId.push(ableId[ableId.length-1]);
-  
+      
   // 마지막 문자열을 문자로 변환해야함
   
-    answer = ableId.join('');
-    
+  answer = ableId.join('');
+  
     
   return answer;
 }
 
+*/
 
+// [로또의 최저순위와 최고순위](https://programmers.co.kr/learn/courses/30/lessons/77484)
+
+function solution(lottos, win_nums) {
+  let answer = [7,7];
+  
+  for (let lotto of lottos){
+      if(win_nums.includes(lotto)){
+          answer[0] --;
+          answer[1] --;
+      }
+  }
+  for (let unknown of lottos){
+      if(unknown == 0)
+          answer[0] --;
+  }
+  
+  if(answer[0]==7){
+      answer[0] --;
+  }
+  if(answer[1]==7){
+      answer[1] --;
+  }
+  
+  return answer;
+}
 
 
 // 코딩테스트 자주 쓰는 문법
