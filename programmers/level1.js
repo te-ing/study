@@ -471,7 +471,6 @@ function solution(new_id) {
   return answer;
 }
 
-*/
 
 // [로또의 최저순위와 최고순위](https://programmers.co.kr/learn/courses/30/lessons/77484)
 
@@ -479,23 +478,53 @@ function solution(lottos, win_nums) {
   let answer = [7,7];
   
   for (let lotto of lottos){
-      if(win_nums.includes(lotto)){
-          answer[0] --;
-          answer[1] --;
-      }
+    if(win_nums.includes(lotto)){
+      answer[0] --;
+      answer[1] --;
+    }
   }
   for (let unknown of lottos){
-      if(unknown == 0)
-          answer[0] --;
+    if(unknown == 0)
+    answer[0] --;
   }
   
   if(answer[0]==7){
-      answer[0] --;
+    answer[0] --;
   }
   if(answer[1]==7){
-      answer[1] --;
+    answer[1] --;
   }
   
+  return answer;
+}
+
+*/
+
+// 네이버 부스트캠프 웹모바일 자가진단 코딩테스트
+// [중복 숫자 찾기 함수구현](https://blog.naver.com/PostView.naver?blogId=boostcamp_official&logNo=221978031932&parentCategoryNo=&categoryNo=20&viewDate=&isShowPopularPosts=false&from=postList)
+
+function solution(arr){
+
+  let answer = [];
+  let count = 0;
+  let numbers = [...new Set(arr)].sort((a,b)=>a-b); // 정렬, 중복된 값 제거
+
+  if(numbers.length == arr.length){ // 중복된 값이 없으면 -1 출력
+    answer=[-1];
+    return answer;
+    }
+    
+  for(let num of numbers){
+    for(let i=0;i<arr.length;i++){ // 중복된 값이 있는 경우 카운트 ++
+      if(num == arr[i]){
+        count ++;
+      }
+    }
+    if(count>1){
+      answer.push(count);
+    }
+    count=0;
+  }
   return answer;
 }
 
