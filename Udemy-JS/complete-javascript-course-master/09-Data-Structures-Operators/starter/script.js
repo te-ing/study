@@ -771,7 +771,6 @@ document.querySelector('button').addEventListener("click", function(){
   }
 });
 
-*/
 
 // 124. String methods practice
 
@@ -783,3 +782,109 @@ for(const flight of flights.split('+')) {
   console.log(output);
 }
 
+*/
+
+// Sets, Maps 복습
+
+const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
+console.log(orderSet.size);
+console.log(orderSet.length); // 배열처럼 length 안됨 주의!
+console.log(orderSet.has('Pasta'));
+// console.log(orderSet.includes('Pasta')); // 배열처럼 includes 안됨! has 사용
+console.log(orderSet.add('Bread'));
+// console.log(orderSet.push('Bread')); // 배열처럼 push 안됨! add 사용
+orderSet.delete('Risotto');
+// orderSet.pop('Risotto'); // 배열처럼 pop 사용 안됨! delete 사용
+console.log(orderSet);
+console.log(orderSet[0]); // 배열처럼 인덱스 검색안됨. SET에는 인덱스가 없음
+for(const order of orderSet) console.log(order); // Set에서 반복사용
+
+// Map 요소 추가방법
+const rest = new Map();
+rest.set('name','Classico Italiano'); 
+rest.set(1,'Firenze, Italy')
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+.set('open', 11)
+.set('close',23)
+.set(true, 'We are open :D')
+.set(false, 'We are closed :(');
+
+// Map 데이터 읽는 방법
+console.log(rest.get('name')); 
+console.log(rest.get(true));
+const time = 21;
+rest.get(time > rest.get('open') && time < rest.get('close'))
+
+// Set과 비슷한 함수를 사용
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest); 
+rest.clear();
+console.log(rest.size);
+
+// 오브젝트를 맵키로 사용하는 방법
+rest.set([1,2], 'Test')
+console.log(rest.get([1,2])); // Hip에서 같은 오브젝트가 아니기 때문에 불러오지 못함
+const arr = [1,2];
+console.log(rest.set(arr, 'Test')); // 해결법
+
+// Map 요소 추가방법 2
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1,'C'],
+  [2,'Java'],
+  [3,'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+console.log(question);
+
+// 오브젝트를 Map으로 변환
+console.log(Object.entries(openingHour));
+const hoursMap = new Map(Object.entries(openingHour));
+console.log(hoursMap);
+
+// Map 반복
+console.log(question.get('question'));
+for (const [key, value] of question) {
+if(typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+// const answer = Number(prompt('Your answer')) // 숫자로 받아야하기 때문에 Number
+// console.log(question.get(3===answer));
+
+// Map을 오브젝트로 변환
+// console.log([...question]);
+console.log(question.entries()); // console.log([...question]); 와 같음
+console.log([...question.keys()]);
+console.log([...question.values()]);
+
+const gameEvents = new Map([
+[17, '⚽ GOAL'],
+[36, '🔁 Substitution'],
+[47, '⚽ GOAL'],
+[61, '🔁 Substitution'],
+[64, '🔶 Yellow card'],
+[69, '🔴 Red card'],
+[70, '🔁 Substitution'],
+[72, '🔁 Substitution'],
+[76, '⚽ GOAL'],
+[80, '⚽ GOAL'],
+[92, '🔶 Yellow card'],
+]);
+
+const event = [...new Set ([...gameEvents.values()])]
+console.log(event);
+
+gameEvents.delete(64);
+console.log(gameEvents);
+let times = 0;
+for(const [time, event] of gameEvents){
+  times = times + time;
+  if (time<45)
+  console.log(`[FIRST HALF] ${time} : ${event}`);
+  else console.log(`[SECOND HALF] ${time} : ${event}`);
+}
+console.log(times/90);
