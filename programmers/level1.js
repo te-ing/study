@@ -498,22 +498,21 @@ function solution(lottos, win_nums) {
   return answer;
 }
 
-*/
 
 // 네이버 부스트캠프 웹모바일 자가진단 코딩테스트
 // [중복 숫자 찾기 함수구현](https://blog.naver.com/PostView.naver?blogId=boostcamp_official&logNo=221978031932&parentCategoryNo=&categoryNo=20&viewDate=&isShowPopularPosts=false&from=postList)
 
 function solution(arr){
-
+  
   let answer = [];
   let count = 0;
   let numbers = [...new Set(arr)].sort((a,b)=>a-b); // 정렬, 중복된 값 제거
-
+  
   if(numbers.length == arr.length){ // 중복된 값이 없으면 -1 출력
     answer=[-1];
     return answer;
-    }
-    
+  }
+  
   for(let num of numbers){
     for(let i=0;i<arr.length;i++){ // 중복된 값이 있는 경우 카운트 ++
       if(num == arr[i]){
@@ -528,6 +527,33 @@ function solution(arr){
   return answer;
 }
 
+*/
+// [카카오 크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)
+
+function solution(board, moves) {
+  var answer = 0;
+  let basket = []
+
+  for (i=0; i<moves.length; i++){
+      for (j=0; j<board[1].length; j++){
+        if(board[j][moves[i]-1]!==0 && typeof(board[j][moves[i]-1])==='number'){
+        basket.push(board[j][moves[i]-1]);
+        board[j][moves[i]-1] = 0;
+        j = board[1].length;
+        }
+      }
+    }
+
+for (i=0; i<basket.length; i++){
+  if(basket[i]===basket[i+1]){
+    basket.splice(i,2);
+    answer += 2;
+    i = -1;
+  }
+}
+
+  return answer;
+}
 
 // 코딩테스트 자주 쓰는 문법
 
