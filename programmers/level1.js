@@ -527,31 +527,65 @@ function solution(arr){
   return answer;
 }
 
-*/
 // [카카오 크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)
 
 function solution(board, moves) {
   var answer = 0;
   let basket = []
-
+  
   for (i=0; i<moves.length; i++){
-      for (j=0; j<board[1].length; j++){
+    for (j=0; j<board[1].length; j++){
         if(board[j][moves[i]-1]!==0 && typeof(board[j][moves[i]-1])==='number'){
-        basket.push(board[j][moves[i]-1]);
-        board[j][moves[i]-1] = 0;
-        j = board[1].length;
+          basket.push(board[j][moves[i]-1]);
+          board[j][moves[i]-1] = 0;
+          j = board[1].length;
         }
       }
     }
-
-for (i=0; i<basket.length; i++){
-  if(basket[i]===basket[i+1]){
-    basket.splice(i,2);
-    answer += 2;
-    i = -1;
+    
+    for (i=0; i<basket.length; i++){
+      if(basket[i]===basket[i+1]){
+        basket.splice(i,2);
+        answer += 2;
+        i = -1;
   }
 }
 
+return answer;
+}
+
+*/
+
+// [소수만들기](https://programmers.co.kr/learn/courses/30/lessons/12977)
+// 주어진 숫자 중 3개의 수를 더했을 때 소수가 되는 경우의 개수를 구하려고 합니다. 숫자들이 들어있는 배열 nums가 매개변수로 주어질 때, nums에 있는 숫자들 중 서로 다른 3개를 골라 더했을 때 소수가 되는 경우의 개수를 return 하도록 solution 함수를 완성해주세요.
+
+// 제한사항
+// nums에 들어있는 숫자의 개수는 3개 이상 50개 이하입니다.
+// nums의 각 원소는 1 이상 1,000 이하의 자연수이며, 중복된 숫자가 들어있지 않습니다.
+
+function solution(nums) {
+  let answer = 0;
+  let count = 0;
+  
+  // 서로 다른 3개 고르기
+  for(let i=0; i<nums.length; i++){
+      for(let j=0; j<nums.length; j++){
+          if(i==j)
+              continue
+          for(let k=0; k<nums.length; k++){
+              if(k==i || k==j)
+                  continue
+              // 소수인지 확인
+              for(let l=2; l<nums[i]+nums[j]+nums[k]; l++) {
+                  count = 0;   
+                  if((nums[i]+nums[j]+nums[k])%l==0)
+                      count ++;
+                  if (count ==0)
+                      answer ++;
+              }
+          }
+      }
+  }
   return answer;
 }
 
@@ -575,9 +609,12 @@ for (i=0; i<basket.length; i++){
 // const a1 = [1,2,3,4,5]
 // var newArray = arr.filter((a,i)=> a === a1[i%a1.length]).length
 // Math.max() 입력받은 숫자 중 가장 큰 숫자 반환
+// Math.abs() 입력받은 숫자의 절대값 반환
 // const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi; //  / /gi 의 의미: // 정규식표현 g: 모든 패턴에 대한 전역검색 i:대소문자 구분안함
 // if(regExp.test(Data)){  // test() ㅡ 찾는 문자열이 들어있는지 확인
 //   new_Data = Data.replace(regExp, "")}; // 찾은 특수 문자를 제거
 // let fruit = 'apple, banana, orange';
 // let replaced_fruit = fruit.replace('banana', 'tomato');
 // arr.join(separator) // 배열 arr을 문자열로 바꿈. separator는 문자열 사이마다 들어가는 구분자, defalt값이 , 이므로 없애려면 arr.join('')
+// const array1 = ['a', 'b', 'c'];
+// array1.forEach(element => console.log(element)); // array1의 element 출력
