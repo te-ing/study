@@ -554,7 +554,6 @@ function solution(board, moves) {
 return answer;
 }
 
-*/
 
 // [소수만들기](https://programmers.co.kr/learn/courses/30/lessons/12977)
 // 주어진 숫자 중 3개의 수를 더했을 때 소수가 되는 경우의 개수를 구하려고 합니다. 숫자들이 들어있는 배열 nums가 매개변수로 주어질 때, nums에 있는 숫자들 중 서로 다른 3개를 골라 더했을 때 소수가 되는 경우의 개수를 return 하도록 solution 함수를 완성해주세요.
@@ -570,24 +569,83 @@ function solution(nums) {
   // 서로 다른 3개 고르기
   for(let i=0; i<nums.length; i++){
       for(let j=0; j<nums.length; j++){
-          if(i==j)
+        if(i==j)
               continue
           for(let k=0; k<nums.length; k++){
-              if(k==i || k==j)
+            if(k==i || k==j)
                   continue
-              // 소수인지 확인
+                  // 소수인지 확인
               for(let l=2; l<nums[i]+nums[j]+nums[k]; l++) {
-                  count = 0;   
+                count = 0;   
                   if((nums[i]+nums[j]+nums[k])%l==0)
-                      count ++;
+                  count ++;
                   if (count ==0)
-                      answer ++;
+                  answer ++;
+                }
               }
+      }
+    }
+    return answer;
+}
+
+*/
+
+function solution(nums) {
+  let answer = 0;
+  let sums = [];
+  // 서로 다른 3개 고르기 조합
+  const getCombination = function (arr, selectNum) {
+      const result = [];
+      if (selectNum===1) return arr.map(v=>[v]); 
+      
+      arr.forEach((fixed, index, array)=>{
+          const rest = array.slice(index+1);
+          const combinations = getCombination(rest, selectNum-1);
+          const attached = combinations.map(combi=>[fixed, ...combi]);
+          result.push(...attached);
+      });
+      return result;
+  }
+  // 조합의 합
+  const C3 = getCombination(nums,3); 
+  for (let i=0; i<C3.length; i++) {
+      sums.push(C3[i][0]+C3[i][1]+C3[i][2]);
+  }
+  
+  // 소수인지 확인
+  for(let sum of sums){
+      let isPrime = true;
+      for(let j=3; j<sum; j++){
+          if(sum % j ===0){
+           isPrime = false;
           }
       }
+      if(isPrime)
+      answer ++;
   }
   return answer;
 }
+
+
+// let arr = [1,2,3,4,5];
+
+// function permutation ( arr, selectNum) { // 순열코드
+//   let result = [];
+//   if (selectNum ===1) return arr.map((item)=>[item]); // 하나씩 뽑는다면 아이템 그대로 반환
+
+//   arr.forEach((item, index, arr) => {
+//     const fixer = item; // 첫번째 고정
+//     const restArr = arr.filter((_,idx) => index !==idx); // filter, index를 통해 같은수를 뽑지 않도록 "_" 는 인덱스를 사용하기 위한 빈 값
+//     const permutationArr = permutation(restArr, selectNum -1); // 재귀함수 
+//     const combineFixer = permutationArr.map((item) => [fixer, ...item]);
+//     result.push(...combineFixer);
+//   });
+//   return result
+// }
+// permutation(arr,3);
+
+
+
 
 // 코딩테스트 자주 쓰는 문법
 
