@@ -125,6 +125,7 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`); // retu
 greetArr('hello')('TJ');
 
 
+*/
 // 132. The call and apply methods
 
 const Tway = {
@@ -164,6 +165,44 @@ const jeju = {
 
 book.call(jeju, 583, 'Tomas')
 
-*/
 
 // 133. The bind method 
+
+console.log("------------------------");
+const bookEW = book.bind(eurowings)
+const bookTway = book.bind(Tway);
+const bookJJ = book.bind(jeju);
+
+bookEW(23, 'Minho')
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Tae Jung')
+
+// With Event Listeners
+jeju.planes = 300;
+jeju.buyPlane = function () {
+  console.log(this);
+
+  this.planes++
+  console.log(this.planes);
+};
+document.querySelector('.buy').addEventListener
+('click', jeju.buyPlane.bind(jeju))
+
+// Partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = (value) => value + value * 0.23; 와 같음
+console.log(addVAT(100));
+
+// 위 bind와 같은 기능
+const addTaxRate = function(rate) {
+  return function(value) {
+    return value + value * rate
+  }
+}
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
