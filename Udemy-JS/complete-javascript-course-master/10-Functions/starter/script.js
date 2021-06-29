@@ -206,7 +206,6 @@ const addTaxRate = function(rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 
-*/
 
 // 134. Coding Challenge #1
 
@@ -222,16 +221,16 @@ const poll = {
     const answer = Number(prompt(
       `${this.question}\n${this.options.join("\n")}\n(Write option number)`
       ));
-    console.log(answer);
-
-    // Register answer
-    typeof answer === 'number' && answer < this.answers.length &&
-    this.answers[answer]++; // answer가 number이고, 길이가 length보다 작을 때 answers 추가됨.
+      console.log(answer);
+      
+      // Register answer
+      typeof answer === 'number' && answer < this.answers.length &&
+      this.answers[answer]++; // answer가 number이고, 길이가 length보다 작을 때 answers 추가됨.
     // if문을 사용할 수 없을때 사용할 수 있는 야매if문..
     this.displayResult();
     this.displayResult('string');
   },
-
+  
   displayResult(type = 'array') {
     if(type === 'array') {
       console.log(this.answers);
@@ -244,9 +243,39 @@ const poll = {
 // poll.registerNewAnswer();
 
 document.querySelector('.poll')
-        .addEventListener('click', poll.registerNewAnswer.bind(poll)); 
-        // bind를 안하면 document의 this를 가르키기 때문에 오류가 발생한다. 
+.addEventListener('click', poll.registerNewAnswer.bind(poll)); 
+// bind를 안하면 document의 this를 가르키기 때문에 오류가 발생한다. 
 
 // Bonus
 poll.displayResult.call({answers: [5, 2, 3]})
 poll.displayResult.call({answers: [1, 5, 3, 9, 6, 1]})
+
+*/
+
+// 135. IIFE (Immediately Invoked Function Expressions)
+
+const runOnce = function() {
+  console.log('This will never run again');
+};
+runOnce(); // runOnce()를 실행하면 어디서든 다시 실행할 수 있는 함수
+
+(function () {
+  console.log('This will really never run again');
+})(); // 괄호를 통해 오류를 없애고 실행
+
+(() => console.log('This will Also never run again'))(); // 화살표 함수를 이용한 방식
+
+(function () {
+  console.log('왜 IIFE를 실행하는가?');
+  const Private = 23; // 접근 불가
+})(); //
+// console.log(Private); // 변수를 보호하거나 다른 실수로 덮어쓰이지 않기 위해 접근 못하도록
+
+// var을 사용할 때는 위와 같은 방법을 사용하였지만, const, let의 등장으로 아래와 같이 간단하게 사용할 수 있다.
+{
+  var notPrivate = 46;
+  const isPrivate = 23;
+}
+
+console.log(notPrivate);
+console.log(Private);
