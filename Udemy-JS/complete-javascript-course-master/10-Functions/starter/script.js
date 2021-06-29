@@ -125,7 +125,6 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`); // retu
 greetArr('hello')('TJ');
 
 
-*/
 // 132. The call and apply methods
 
 const Tway = {
@@ -182,7 +181,7 @@ bookEW23('Tae Jung')
 jeju.planes = 300;
 jeju.buyPlane = function () {
   console.log(this);
-
+  
   this.planes++
   console.log(this.planes);
 };
@@ -206,3 +205,48 @@ const addTaxRate = function(rate) {
 }
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
+
+*/
+
+// 134. Coding Challenge #1
+
+// § Data 1: [5, 2, 3]
+// § Data 2: [1, 5, 3, 9, 6, 1]
+
+const poll = {
+  question: "What is your favourite programming language?",
+  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    const answer = Number(prompt(
+      `${this.question}\n${this.options.join("\n")}\n(Write option number)`
+      ));
+    console.log(answer);
+
+    // Register answer
+    typeof answer === 'number' && answer < this.answers.length &&
+    this.answers[answer]++; // answer가 number이고, 길이가 length보다 작을 때 answers 추가됨.
+    // if문을 사용할 수 없을때 사용할 수 있는 야매if문..
+    this.displayResult();
+    this.displayResult('string');
+  },
+
+  displayResult(type = 'array') {
+    if(type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(',')}`);
+    }
+  }
+};
+
+// poll.registerNewAnswer();
+
+document.querySelector('.poll')
+        .addEventListener('click', poll.registerNewAnswer.bind(poll)); 
+        // bind를 안하면 document의 this를 가르키기 때문에 오류가 발생한다. 
+
+// Bonus
+poll.displayResult.call({answers: [5, 2, 3]})
+poll.displayResult.call({answers: [1, 5, 3, 9, 6, 1]})
