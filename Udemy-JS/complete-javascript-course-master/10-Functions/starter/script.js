@@ -250,7 +250,6 @@ document.querySelector('.poll')
 poll.displayResult.call({answers: [5, 2, 3]})
 poll.displayResult.call({answers: [1, 5, 3, 9, 6, 1]})
 
-*/
 
 // 135. IIFE (Immediately Invoked Function Expressions)
 
@@ -279,3 +278,65 @@ runOnce(); // runOnce()를 실행하면 어디서든 다시 실행할 수 있는
 
 console.log(notPrivate);
 console.log(Private);
+
+// 136. Closures
+
+const secureBooking = function () { // Closure를 인식할 수 있는 예제
+  let passengerCount = 0;
+  
+  return function() {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  }
+}
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker(); // 3 passengers. function의 환경은 사라져야 하지만 booker의 기능이 계속되고 있음. 이것이 클로저가 하는 일
+
+console.dir(booker) // 함수 자체를 얻는 함수  Scope에서 Closure을 볼 수 있음
+
+*/
+
+// 137. Closures2
+
+// Example 1
+let f;
+
+const g = function() {
+  const a = 23;
+  f = function() {
+    console.log(a * 2);
+  }
+}
+
+const h = function() {
+  const b = 777;
+  f = function () {
+    console.log(b*2);
+  }
+}
+
+g();
+f();
+
+// f 재할당
+h();
+f();
+
+// Example 2
+const boardPassengers = function(n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function(){
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3groups, each with ${perGroup} passengers`);
+  }, wait*1000) // setTimeout 시간지연함수(함수, 밀리세컨드)
+
+  console.log(`Will start boarding in ${wait} seconds`); //  타임아웃function 실행 후 실행됨
+};
+
+const perGroup = 1000; // 함수 내에서 perGroup을 정의하지 않으면 1000 실행 closure의 우선순위
+boardPassengers(180, 3);
