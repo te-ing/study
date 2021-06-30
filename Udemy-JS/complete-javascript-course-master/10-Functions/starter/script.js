@@ -298,7 +298,6 @@ booker(); // 3 passengers. function의 환경은 사라져야 하지만 booker�
 
 console.dir(booker) // 함수 자체를 얻는 함수  Scope에서 Closure을 볼 수 있음
 
-*/
 
 // 137. Closures2
 
@@ -329,14 +328,29 @@ f();
 // Example 2
 const boardPassengers = function(n, wait) {
   const perGroup = n / 3;
-
+  
   setTimeout(function(){
     console.log(`We are now boarding all ${n} passengers`);
     console.log(`There are 3groups, each with ${perGroup} passengers`);
   }, wait*1000) // setTimeout 시간지연함수(함수, 밀리세컨드)
-
+  
   console.log(`Will start boarding in ${wait} seconds`); //  타임아웃function 실행 후 실행됨
 };
 
 const perGroup = 1000; // 함수 내에서 perGroup을 정의하지 않으면 1000 실행 closure의 우선순위
 boardPassengers(180, 3);
+
+*/
+
+// Coding Challenge #2
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function(){
+  header.style.color = 'blue'});
+  })();
+
+
+
