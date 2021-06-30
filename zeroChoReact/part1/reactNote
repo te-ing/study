@@ -1,0 +1,8 @@
+리액트 사용이유: 1. 사용자 경험 향상 2. 재사용 컴포넌트 3. 데이터-화면 일치
+
+웹팩은 쪼개진 자바스크립트 파일을 html이 실행할 수 있는 자바스크립트로 합쳐주는 것
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script> -> 리액트가 동작하는 핵심코드가 담겨있는 자바스크립트 파일 (배포시 development가 아닌 production)
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -> 리액트 코드를 웹에 붙여주는 역할의 자바스크립트 파일
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -> 실험적인 문법을 적용하기 위함. 스크립트에 <script type="text/babel"> 넣어줘야함
+ex 자바스크립트 안에서 html 문법을 사용하는 것

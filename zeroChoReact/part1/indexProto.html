@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id = "root"></div>
+  <script>
+    const e = React.createElement; // html 태그생성
+    
+    class LikeButton extends React.Component{ // 리액트 안에 들어있는 컴포넌트 상속
+      constructor(props){ 
+        super(props);
+        this.state = { // state(상태): 바뀔 수 있는 부분
+          liked:false,
+        };
+      }
+
+      render(){ // 어떻게 보여지는지
+        return e('button', {onClick: () => {this.setState({ liked: true})}, type: 'submit'},this.state.liked === true ? 'Liked' : 'Like',); 
+        //                         ⬆ html 속성을 넣는 자리                              
+        // <button onclick="()[*html에서는 onClick] => { console.log('clicked') }" type="submit">Like</button> 이런 태그를 만들겠다는 뜻
+      }
+    }
+    
+  </script> 
+  <script>
+    ReactDOM.render(e(LikeButton), document.querySelector('#root')); // 웹(화면)에 렌더링 해주는 역할 ReactDOM.render(클래스이름)
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id = "root"></div>
+  <script type="text/babel">
+    const e = React.createElement; // html 태그생성
+    
+    class LikeButton extends React.Component{ // 리액트 안에 들어있는 컴포넌트 상속
+      constructor(props){ 
+        super(props);
+        this.state = { // state(상태): 바뀔 수 있는 부분
+          liked:false,
+        };
+      }
+
+      render(){ // 어떻게 보여지는지
+        return <button // JSX (자바스크립트 + XML 자바스크립트에서 html문법을 사용)
+        type = "submit" 
+        onClick ={() => {this.setState({ liked: true})}}> 
+          {this.state.liked === true ? 'Liked' : 'Like' }
+        </button>; // 아래의 코드가 가독성 좋게 변경됨
+        // e('button', {onClick: () => {this.setState({ liked: true})},
+        // type: 'submit'},
+        // this.state.liked === true ? 'Liked' : 'Like',); 
+      }
+    }
+    
+  </script> 
+  <script type="text/babel">
+    ReactDOM.render(<div>
+      <LikeButton />
+      <LikeButton /></div>, document.querySelector('#root')); // createElement를 태그로 대체해서 가독성 높임
+    // ReactDOM.render(e(LikeButton), document.querySelector('#root')); // 웹(화면)에 렌더링 해주는 역할 ReactDOM.render(클래스이름)
+  </script>
+</body>
+</html>
