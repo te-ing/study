@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id = "root"></div>
+  <script type="text/babel">
+    class GuGuDan extends React.Component {
+      constructor(props) {
+        super(props);
+      this.state = { // 바뀌는 것들을(state) 추가
+        result: '',
+        first: Math.ceil(Math.random() *9),
+        second: Math.ceil(Math.random() *9),
+        value: '',
+      };
+    };
+    onSubmit = (e) => { // 클래스의 메서드로 만들어서 가시성 편하도록
+            e.preventDefault(); // 기본브라우저의 동작(링크, 클릭, 폼제출)취소. 
+                                //onSubmit이 기본 html의 submit(새로고침)을 호출하기 때문에 사용
+            if (parseInt(this.state.value) === this.state.first * this.state.second) {
+              this.setState((prevState) =>{ // 이전 상태값(prevState) 구분을 쉽게 함
+                return {
+                result: '정답'+ prevState.value,
+                first: Math.ceil(Math.random()*9),
+                second: Math.ceil(Math.random()*9),
+                value: '',
+                };
+              });
+              this.input.focus();
+              // this.setState({ 
+                //     value: this.state.value +1, 
+                // });
+                // this.setState({ // this.state.value+2가 아니라, this.state.value +1 일 수도 있음
+                  //     value: this.state.value +1, 
+                  // });
+                  // this.setState((prevState) => {
+                  //   return {
+                  //     value: prevState.value +1, // 따라서 위처럼 setState를 연달아 사용할 땐 비동기이기 때문에 함수로 작성해야 함
+                  //   }
+                  // });
+            } else {
+              this.setState({
+                result: '땡',
+                value: '',
+              });
+              this.input.focus();
+              }
+            };
+            // 직접 정의한 함수에는 꼭 화살표 함수로 써야 함. 안그러면 this가 잘못돼서 에러남
+    onChange = (e) => {this.setState({value: e.target.value});
+    };
+    input;
+    render() {
+      return (
+        <>
+          <div>{this.state.first} 곱하기 {this.state.second}는?</div>
+          <form onSubmit = {this.onSubmit}>
+            <input ref={(c) => {this.input = c; }} type = "number" value={this.state.value} onChange= {this.onChange}/>
+            <button>입력</button>
+          </form>
+          <div>{this.state.result}</div>
+        </>);
+    }
+  };
+  </script> 
+  <script type="text/babel">
+    ReactDOM.render(<GuGuDan />, document.querySelector('#root')); 
+  </script>
+</body>
+</html>
