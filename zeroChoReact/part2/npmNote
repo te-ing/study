@@ -1,0 +1,10 @@
+웹팩은 자바스크립트 파일을 묶어주는 것. 묶어서 관리 및 수정도 가능
+
+터미널에서 npm init 치면 json패키지 설치됨
+npm i react react-dom -> 리액트와 리액트 돔 설치 (설치된 파일은 json에 기록됨)
+npm i -D webpack webpack-cli -> 웹팩과 웹팩-cli 설치(-D는 개발용으로만 사용한다는 뜻)
+
+동일 폴더에 webpack.config.js 파일 생성 후 module.exports = {} 기입 (이전에 했던 방식처럼 스크립트에서 불러오는 것이 아닌, 모듈시스템으로 불러오는 것) 
+            client.jsx 파일 생성 후 const React = require('react'); 
+            const ReactDom = require('react-dom'); 기입(리액트와 리액트돔을 불러오는 것)
+            
