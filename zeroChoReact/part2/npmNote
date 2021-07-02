@@ -7,4 +7,8 @@ npm i -D webpack webpack-cli -> 웹팩과 웹팩-cli 설치(-D는 개발용으�
 동일 폴더에 webpack.config.js 파일 생성 후 module.exports = {} 기입 (이전에 했던 방식처럼 스크립트에서 불러오는 것이 아닌, 모듈시스템으로 불러오는 것) 
             client.jsx 파일 생성 후 const React = require('react'); 
             const ReactDom = require('react-dom'); 기입(리액트와 리액트돔을 불러오는 것)
+
+npm i -D @babel/core @babel/preset-envv  @babel/preset-react babel-loader
+바벨 설치 명령어
+
             
