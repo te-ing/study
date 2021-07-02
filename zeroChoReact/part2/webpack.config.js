@@ -3,7 +3,7 @@ const path = require('path'); // 노드에서 경로를 설정
 module.exports = {
   name: 'WordRelay-setting', // 꼭 필요한 것은 아니나 파일 설명용
   mode: 'development', // 실서비스용은 production
-  devtool: 'eval', // 빠른 속도
+  devtool: 'eval', // 빠른 속도. 실서비스용일 때에는 hidden-source-map 사용
   resolve: {
     extensions: ['.js','.jsx'] // app에 확장자 명을 적지 않아도 .js와 jsx 확장자명을 가진 것이 있으면 자동탐색. 다른 확장자명도 가능
   },
