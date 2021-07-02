@@ -11,4 +11,51 @@ npm i -D webpack webpack-cli -> 웹팩과 웹팩-cli 설치(-D는 개발용으�
 npm i -D @babel/core @babel/preset-env  @babel/preset-react babel-loader
 바벨 설치 명령어
 
-            
+package.json에서 
+"scripts": {
+  "dev": "webpack"
+}
+
+
+스크립트로 작성된 js파일에는 jsx파일에 const React = require('react');
+client.jsx에 
+const React = require('react');
+const ReactDOM = require('react-dom');
+
+const GuGuDan = require('./GuGuDan') // GuGuDan 예시
+
+ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
+
+그리고 쪼개진 파일에 module.exports = GuGuDan;
+
+wenpack.config. 작성 후 터미널에 webpack 타이핑
+// 'webpack'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다.
+// 뜰 경우 1. 명령어로 등록하거나 
+// 2. package.json script에 "dev":"webpack"을 넣고 터미널에서 npm run dev을 타이핑하거나 
+// 3. npx webpack을 타이핑
+
+
+*자동 웹팩 빌드(리액트 리프레쉬)
+npm i react-refresh @pmmmwh/react-refresh-webpack-plugin -D 설치
+npm i -D webpack-dev-server 웹팩용 서버 설치
+
+이후 package.json 수정
+"scripts":{
+  "dev": "webpack serve --env development"
+}
+webpack.config.js에서 
+const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'); 작성, 플러그인에
+plugins: [
+  new RefreshWebpackPlugin()
+]
+바벨로더의 플러그인에도 기입
+plugins: [
+  'react-refresh/babel'
+]
+데브서버 설정도 추가
+devServer: {
+  publicPath: '/dist/',
+  hot: true // 핫리로딩은 기존 데이터를 유지하면서 새로고침. 핫 리로딩이 아니면 새로고침하면서 페이지 정보가 날아감
+}
+이후 터미널에서 npm run dev 치면
+로컬호스트서버에서 실시간 수정됨
