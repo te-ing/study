@@ -15,7 +15,8 @@
                 // 해설
                 let answer;
                 answer = s.filter((v,i)=>{
-                    if(s.indexOf(v)===i) return true;
+                    // if(s.indexOf(v)===i) return true;
+                    return s.indexOf(v)===i;
                 });
                 return answer;
             }
