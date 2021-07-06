@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                // let answers = [];
+                // let answer;
+                // for(let word of s){
+                //     if(word==="A") answers.push("#")
+                //     else answers.push(word)
+                // }
+                // answer = answers.join("")
+
+                //해설
+                // let answer = "";
+                // for (let x of s){
+                //     if(x==="A") answer +="#"
+                //     else answer += x
+                // }
+
+                let answer = s;
+                answer = answer.replace(/A/g,"#") // 정규표현식
+                return answer;
+            }
+            
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

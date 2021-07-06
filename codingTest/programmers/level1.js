@@ -656,6 +656,7 @@ function solution(nums) {
 // arr.shift() // 배열의 첫번째 요소 제거 후 반환
 // arr.unshift() // 배열의 앞쪽에 데이터 넣음
 // arr.push() // 배열의 뒤쪽에 데이터 넣음
+// arr.substr(start index, length) // start index부터 length 길이만큼 string을 잘라내어 반환
 // arr.splice(arr.indexOf(1),1); // 1 삭제
 // arr.splice(1,2); // arr 배열의 [1]부터 2개 제거
 // arr.slice(1,2); // arr 배열의 [1] 부터 [2]까지 자르기
@@ -676,3 +677,6 @@ function solution(nums) {
 // arr.join(separator) // 배열 arr을 문자열로 바꿈. separator는 문자열 사이마다 들어가는 구분자, defalt값이 , 이므로 없애려면 arr.join('')
 // const array1 = ['a', 'b', 'c'];
 // array1.forEach(element => console.log(element)); // array1의 element 출력
+// let num = x.charCodeAt(); 
+// charCodeAt() 아스키코드 변환 65~90 대문자 97~122 소문자 (32를 빼면 대문자)
+// String.fromCharCode(숫자); 아스키코드를 숫자로 변환

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+
+                // let answer = 0;
+
+                // for(i=0;i<s.length;i++){
+                //     if(s[i]===s.toUpperCase()[i]) answer++
+                // }
+
+                // 해설
+                let answer = 0;
+                for(let x of s){
+                    let num = x.charCodeAt(); // charCodeAt() 아스키코드 변환 65~90 대문자 97~122 소문자 (32를 빼면 대문자)
+                    // String.fromCharCode(숫자); 아스키코드를 숫자로 변환
+                    if(num>=65 && num<=90) answer++
+                }
+
+
+
+                return answer;
+            }
+            let str="KoreaTimeGood";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

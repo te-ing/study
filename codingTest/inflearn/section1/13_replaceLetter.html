@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer = "";
+                for(let x of s){
+                    if(x.charCodeAt()<=90&&x.charCodeAt()>=65)
+                    answer += String.fromCharCode(x.charCodeAt()+32)
+                    else answer += String.fromCharCode(x.charCodeAt()-32)
+                }
+                return answer;
+            }
+
+
+            let str="StuDY";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
