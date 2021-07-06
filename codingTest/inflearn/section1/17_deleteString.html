@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                // let answer = [];
+
+                // for(let i=0;i<s.length;i++){
+                //     if(s.indexOf(s[i])===i) answer.push(s[i]);
+                // }
+                
+                // 해설
+                let answer;
+                answer = s.filter((v,i)=>{
+                    if(s.indexOf(v)===i) return true;
+                });
+                return answer;
+            }
+
+            let str=["good", "time", "good", "time", "student"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
