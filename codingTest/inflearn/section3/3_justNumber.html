@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+                // let answer = "";
+                // const testNum = /[0-9]/;
+                // for(let i=0; i<str.length; i++){
+                //     if(testNum.test(str[i]))
+                //     answer += str[i]
+                //     if(answer[0]==0)
+                //     answer-=0
+                // }
+
+                // 해설
+                let answer = "";
+                for(let x of str){
+                    if(!isNaN(x)) answer += x; // is Not a Number : isNaN(데이터) 데이터가 숫자이면 false
+                }
+
+                return parseInt(answer); // parseInt(숫자) 정수로 표현
+                
+            }
+            
+            let str="g0en2T0s8eSoft";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

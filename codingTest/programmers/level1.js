@@ -680,3 +680,7 @@ function solution(nums) {
 // let num = x.charCodeAt(); 
 // charCodeAt() 아스키코드 변환 65~90 대문자 97~122 소문자 (32를 빼면 대문자)
 // String.fromCharCode(숫자); 아스키코드를 숫자로 변환
+// arr.reverse() // arr의 배열을 반대로 변경
+//   s=s.toLowerCase().replace(/[^a-z]/g,""); s의 문자열을 소문자로 변경, a-z가 아닌 것들은 삭제
+// if(!isNaN(x)) // is Not a Number : isNaN(데이터) 데이터가 숫자이면 false
+// parseInt(answer); // parseInt(숫자) 정수로 표현

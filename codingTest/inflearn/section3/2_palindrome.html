@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                // const apb = /[a-z/;/,]/;
+                // let apbs = "";
+                // let answer = [];
+                // s.toLowerCase();
+
+                // for(let x of s){
+                //     if (apb.test(x)){
+                //         apbs += x
+                //     }
+                // }
+                // let data = apbs.split(/[,/;]/)
+
+                // for(let x of data){
+                //     if(x.split("")===x.split("").reverse())
+                //     answer.push("YES")
+                //     else answer.push("NO")
+                // }
+
+                // 해설
+                let answer = "YES";
+                s=s.toLowerCase().replace(/[^a-z]/g,"");
+                console.log(s);
+                if(s!==s.split("").reverse().join("")) return "NO"
+
+                return answer;
+            }
+
+            let str="found7, time: study; Yduts; emit, 7Dnuof";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+

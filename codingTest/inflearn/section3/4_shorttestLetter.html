@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // function solution(s, t){
+            //     let answer = [];
+            //     let eIndex = [];
+                
+            //     for(let i=0; i<s.length; i++){
+            //         if(s[i]===t) eIndex.push(i)
+            //     }
+            //     for(let i=0; i<s.length; i++){
+            //         let count = Number.MAX_SAFE_INTEGER
+            //         for(let x of eIndex){
+            //         if(count > Math.abs((s.indexOf(s[i]) - x))) count = Math.abs(s.indexOf(s[i]) - x);
+            //         }
+            //         answer.push(count)
+            //     }
+            //     return answer;
+            // }
+
+            function solution(s, t){ // 해설
+                let answer = [];
+                let p = 100;
+                for (let x of s){
+                    if(x===t){
+                        p=0;
+                        answer.push(p);
+                    } else {
+                        p++;
+                        answer.push(p);
+                    }
+                }
+                for (let i=s.length-1; i>=0; i--){
+                    if(s[i]===t) p=0;
+                    else {
+                        p++;
+                        answer[i] = Math.min(p, answer[i]);
+                    }
+                }
+                return answer;
+            }
+
+
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>
