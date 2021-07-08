@@ -684,3 +684,9 @@ function solution(nums) {
 //   s=s.toLowerCase().replace(/[^a-z]/g,""); s의 문자열을 소문자로 변경, a-z가 아닌 것들은 삭제
 // if(!isNaN(x)) // is Not a Number : isNaN(데이터) 데이터가 숫자이면 false
 // parseInt(answer); // parseInt(숫자) 정수로 표현
+// function isPrime(num){ // 소수구하기
+//   if(num===1) return false;
+//   for(i=2; i<=parseInt(Math.sqrt(num)); i++){ // Math.sqrt() 제곱근 반환
+//       if(num%i==0) return false;
+//   } return true;
+// }

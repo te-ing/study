@@ -6,6 +6,21 @@
     <body>
         <script>
             function solution(m, product){
+                let answer = 0;
+                let sortArr = arr.sort((a,b)=>(a[0]+a[1])-(b[0]+b[1]))
+                console.log(sortArr);
+                for(let i=0; i<arr.length; i++){
+                    let buy = 0;
+                    let money = m;
+                    money -= sortArr[i][0]/2-sortArr[i][1]
+                    for(let j=0; j<arr.length; j++){
+                        if(i!==j && (sortArr[j][0]+sortArr[j][1])>money) break;
+                        if(i!==j && (sortArr[j][0]+sortArr[j][1])<=money)
+                        money -= (sortArr[j][0]+sortArr[j][1])
+                        buy ++;
+                    }
+                    answer = Math.max(answer, buy)
+                }
                 
                 return answer;
             }

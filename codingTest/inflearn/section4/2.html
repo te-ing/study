@@ -5,8 +5,39 @@
     </head>
     <body>
         <script>
-            function isPrime(num){
+            // function isPrime(num){
+            //     if(num===1) return false;
+            //     for(i=2; i<num; i++){
+            //         if(num%i==0) return false;
+            //     } return true;
+            // }
+
+            // function solution(arr){
+            //     let answer = [];
+            //     let reverseNum = [];
+            //     for(i=0; i<arr.length; i++){
+                
+            //         reverseNum.push(Number(String(arr[i]).split("").reverse().join("")))
+            //     }
+            //     for(x of reverseNum){
+            //         if(isPrime(x)) answer.push(x)
+            //     }
+            //     return answer;
+            // }
             
+            function isPrime(num){ //해설
+                if(num===1) return false;
+                for(i=2; i<=parseInt(Math.sqrt(num)); i++){ // Math.sqrt() 제곱근 반환
+                    if(num%i==0) return false;
+                } return true;
+            }
+
+            function solution(arr){
+                let answer = [];
+                for(let x of arr){
+                    let res = Number(x.toString().split("").reverse().join(""));
+                    if(isPrime(res)) answer.push(res)
+                }
                 return answer;
             }
             

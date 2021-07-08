@@ -6,7 +6,25 @@
     <body>
         <script>
             function solution(n, k, card){
+
+                // arr중에서 3개를 뽑고 모든 경우에서 k번째로 큰 수를 출력
+
+                let answer;
+                let arr=card.sort((a,b)=>b-a)
+                let maxArr = [];
+                let sum;
                 
+                for(let i=0; i<arr.length; i++){
+                    for(let j=0; j<arr.length; j++){
+                        if(i===j) break;
+                        for(let l=0; l<arr.length; l++){
+                            if(j===l) break;
+                            maxArr.push(arr[i]+arr[j]+arr[l])
+                        }
+                    }
+                }
+                answer = maxArr.sort((a,b)=>b-a)[k-1]
+                if(!maxArr.sort((a,b)=>b-a)[k-1]) answer = -1
                 return answer;
             }
             

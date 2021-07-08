@@ -6,7 +6,22 @@
     <body>
         <script>
             function solution(n, arr){
-
+                let prevSum = 0;
+                let sum = 0;
+                let answer = 0;
+                for(let x of arr){
+                    for(let i=0; i<x.toString().length; i++){
+                        sum += Number(x.toString()[i]);
+                    }
+                    if (sum>prevSum){
+                        answer = x;
+                        prevSum = sum;
+                    }
+                    if (sum===prevSum){
+                        answer = Math.max(answer, x);
+                    }
+                    sum = 0;
+                }
                 return answer;
             }
             
@@ -17,30 +32,3 @@
 </html>
 
 
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>출력결과</title>
-    </head>
-    <body>
-        <script>
-            function solution(n, arr){
-                let answer, max=Number.MIN_SAFE_INTEGER;
-                for(let x of arr){
-                    let sum=x.toString().split('').reduce((a, b)=>a+Number(b), 0);
-                    if(sum>max){
-                        max=sum;
-                        answer=x;
-                    }
-                    else if(sum===max){
-                        if(x>answer) answer=x;
-                    }
-                }
-                return answer;
-            }
-            
-            let arr=[128, 460, 603, 40, 521, 137, 123];
-            console.log(solution(7, arr));
-        </script>
-    </body>
