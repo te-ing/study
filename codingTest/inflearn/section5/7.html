@@ -7,6 +7,20 @@
         <script>
             function solution(str1, str2){
                 
+                let answer = "YES";
+                let isAg = new Map();
+                
+                for(let i=0; i<str1.length; i++){
+                    if(isAg.has(str1[i])) isAg.set(str1[i],isAg.get(str1[i])+1);
+                    else isAg.set(str1[i], 1);
+                }
+                
+                for(let i=0; i<str2.length; i++){
+                if(isAg.get(str2[i])>0) {
+                    isAg.set(str2[i], isAg.get(str2[i])-1);
+                }
+                else  answer = "NO"
+                }
                 return answer;
             }
             

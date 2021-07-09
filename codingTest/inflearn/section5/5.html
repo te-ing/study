@@ -6,8 +6,12 @@
     <body>
         <script>
             function solution(k, arr){
-                
-                return answer;
+                let answer=[];
+
+                for(let i=0; i<=arr.length-k; i++){
+                    answer.push(arr[i]+arr[i+1]+arr[i+2]);
+                }
+                return Math.max(...answer);
             }
             
             let a=[12, 15, 11, 20, 25, 10, 20, 19, 13, 15];

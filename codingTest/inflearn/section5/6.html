@@ -6,7 +6,19 @@
     <body>
         <script>
             function solution(s){  
-                
+                let answer;
+                let vote = new Map();
+                let max = Number.MIN_SAFE_INTEGER;
+                for(let x of s){
+                    if(vote.has(x)) vote.set(x, vote.get(x)+1)
+                    else vote.set(x, 1)
+                }
+                for ( let [key, val] of vote){
+                    if(val > max) {
+                        max=val
+                        answer = key
+                    }
+                }
                 return answer;
             }
 

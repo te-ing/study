@@ -6,7 +6,38 @@
     <body>
         <script>
             function solution(m, arr){
+                // let answer = 0;
+
+                // for(let i=0; i<arr.length; i++){
+                //     let sum = 0;
+                //     if(arr[i]>m) break;
+                //     if(arr[i]===m) {
+                //         answer ++;
+                //         break
+                //     }
+                //     answer ++;
+                //     for(let j=i+1; j<arr.length; j++){
+                //         sum += arr[j];
+                //         if(sum+arr[i] > m) break;
+                //         if(sum+arr[i] < m) answer ++;
+                //         if(sum+arr[i] === m) {
+                //             answer ++; 
+                //             break
+                //         }
+                //     }
+                // }
+
+                // Two pointers 해설
                 
+                let answer=0, lt=0, sum = 0;
+                for(let rt=0; rt<arr.length; rt++){
+                    sum+=arr[rt];
+                    while(sum>m){
+                        sum -= arr[lt++]
+                    }
+                    answer += rt-lt+1
+                }
+
                 return answer;
             }
             
