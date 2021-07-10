@@ -6,8 +6,26 @@
     <body>
         <script>
             function solution(board, moves){
+                let answer = 0;
+                let basket = [];
+
+                for(let x of moves){
+                    for(let i=0; i<board.length; i++){
+                        if (board[i][x-1]!==0){
+                            basket.push(board[i][x-1])
+                            board[i][x-1] = 0
+                            break;
+                        }
+                    }
+                }
+                for(let i=0; i<basket.length; i++){
+                    if(basket[i] === basket[i+1]){
+                        basket.splice(i,2);
+                        answer += 2;
+                        i= -1
+                    }
                 
-                
+                }
                 return answer;
             }
             

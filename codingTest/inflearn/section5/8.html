@@ -6,11 +6,18 @@
     <body>
         <script>
             function compareMaps(map1, map2){
-                
+
                 return true;
             }
+
             function solution(s, t){
-                
+                let answer = 0;
+                let map1 = [];
+                for(let i=0; i<s.length-t.length+1; i++){
+                    let j = i+t.length;
+                    map1.push(s.slice(i,j).split('').sort().join(''))
+                    if(map1[i]===t) answer ++;
+                }
                 return answer;
             }
             

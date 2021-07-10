@@ -6,7 +6,14 @@
     <body>
         <script>
             function solution(s){  
-                
+                let answer = "";
+                let cnt = 0;
+
+                for(let x of s){
+                    if(x==="(") cnt ++;
+                    if(cnt===0) answer += x;
+                    if(x===")") cnt --;
+                }
                 return answer;
             }
 

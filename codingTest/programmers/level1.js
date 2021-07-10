@@ -690,3 +690,4 @@ function solution(nums) {
 //       if(num%i==0) return false;
 //   } return true;
 // }
+// Array.from({length: 5}, (v, i) => i); // [0, 1, 2, 3, 4] // Array.from({length: 5}, ()=>0); [0,0,0,0,0]
