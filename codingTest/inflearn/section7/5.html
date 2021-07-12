@@ -6,7 +6,21 @@
     <body>
         <script>
             function solution(size, arr){
-                
+                answer =[];
+                for(let x of arr){
+                    if(answer.includes[x]){
+                        for(let i=0; i<answer.indexOf(x)+1; i++){
+                            if(answer.indexOf(x)!==0){
+                                [answer[answer.indexOf(x)],answer[answer.indexOf(x-1)]] = 
+                                [answer[answer.indexOf(x-1)],answer[answer.indexOf(x)]]
+                            }
+                        }
+                    }
+                    else { 
+                        answer.unshift(x);
+                        if(answer.length>size) answer.pop()
+                    }
+                }
                 return answer;
             }
 
