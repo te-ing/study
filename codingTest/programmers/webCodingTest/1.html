@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(d, m) {
+              let answer = 0; // 사용한 보트
+              let boxUp = 1; // 박스
+              let box = m; // 보내야 할 박스
+              for(let x of d){
+                if(m<=x || boxUp <= x){ // 성공
+                  box -= boxUp  
+                  boxUp *= 2;
+                  answer ++;
+                }
+                else if(boxUp > x){ // 실패
+                  boxUp = 1;
+                  answer ++;
+                }
+                if(box<=0) return answer;
+              }
+              if(box > 0) answer = -1;
+              // if(answer > d.length) answer = -1
+              // d의 순서대로 보트의 적재량
+              // m개의 박스를 보내야 한다.
+              // 보내는데 성공하면 *2 아니면 =1
+
+              // 박스를 보낸다. -> 성공 -> 박스*2 보낸 박스 1, 사용한 보트 1
+              // 박스를 보낸다. -> 성공 -> 박스*2 보낸 박스 3, 사용한 보트 2
+              // 박스를 보낸다. -> 실패 -> 박스=1  보낸 박스 3, 사용한 보트 3
+              // 박스를 보낸다. -> 성공 -> 박스*2  보낸 박스 4, 사용한 보트 4
+              // 박스를 보낸다. -> 성공 -> 박스*2  보낸 박스 6, 사용한 보트 5
+
+              return answer;
+            }
+
+            console.log(solution([1,3,2,5,4],6));
+            console.log(solution([2,2,4,3],6));
+            console.log(solution([2,2,4,3],8));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, wires) {
+                let answer = -1;
+                let group = []; // 일반그룹
+                let conn = []; // 연결망그룹
+                for(let i=0; i<n-1; i++){
+                    for(let j=0; j<n-1; j++){ 
+                        if(i!==j &&wires[i][0]===wires[j][1]||
+                        wires[i][0]===wires[j][1]||
+                        wires[i][1]===wires[j][0])
+                        group.push(wires[i])
+                   }
+                }
+                for(let i=0; i<group.length-1; i++){
+                    if(group[i]===group[i+1]){
+                        conn.push(group[i]);
+                    }
+                }
+                answer = conn
+                if(conn.length===0) return answer = 1;
+              return answer;
+            }
+
+            
+
+
+            6 9
+            19 32
+            // console.log(solution(9,[[1,3],[2,3],[3,4],[4,5],[4,6],[4,7],[7,8],[7,9]]));
+            console.log(solution(4,[[1,2],[2,3],[3,4]]));
+            // console.log(solution(7,[[1,2],[2,7],[3,7],[3,4],[4,5],[6,7]]));
+        </script>
+    </body>
+</html>

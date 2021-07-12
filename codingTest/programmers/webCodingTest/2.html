@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(deposit){
+                let answer = [];
+
+                for(let x of deposit){
+                    answer.push(x); // 입금
+                    while(answer[answer.length-1]<=0){ // 만약 마지막 내역이 입금일때까지
+                        answer[answer.length-2] += answer[answer.length-1] // 직전 내역에 출금
+                        answer.pop(); // 마지막 내역 삭제
+                    }                    
+                }
+              return answer;
+            }
+
+            console.log(solution([500, 1000, -300, 200, -400, 100, -100]));
+            console.log(solution([500, 1000, 2000, -1000, -1500, 500]));
+        </script>
+    </body>
+</html>
