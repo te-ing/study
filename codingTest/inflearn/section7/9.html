@@ -5,8 +5,28 @@
     </head>
     <body>
         <script>
-            function solution(times){
-                
+            function solution(arr){
+                let answer;
+                let guest = [];
+                arr.sort((a,b)=>{
+                    if(a[0]===b[0]){
+                        return a[1]-b[1];
+                    }
+                    else return a[0]-b[0];
+                })
+                console.log(...arr);
+                for(let x of arr){
+                    let cnt = 0;
+                    for(let i=0; i<arr.length; i++){
+                        if(x[1]>arr[i][0]) {
+                            cnt++;
+                        }
+                    }
+                    cnt -= arr.indexOf(x)
+                    guest.push(cnt)
+                }
+                console.log(guest);
+                answer = Math.max(...guest)
                 return answer;
             }
 

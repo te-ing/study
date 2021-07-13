@@ -5,13 +5,55 @@
     </head>
     <body>
         <script>
-            function count(songs, capacity){
-                
-                return cnt;
+            // function solution(m, arr){
+            //     let answer;
+            //     // 돌면서 넣는다. 꽉차면 다음CD. CD가 m을 넘어서면.  answer+1해서 다시
+            //     for(let i=0; i<arr.length; i++){
+            //         let cntCd = 1;
+            //         let cntSong = 0;
+            //         answer = ((arr.reduce((a,b)=>a+b))/m)+i;
+            //         for(let j=0; j<arr.length; j++){
+            //             cntSong += arr[j];
+            //             if(cntSong+arr[j+1]>answer){
+            //                 cntCd ++;
+            //                 cntSong = 0;
+            //             }
+            //         }
+            //         if(cntCd===m){
+            //             return answer;
+            //         }
+            //     }
+            //     return answer;
+            // }
+
+            // 해설 (이분탐색)
+            function HowManyCd(size, arr){ // 주어진 size(용량)으로 필요한 cd 수
+                let cntCd = 1;
+                let cntSong = 0;
+                for(let j=0; j<arr.length; j++){
+                    cntSong += arr[j];
+                    if(cntSong+arr[j+1]>size){
+                        cntCd ++;
+                        cntSong = 0;
+                    }
+                }
+                return cntCd;
             }
-            
-            function solution(m, songs){
-                
+
+            function solution(m, arr){
+                let answer=Number.MAX_SAFE_INTEGER;
+                let lt=Math.max(...arr);
+                let rt=arr.reduce((a,b)=>a+b);
+                while(lt<=rt){
+                    let mid = parseInt((lt+rt)/2);
+                    if(HowManyCd(mid, arr)>m){ 
+                        lt=mid+1
+                    }
+                    else if(HowManyCd(mid, arr)<=m){
+                        answer=mid;    
+                        rt=mid-1
+                    } 
+                }
                 return answer;
             }
 

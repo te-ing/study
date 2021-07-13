@@ -5,17 +5,37 @@
     </head>
     <body>
         <script>
-            function count(stable, dist){
-                
-               return cnt;
+            function count(arr, dist){ // 주어진 수로 가능한 말의 숫자
+                let cnt=arr[0];
+                let horse=1;
+                for(let i=1;i<arr.length;i++){
+                    if(arr[i]-cnt>=dist){
+                        horse++;
+                        cnt=arr[i]
+                    }
+                }
+                return horse; 
             }
-            function solution(c, stable){
+            function solution(c, arr){
+                let answer;
+                arr.sort((a,b)=>a-b);
+                let lt = 1;
+                let rt = arr[arr.length-1];
+                while(lt<=rt){
+                        let mid = parseInt((lt+rt)/2);
+                        if(count(arr, mid)>=c){
+                            answer = mid;
+                            lt = mid+1;
+                        }
+                        else rt = mid-1;
+                    }
+                    
+                    return answer;
+                }
                 
-                return answer;
-            }
-
             let arr=[1, 2, 8, 4, 9];
-            console.log(solution(3, arr));
+            console.log("최대 거리:",solution(3, arr));
+            console.log("count(주어진 거리로 가능한 말의 숫자):",count(arr, solution(3, arr)));
         </script>
     </body>
 </html>
