@@ -7,11 +7,16 @@
         <script>
             function solution(n){
                 let answer=[];
-                
-                function DFS(L){
-                    
+                function DFS(n){
+                    if(n<1) return;
+                    else {
+                        DFS(n-1);
+                        console.log(answer);
+                        answer.push(n)
+                        
+                    }
                 }
-                DFS(1);
+                DFS(n);
                 return answer;
             }
 
