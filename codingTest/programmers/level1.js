@@ -691,3 +691,4 @@ function solution(nums) {
 //   } return true;
 // }
 // Array.from({length: 5}, (v, i) => i); // [0, 1, 2, 3, 4] // Array.from({length: 5}, ()=>0); [0,0,0,0,0]
+// Array.trim() // Array에 있는 앞뒤 공백문자 제거
