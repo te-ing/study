@@ -6,8 +6,24 @@
     <body>
         <script>
             function solution(arr){
-                
+                let answer = "NO"
+                let total = arr.reduce((a,b)=>a+b, 0);
+                let n = arr.length;
+                let flag = 0;
+
                 function DFS(L, sum){
+                    if(flag) return;
+                    if(L===n){
+                        if(total-sum===sum) {
+                            answer = "YES";
+                            flag=1; // YES 출력시 종료하기 위한 플래그 변수
+                        }
+
+                    }
+                    else {
+                        DFS(L+1, sum+arr[L]);
+                        DFS(L+1, sum);
+                    }
                     
                 }
                 DFS(0, 0);
@@ -19,3 +35,4 @@
         </script>
     </body>
 </html>
+
