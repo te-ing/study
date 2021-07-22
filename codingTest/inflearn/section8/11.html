@@ -6,11 +6,26 @@
     <body>
         <script>
             function solution(n){         
-                
+                let answer;
+                // let total = 1;
+                // function DFS(n){
+                //     if(n===1){
+                //         answer=total;
+                //         return;
+                //     }
+                //     else {
+                //         total*=n
+                //         DFS(n-1)
+                //     }
+                // }
+                // DFS(n)
+
+                // 해설
                 function DFS(n){
-                    
+                    if(n===1) return 1;
+                    else return n*DFS(n-1);
                 }
-                
+                answer = DFS(n);
                 return answer;
             }
 
