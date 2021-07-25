@@ -691,4 +691,5 @@ function solution(nums) {
 //   } return true;
 // }
 // Array.from({length: 5}, (v, i) => i); // [0, 1, 2, 3, 4] // Array.from({length: 5}, ()=>0); [0,0,0,0,0]
+// Array.from(Array(35),()=>Array(35).fill(0)) // 35길이의 행, 35길이의 열을 0으로 채운다
 // Array.trim() // Array에 있는 앞뒤 공백문자 제거

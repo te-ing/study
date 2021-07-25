@@ -6,15 +6,22 @@
     <body>
         <script>
             function solution(n, r){  
-                
+                let answer;
+                let dy=Array.from(Array(35),()=>Array(35).fill(0)) // 35길이의 행, 35길이의 열을 0으로 채운다
+
                 function DFS(n, r){
-                    
+                    if(dy[n][r]>0) return dy[n][r]; // 메모이제이션. dy[전체수][뽑는수]를 dy에 저장하고 값이 있을 경우 가져와서 소요시간을 줄임
+                    if(n===r || r===0) return 1 // 1이 나오면서 조합이 끝나는 조합의 경우
+                    else{
+                        return dy[n][r] = DFS(n-1,r-1)+DFS(n-1,r); // 조합공식을 이용한 재귀
+                    }
                 }
                 answer=DFS(n, r);
                 return answer;
             }
 
             console.log(solution(5, 3));
+            console.log(solution(33, 19));
         </script>
     </body>
 </html>
