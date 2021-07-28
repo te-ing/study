@@ -6,12 +6,31 @@
     <body>
         <script>
             function solution(n, arr){  
-                
-                function DFS(v){
-                    
+                let answer=0;
+                let graph=Array.from(Array(n+1),()=>Array(n+1).fill(0));
+                let ch = Array.from({length:n+1},()=>0);
+
+                for(let [a,b] of arr){ // arr의 주소들을 graph에 기입
+                    graph[a][b]=1;
                 }
 
-                
+                function DFS(v){
+                    if(v===n){
+                        answer++;
+                    }
+                    else{
+                        for(let i=1; i<=n; i++){
+                            if(graph[v][i]===1 && ch[i]===0){ // graph[v]에서 [i]로 갈 수 있는지
+                                ch[i]=1;
+                                DFS(i)
+                                ch[i]=0;
+                            }
+                        }
+                    }
+                    
+                }
+                ch[1]=1; // 1에서 시작, 1로 돌아올 수 없음
+                DFS(1) // 1에서 시작
                 return answer;
             }
 
