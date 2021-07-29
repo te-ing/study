@@ -1,0 +1,40 @@
+.notify{
+  height: 60vh;
+  width: 100vw;
+  background-color: gainsboro;
+}
+
+.notify_utility{
+  width: 20px;
+  padding-top: 20vh;
+  padding-left: 80px;
+}
+
+.notify_utility_var{
+  height: 40px;
+  width: 5px;
+  border-radius: 20px;
+  background-color: white;
+  margin: 4px;
+  border: none;
+}
+
+.notify_utility_var_small{
+  height: 20px;
+}
+
+.notify_utility_btn{
+  position: absolute;
+  top: 20vh;
+  left: 200px;
+  margin-top: 10px;
+  font-size: 50px;
+  color: white;
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
+}
+
+.var_notify{
+  height: 50px;
+  background-color: turquoise;
+}

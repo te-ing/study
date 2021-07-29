@@ -1,0 +1,33 @@
+.menu{
+  display: flex;
+  justify-content:space-between
+  
+}
+
+.icon_menu{
+  height: 25px;
+  width: 25px;
+  margin: 12.5px
+}
+.icon_search{
+  height: 40px;
+  width: 50px;
+  margin: 5px 0;
+}
+.icon_brunch{
+  height: 30px;
+  width: 70px;
+  margin: 10px 0;
+}
+.right_menu{
+  display: flex;
+}
+.start_menu{
+  width: 70px;
+  height: 25px;
+  margin-top: 14px;
+  border-radius: 15px;
+  border:  lightgrey 2px solid;
+  background-color: rgba(0, 0, 0, 0);
+
+}
