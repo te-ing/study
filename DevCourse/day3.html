@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>연결리스트 구현</title>
+</head>
+<body>
+  <script>
+
+  class Node { // 노드생성
+    constructor(value) {
+      this.value = value; // 노드 데이터영역
+      this.next = null; // 다음 노드를 가르키는 포인터영역
+    }
+  }
+  class SinglyLinkedList { // 노드를 엮어주는 역할
+    constuctor() {
+      this.head = null; 
+      this.tail = null;
+    }
+  
+
+    find(value) { // 노드 탐색
+      let currNode = this.head;
+      while (currNode.value !== value) { 
+        currNode = currNode.next; // 노드를 찾을때까지 다음 노드로 이동
+      }
+      return currNode;
+    }
+
+    append(newValue) { // 끝부분 노드 추가
+      const newNode = new Node(newValue); // 노드 생성
+      if (this.head == null) { // 연결될 노드가 없다면 head와 tail은 자신
+        // undefined 로 떠서 == 으로 수정함.. 맞는건가??????????????????????
+        this.head = newNode;
+        this.tail = newNode;
+      } else {
+        this.tail.next = newNode; // 테일포인터를 새로 생성된 노드를 가르키게 함
+        this.tail = newNode; // 새로 생성된 노드를 테일로 지정
+      }
+    }
+    
+    insert(node, newValue) {
+      const newNode = new Node(newValue); // 노드 생성
+      newNode.next = node.next; // 생성된 노드의 다음을 입력받은 노드의 다음을 가르키도록 설정
+      node.next = newNode; // 입력받은 노드의 다음을 생성된 노드를 가르키면서, 생성된 노드를 중간에 끼워넣음
+    }
+
+    remove(value) {
+      let prevNode = this.head; // 삭제할 값 탐색
+      while (prevNode.next.value !== value) {
+        prevNode = prevNode.next;
+      }
+      if (prevNode.next !== null) { // 삭제할 값을 찾으면
+        prevNode.next = prevNode.next.next; // 이전 노드에서 삭제할 값에게 향하는 포인터를, 다음 노드로 향하게 함
+      } // 포인터를 받지 못하는 노드는 가비지컬렉터가 삭제
+    }
+
+    display() {
+      let currNode = this.head; // 현재 노드는 head
+      let displayString = "[";
+      while (currNode !== null) {
+        displayString += `${currNode.value}, `; // 노드값 추가
+        currNode = currNode.next; // 다음 노드로 이동
+      }
+      displayString = displayString.substr(0, displayString.length-2);  // 뒤에 2글자 삭제
+      displayString += "]"
+      console.log(displayString);
+    }
+
+    size() {
+      let currNode = this.head; // 현재 노드는 head
+      let size = 1;
+      if (this.head == null) { // 노드가 없다면 0 리턴
+        return 0;
+      }
+      while (currNode !== this.tail) { 
+        size++;
+        currNode = currNode.next; // 다음 노드로 이동
+      }
+      return size
+    }
+  }
+
+  const linkedList = new SinglyLinkedList();
+  
+  linkedList.append(1);
+  linkedList.append(2);
+  linkedList.append(3);
+  linkedList.append(5);
+  linkedList.display();
+  console.log(linkedList.size());
+  console.log(linkedList);
+  console.log(linkedList.find(3));
+  linkedList.remove(3);
+  linkedList.display();
+  linkedList.insert(linkedList.find(2), 10);
+  linkedList.display();
+
+
+/*
+  class Node {
+    constructor(value) {
+      this.value = value;
+      this.next = null;
+    }
+  }
+
+  class Queue {
+    constructor() {
+      this.head = null;
+      this.tail = null;
+      this.size = 0;
+    }
+    enqueue(newValue) {
+      const newNode = new Node (newValue);
+    if (this.head ===null) {
+      this.head = this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.size += 1;
+  }
+  dequeue() {
+    const value = this.head.value;
+    this.head = this.head.next;
+    this.size -= 1;
+    return value;
+  }
+
+  peek() {
+    return this.head.value;
+  }
+}
+
+const queue = new Queue;
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(4);
+console.log(queue.dequeue()); // 1
+queue.enqueue(8);
+console.log(queue.size); // 3
+console.log(queue.peek()); // 2
+console.log(queue.dequeue()); // 2
+console.log(queue.dequeue()); // 4
+*/
+
+/*
+  let Rectangle = class { // 클래스연습
+    constructor (height, width) {
+      this.height = height;
+      this.width = width;
+    }
+    get area() {
+      return this.calcArea();
+  }
+
+  calcArea() {
+    return this.height*this.width;
+  }
+}
+
+const square = new Rectangle(10, 10);
+console.log(square);
+*/
+  </script>
+</body>
+</html>
