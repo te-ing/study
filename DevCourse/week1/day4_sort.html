@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>가장 큰 수</title>
+</head>
+<body>
+  <script>
+    // function solution(numbers) {
+    //   let answer = '';
+
+    //   for(let i=0; i<numbers.length; i++){
+    //     let tmp;
+    //     for(let j=0; j<numbers.length-1-i; j++){
+    //         if(Number(String(numbers[j])[0])<Number(String(numbers[j+1])[0]) &&
+    //            Number(String(numbers[j])[0])!==Number(String(numbers[j+1])[0])){
+    //           tmp = numbers[j];
+    //           numbers[j] = numbers[j+1];
+    //           numbers[j+1] = tmp;
+    //         }
+    //         if(Number(String(numbers[j])[0])==Number(String(numbers[j+1])[0]) &&
+    //         Number(String(numbers[j])[1])<Number(String(numbers[j+1])[1])){
+    //           tmp = numbers[j];
+    //           numbers[j] = numbers[j+1];
+    //           numbers[j+1] = tmp;
+    //         }
+    //       }
+    //     }
+    //     console.log(numbers);
+    //   answer = numbers;        
+        
+    //   return;
+    // }
+    function solution(numbers) {
+      let answer;
+      numbers.sort((a,b)=>b-a);
+      numbers.sort(function (a,b) {
+        return Number(String(b)+String(a))-Number(String(a)+String(b));
+      })
+      if(0==[...new Set(numbers)]) return 0;
+      
+      answer=numbers.join('');
+      console.log(0==[...new Set(numbers)]);
+      return answer;
+    }
+
+    // 앞 숫자와 뒤의 숫자의 덧셈과 뒤의 숫자와 앞 숫자의 덧셈 결과의 차이를 
+    // 비교하여 정렬하면 통과되실 것 같습니다 !
+    // 만약 현재 ['30', '3', ....] 순으로 배열에 요소가 존재한다면
+    // ex) '30' + '3' = '303',  '3' + '30' = '330' 으로 
+    // 뒤의 숫자가 앞으로 와야 가장 큰 수('330' > '303')가 이루어지므로 스왑이 이루어져야 합니다.
+
+    // console.log(solution([10, 1, 1010]));
+    console.log(solution([0,0]));
+  solution([3, 30, 34, 5, 9])
+
+
+  // console.log(solution([0,10,1,1010]));
+  // console.log(solution([0,10,1,1010])===11010100);
+  
+
+//   function solution(numbers) {
+//   let answer = '';
+//     // numbers.sort((a,b)=>(a-b));
+//     numbers.sort(function (a,b) {
+//       while(a>=10) a = a/10;
+//       while(b>=10) b = b/10
+//       return b-a;
+//     }
+//   );
+
+//   answer=numbers.join('');
+//   return answer;
+// }
+  </script>
+</body>
+</html>
+

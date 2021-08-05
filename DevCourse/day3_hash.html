@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>해쉬테이블_베스트앨범</title>
+</head>
+<body>
+  <script>
+    function solution(genres, plays) {
+      let answer=[];
+      
+      let song = [];
+      for(let i=0; i<plays.length; i++){
+        song.push([genres[i],plays[i]]);
+      }
+      console.log(song);
+      
+      let genre = [...new Set(genres)]
+      genre.values = 30;
+      console.log(genre);
+
+      return answer;
+  }
+
+  solution(["classic", "pop", "classic", "classic", "pop"],[500, 600, 150, 800, 2500])
+
+  </script>
+</body>
+</html>
+
+const rest = new Map();
+rest.set('name','Classico Italiano'); 
+rest.set(1,'Firenze, Italy')
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+.set('open', 11)
+.set('close',23)
+.set(true, 'We are open :D')
+.set(false, 'We are closed :(');
