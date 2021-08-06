@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>입국심사</title>
+</head>
+<body>
+  <script>
+  function solution(n, times) {
+    let answer=1;
+    let add = [];
+    let idx;
+    for(let x of times){
+      add.push(x); // 깊은 복사
+    }
+    for(let i=1; i<n; i++) {
+      times[times.indexOf(Math.min(...times))] += add[times.indexOf(Math.min(...times))]
+    }
+    answer = times[times.indexOf(Math.min(...times))];
+    return answer;
+  }
+  console.log(solution(209,[1, 3, 7,10]));
+  </script>
+</body>
+</html>
+
+times[1]이 times[0]보다 크다면 가장 작은 값을 찾는 이진탐색 시작
+
+add=[] = times
+times에서 가장 작은 값을 찾아 add[idx] 더하기
+answer ++
+만약 answer가 n이라면 가장 작은 값 반환
+
+모든 인덱스가 +1이 됐다면1이 된 수만큼 n을 나눈다. // 계속 해도 같은 값이기 때문
+다시 처음부터 실행
+
+
+
+
+1. times[0]*cnt;
+2. cnt++
+3. if cnt === n; return times[0]
+2. times.sort
+
+
+
+테스트 3 〉	통과 (7346.40ms, 350MB)

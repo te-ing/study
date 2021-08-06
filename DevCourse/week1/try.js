@@ -1,4 +1,4 @@
-console.log("test");
+console.log("작동중..");
 
 class Node {
   constructor(value = "") {
@@ -22,7 +22,6 @@ class Trie {
         new Node(currentNode.value + char) 
       );
       }
-    
         currentNode = currentNode.children.get(char);
     }
   }
@@ -42,28 +41,83 @@ class Trie {
   search(string) {
     let currentNode = this.root; 
 
-    for(let i = 0; i <string.length ; i++) {
-        const currentChar = string[i]; 
-        if(currentNode.children[currentChar]){
-            currentNode = currentNode.children[currentChar]; // 있으면 노드 이동
+    for(const char of string) {
+      if(currentNode.children.has(char)){
+          currentNode = currentNode.children.get(char); // 있으면 노드 이동
         } else {
-            return ''
+            return currentNode.children
         }
     }
     //찾는 문자열의 마지막까지 탐색했다는것은, 문자열을 찾았다는 것. 
     return currentNode.value;
  }
+ allNode(){ // 모든 노드 출력
+  let answer = "";
+  let child = this.root.children
+  
+  function DFS(child) {
+    if(![...child.keys()][0]){ // 노드가 없으면 종료
+      return answer;
+    }
+    else{
+      for(let i=0; i<[...child.keys()].length; i++){ // 가진 노드 수 만큼 순회
+        answer += [...child.keys()][i];
+        DFS(child = child.get([...child.keys()][i]).children); 
+      }
+    }
+  }
+  DFS(child);
+  return answer;
+ }
 }
+
 
 const trie = new Trie();
 trie.insert("cat");
 trie.insert("can");
 trie.insert("cry");
 trie.insert("sad");
-console.log(trie.search("cat"));
+trie.insert("not");
+console.log(trie.root.children); // Map(3) {"c" => Node, "s" => Node, "n" => Node}
+console.log(trie.root.children.get("c").children); // Map(2) {"a" => Node, "r" => Node}
+console.log(trie.root.children.get("c").children.get("a")); // Node {value: "ca", children: Map(2)}
+console.log([...trie.root.children.keys()]); // (3) ["c", "s", "n"]
+
+console.log(trie.allNode());
+trie.allNode();
+// console.log(auto("c"));
+// console.log(trie.has("not"));
+// console.log(trie.root.children.get("c"));
+
+// console.log("saerch: "+trie.search("cat"));
+// console.log(trie.root.children.get("c").children);
+
+
+// console.log(trie.root.children.get("c").children)
+// console.log([...trie.root.children.keys()]);
+
+// console.log(trie.has("c"));
+
+// if(trie.has(x))
+
 
 
 // console.log(trie.root.children.get("c"));
 // console.log(trie.root.children.get("c").children.get());
 // console.log(trie.root.children.get("c").children.get("a").children.get("t").value);
 
+// function tree(n) {
+//   let answer = "";
+//   function DFS(s) {
+//     if(s>n){
+//       return;
+//     }
+//     else{
+//       answer += ` ${s}`; // 전위순회
+//       DFS(s*2); // 왼쪽 정점
+//       DFS(s*2+1); // 오른쪽 정점
+//     }
+//   }
+//   DFS(1);
+//   return answer
+// }
