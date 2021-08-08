@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>큰 수 만들기</title>
+</head>
+<body>
+  <script>
+function solution(number, k) {
+    let answer =[];
+    let cnt = 0;
+
+    for(let x of number) {
+      while (cnt < k && answer[answer.length-1] < x){
+        answer.pop();
+        cnt ++;
+      }
+      answer.push(x);
+    }
+    
+    while ( cnt < k ) {
+      answer.pop();
+      cnt ++;
+    }
+
+    return answer.join('');
+}
+  console.log(solution("1231234",3));
+  console.log(solution("4177252841",4));
+  
+
+  </script>
+</body>
+</html>
+

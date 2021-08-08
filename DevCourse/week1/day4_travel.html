@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(tickets){  
+                let answer=[];
+                let ticket = tickets;
+                let n = tickets.length;
+                // let graph=Array.from(Array(n+1), ()=>Array(n+1).fill(0));
+                let ch=Array.from({length:n+1}, ()=>0);
+                let tmp = 0;
+                tickets = [];
+                tickets.push(ticket[0])
+                tickets.push(...ticket.slice(1).sort())
+                console.log(tickets);
+                
+                
+                function DFS(v) {
+                    if (answer.length===n-1) {
+                        // console.log(answer);
+                        // console.log(tickets[cnt][1]);
+                        return answer.push(tickets[tmp][1])
+                    }
+                    else{
+                        for(let i=1; i<n; i++){
+                            if(tickets[v][1]===tickets[i][0] && ch[i]===0){
+                                ch[i]=1;
+                                answer.push(tickets[v][1])
+                                tmp=i;
+                                DFS(i);
+                                // ch[i]=0;
+                                // tickets.splice(i,1); // 1 삭제
+                            }
+                        }
+                    }
+                }
+                DFS(0);
+                // ch[1]=1;
+                answer.unshift(tickets[0][0]);
+                // answer.push(tickets[0][1]);
+                
+
+                return answer;
+            }
+
+
+            console.log(solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]]));
+            console.log(solution([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]));
+        </script>
+    </body>
+</html>
+
