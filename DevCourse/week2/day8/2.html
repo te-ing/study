@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+<script> 
+const curry = f => 
+(a, ..._) => _.length ? f(a, ..._)  : (..._) => f(a, ..._);
+const go = (...args) => reduce((a,f) => f(a),args);
+const pipe = (...fs) => (a) => go(a, ...fs); // pipe 함수: 함수를 리턴하는 함수
+
+const L = {}; // 느긋한 계산법: 미루다 마지막에만 평가하여 효율을 높임
+L.range = function*(l) {
+let i = -1;
+while(++i < l) {
+  // console.log(list);
+  yield i;
+}};
+
+L.map = curry(function*(f, iter) {
+  iter = iter[Symbol.iterator]();
+  let cur;
+  while (!(cur = iter.next()).done) {
+    const a = cur.value;
+     yield f(a);
+}});
+
+const map = curry((f, iter) => go(
+  L.map(f, iter),
+  take(Infinity)
+));
+
+const filter = curry((f, iter) => {
+let res = [];
+iter = iter[Symbol.iterator]();
+  let cur;
+  while (!(cur = iter.next()).done) {
+    const a = cur.value;
+  if(f(a)) res.push(a);
+}
+return res;
+});
+
+const reduce = curry((f, acc, iter) => {
+if (!iter) {
+  iter = acc[Symbol.iterator]();
+  acc = iter.next().value;
+} else{
+iter = iter[Symbol.iterator]();
+}
+  let cur;
+  while (!(cur = iter.next()).done) {
+    const a = cur.value;
+  acc = f(acc, a);
+}
+return acc;
+});
+
+function test(name, time, f) {
+  console.time(name);
+  while (time--) f();
+  console.timeEnd(name);
+}
+const  range = l => {
+let i = -1;
+let res = [];
+while(++i < l) {
+  // console.log(i,'L.range');
+  res.push(i);
+}
+return res;
+};
+
+
+const take = curry((l, iter) => {
+  let res = [];
+  iter = iter[Symbol.iterator]();
+  let cur;
+  while (!(cur = iter.next()).done) {
+    const a = cur.value;
+    res.push(a);
+    if (res.length == l) return res;
+  }
+  return res;
+});
+
+
+L.filter = curry(function*(f, iter) {
+  iter = iter[Symbol.iterator]();
+  let cur;
+  while (!(cur = iter.next()).done) {
+  const a = cur.value;
+  if (f(a)) yield a;
+}});
+
+console.log(
+  go(range(10),// 위에서부터 값이 입력됨
+  map(n => n + 10),
+  filter(n => n % 2),
+  take(2),
+  ));
+
+console.log(
+  go(L.range(10),
+  map(n => n + 10),
+  filter(n => n % 2),
+  take(2), //평가를 미루기 때문에 맨 아래에 있는 take에서 부터 시작함
+));
+console.clear();
+
+const join = curry((sep =',', iter) => // reduce를 이용하기 때문에 배열 외 형식 가능
+  reduce((a,b) => `${a}${sep}${b}`, iter)) // yield도 가능. 조합성 높음
+
+
+const queryStr = pipe(
+  Object.entries,
+  map(([k, v]) => `${k}=${v}`),
+  join('&')
+)
+
+console.log(
+  queryStr({ limit:10, offset: 10, type: 'notice'}));
+
+L.entries = function*(obj) {
+  for (const k in obj) yield [k, obj[k]];
+};
+var it = L.entries({ limit:10, offset: 10, type: 'notice'});
+it.next();
+
+console.clear();
+// take, find
+const users = [
+  { age: 32},
+  { age: 31},
+  { age: 37},
+  { age: 28},
+  { age: 25},
+  { age: 32},
+  { age: 31},
+  { age: 37},
+];
+const find = curry((f, iter) => go(
+  iter,
+  L.filter(f), 
+  take(1), // 하나만 꺼내도록
+  ([a]) => a // 배열을 꺼내줌
+));
+// filter는 모든 배열을 도는 반면, L.filter는 찾은 값을 찾을 때까지만 돈다.
+console.log(find(u => u.age<28)(users));
+
+console.log(
+  go(
+    users,
+    L.map( u => u.age),
+    find(n => n < 30),
+  )
+);
+
+
+
+
+
+
+</script>
+</body>
+</html>

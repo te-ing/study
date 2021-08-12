@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>map, filter, reduce</title>
+</head>
+<body>
+  <script> // 1강
+    const products = [
+      { name: "반팔티", price: 15000 },
+      { name: "긴팔티", price: 20000},
+      { name:  "핸드폰케이스", price: 15000},
+      { name:  "후드티", price: 30000 },
+      { name:  "바지", price: 25000}
+    ];
+    
+    let names = [];
+    for (const p of products) {
+      names.push(p.name);
+    }
+    
+    let prices = [];
+    for (const p of products) {
+      prices.push(p.price);
+    }
+    // console.log(prices);
+
+    const map = (f, iter) => {
+      let res = [];
+      for (const a of iter) {
+        res.push(f(a));
+      }
+      return res;
+    };
+
+    // console.log(map(p => p.name, products));
+    // console.log(map(p => p.price, products));
+  </script>
+
+  <script> // 2강
+  // console.log([1,2,3].map(a => a));
+  // console.log(document.querySelectorAll('*'));
+  // console.log(document.querySelectorAll('*').map(el => el.nodeName));
+  //  위 코드가 오류가 생기는 이유는 Array를 상속받은 객체가 아니라서 map함수가 구현이 안되어있음
+
+  // const it = document.querySelectorAll('*')[Symbol.iterator]();
+  // console.log(it.next()); // map함수는 iterable 프로토콜을 따르는 함수 사용가능
+  // console.log(it.next());
+  // console.log(it.next());
+  // console.log(it.next());
+  </script>
+
+  <script> // 3강
+  function *gen() {
+    yield 2;
+    if (false) yield 3;
+    yield 4;
+  }
+  // console.log(map(a=>a*a, gen()));
+
+  let m = new Map();
+  m.set('a', 10);
+  m.set('b', 20);
+
+  // console.log(m);
+
+  // console.log(new Map(map(([k,a]) => [k, a*2], m)));
+
+  // 4강 filter, reduce
+  
+  const filter = (f, iter) => {
+    let res = [];
+    for (const a of iter) {
+      if(f(a)) res.push(a);
+    }
+    return res;
+  }
+
+  console.log(filter(p=>p.price < 20000, products));
+  console.log(products.filter(p => p.price<20000));
+  console.log(filter(n=>n%2, function *() {
+    yield 1;
+    yield 2;
+    yield 3;
+    yield 4;
+    yield 5;
+  }() ));
+
+  const reduce = (f, acc, iter) => {
+    if (!iter) {
+      iter = acc[Symbol.iterator]();
+      acc = iter.next().value;
+    }
+    for(const a of iter) {
+      acc = f(acc, a);
+    }
+    return acc;
+  }
+</script>
+
+<script> // 코드를 값으로 다루어 표현력 높이기 - go
+  console.clear();
+
+  const go = (...args) => reduce((a,f) => f(a),args);
+  const pipe = (...fs) => (a) => go(a, ...fs); // pipe 함수: 함수를 리턴하는 함수
+
+
+  console.log(
+  go(
+    0,
+    a => a + 1,
+    a => a + 10,
+    a => a + 100,
+    ));
+
+  const f = pipe(
+    a => a + 1,
+    a => a + 10,
+    a => a + 100);
+
+  console.log(f(0));
+
+  // curry: 원하는 만큼의 인수가 들어왔을 때 함수를 실행리턴하는 함수
+
+  const curry = f => // 함수를 받아서 리턴
+    (a, ..._) => // 리턴된 함수를 실행했을 때
+      _.length ? // 인자가 2개 이상이라면
+        f(a, ..._) // 받아둔 함수를 즉시 실행
+          : (..._) =>// 만약 2개보다 작다면 함수를 리턴한 후
+          f(a, ..._); // 이후에 받아둔 인자를 합쳐서 실행
+  const example = curry((a, b) => a * b);
+  console.log(example(3)); // (...) =>
+  console.log(example(3)(5)); // 15
+  
+  const example5 = example(5);
+  console.log(example5(1));
+  console.log(example5(3));
+  console.log(example5(5));
+
+  console.clear();
+
+
+
+</script>
+
+
+
+    
+
+
+</body>
+</html>
