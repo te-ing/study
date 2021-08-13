@@ -27,7 +27,7 @@ return acc;
 });
 
 const go = (...args) => reduce((a,f) => f(a),args);
-const pipe = (...fs) => (a) => go(a, ...fs); // pipe 함수: 함수를 리턴하는 함수
+const pipe = (f, ...fs) => (...as) => go(f(...as), ...fs); // pipe 함수: 함수를 리턴하는 함수
 
 const range = l => {
     let i = -1;
@@ -115,11 +115,11 @@ const flatten = pipe(L.flatten, takeAll);
 L.flatMap = curry(pipe(L.map, L.flatten));
 const flatMap = curry(pipe(L.map, flatten))
 
-// var it = L.flatMap(map(a => a * a), [[1,2], [3,4], [5,6,7]]);
+var it = L.flatMap(map(a => a * a), [[1,2], [3,4], [5,6,7]]);
 // var it = L.flatMap(a => a, [[1,2], [3,4], [5,6,7]]);
 // console.log([...it])
 // console.log(flatMap(a => a, [[1,2],[3,4],[5,6,7]]));
-console.log(map(a => a, [[1,2],[3,4],[5,6,7]]));
+// console.log(map(a => a, [[1,2],[3,4],[5,6,7]]));
 
 
 

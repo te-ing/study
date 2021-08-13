@@ -157,9 +157,27 @@ console.log(
   )
 );
 
+a = ["marina", "josipa", "nikola", "vinko", "filipa"];
+b = ["josipa", "filipa", "marina", "nikola"];
 
+console.log(
+  go(
+    // iter,
+    filter(a!==b),
+    take(1)
+  )
+);
 
-
+// const filter = curry((f, iter) => {
+// let res = [];
+// iter = iter[Symbol.iterator]();
+//   let cur;
+//   while (!(cur = iter.next()).done) {
+//     const a = cur.value;
+//   if(f(a)) res.push(a);
+// }
+// return res;
+// });
 
 
 </script>

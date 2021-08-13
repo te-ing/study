@@ -88,8 +88,8 @@ const takeAll = take(Infinity);
 // const filter = curry((f, iter) => go(L.filter(f,iter), takeAll))
 const filter = curry(pipe(L.filter, takeAll))
 
-const map = curry((f, iter) => go(L.map(f,iter),takeAll));
-// const map = curry(pipe(L.map,takeAll));
+// const map = curry((f, iter) => go(L.map(f,iter),takeAll));
+const map = curry(pipe(L.map,takeAll));
 
 console.log(map(a => a + 10, L.range(4)));
 console.log(filter(a => a%2, range(4)));
