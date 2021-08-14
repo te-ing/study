@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>프로미스</title>
+</head>
+<body>
+  /** promise는 "대기되는 값을 만든다" 라는 점에서 콜백과 차이점을 가짐
+   - 콜백을 통한 setTimeout은 리턴되는 값이 없지만
+   바로 프로미스가 리턴되기 때문에 원하는 작업을 이어갈 수 있음   */
+
+## 일급활용: 프로미스가 비동기상황을 값으로 다루는 일급의 성질을 활용
+<script src="index.js"></script>
+<script>
+const log = (message) => console.log(message);
+/*
+const delay100 = a => new Promise(resolve => setTimeout(() => resolve(a), 100));
+
+const go1 = (a,f) => a instanceof Promise ? a.then(f) : f(a);
+// a가 프로미스면 then 적용
+const add5 = a => a+5;
+
+// var r = go1(10, add5);
+// console.log(r);
+// go1(go1(10, add5), log)
+
+// const n2 = delay100(10)
+// log(go1(go1(n2, add5), log));
+*/
+</script>
+
+## Composition 비동기 상황에서 안전한 함수합성을 하게 해줌
+<script>
+
+// 함수합성: f . g 일때 f를 받아 g에게 함수를 전달하여 연속적으로 함수를 실행하는 것
+// 모나드: 함수 합성을 안전하게 해주는 도구. 
+// const g = a => a + 1;
+// const f = a => a * a;
+
+// log(f(g())); // 함수에 필요한 인자가 없어 안전하지 않음. 
+// [1].map(g).map(f).forEach(r => log(r)); // 모나드형태: 값이 있기 때문에 함수실행
+// 실제 쓰는 값은 배열이 아니기 때문에 배열에서 꺼내줘야 함
+// [].map(g).map(f).forEach(r => log(r)); // 모나드형태: 값이 없기때문에 함수가 실행되지 않음
+
+// 프로미스도 모나드와 비슷한 형태를 가짐. 프로미스는 비동기적 상황에서 안전한 함수합성을 위한 도구
+// Array.of(1).map(g).map(f).forEach(r => log(r)); 
+// Promise.resolve(1).then(g).then(f).then(r => log(r)) // 프로미스는 map,forEach가 아닌 then을 통해 함수를 합성
+// Promise.resolve().then(g).then(f).then(r => log(r)) 
+// 프로미스는 값이 없을때의 상황이 아니라 비동기상태에서 일어나는 상황에서의 안전한 합성을 해줌
+
+// new Promise(resolve =>
+// setTimeout(() => resolve(2), 100)
+// ).then(g).then(f).then(r => log(r)); // 합수를 합성하는 시점을 안전하게 만듦
+
+</script>
+
+## Kleisli Composition
+<script>
+// 외부상황에 의해 함수합성이 정확하게 일어나지 않을 수 있음
+// 들어오는 인자가 잘못된 인자여서 오류가 나는 상황이나, 
+// 정확한 인자여도 의존하는 외부함수의 상태에서 에러가 나는 상황을 해결하는 함수합성
+// f(g(x)) = f(g(x)) 수학적으로는 어떤 상황에서도 성립. 하지만 실무에서는 오류가 날 수 있음
+// 이런 상황을 막아주는 것이 Kleisli Composition.
+
+var users = [ // 상태 예시
+  { id: 1, name: 'aa' },
+  { id: 2, name: 'bb' },
+  { id: 3, name: 'cc' },
+];
+/**
+const getUserById = id => find( u => u.id == id, users); // id를 받아 user.name을 찾는 함수
+const f = ({name}) => name; // 이름 가져오기
+const g = getUserById; // 유저 아이디 찾기
+const fg = id => f(g(id));
+// 합성한 함수로 인해 에러발생
+const r = fg(2); 
+users.pop();
+users.pop();
+const r2 = fg(2) 
+log(r); 
+const getUserById = id => find( u => u.id == id, users)
+|| Promise.reject("없어요!") // 값이 없어졌을 때 오류메시지 리턴
+const f = ({name}) => name; // 이름 가져오기
+const g = getUserById; // 유저 아이디 찾기
+// const fg = id => Promise.resolve(id).then(g).then(f);
+const fg = id => Promise.resolve(id).then(g).then(f).catch(a => a);
+// 에러가 나도 catch가 정리해줌
+users.pop()
+users.pop()
+fg(2).then(log)
+*/
+</script>
+
+go, pipe, reduce에서 비동기 제어
+<script>
+  go(1,
+  a => a + 10,
+  a => a + 100,
+  a => a+ 1000,
+  log);
+
+
+
+</script>
+
+
+</body>
+</html>
+

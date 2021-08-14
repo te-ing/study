@@ -162,11 +162,20 @@ b = ["josipa", "filipa", "marina", "nikola"];
 
 console.log(
   go(
-    // iter,
-    filter(a!==b),
-    take(1)
+    a,
+    map((b)=>a),
+    // filter(),
+    take(Infinity),
+  
   )
 );
+// console.log(
+//   go(
+//     // iter,
+//     filter(a!==b),
+//     take(1)
+//   )
+// );
 
 // const filter = curry((f, iter) => {
 // let res = [];
