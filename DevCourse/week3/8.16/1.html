@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 함수 내에 코드를 선언하면 코드가 선언된 function에 묶임. -> 윈도우를 침범하지 않음
+const logger = (function(){
+  let logCount = 0;
+  function log(message) {
+    console.log(message);
+    logCount = logCount + 1;
+  }
+  function getLogCount() {
+    return logCount;
+  }
+  return  {
+    log: log,
+    getLogCount: getLogCount
+    }
+})()
+
+logger.log('punk rock band Ideiots!') // punk rock band Ideiots!
+logger.log('bye bye') // bye bye
+console.log(logger.getLogCount()) // 2 // 밖에서 접근 못함
+console.log(logger.logCount) // undefined
+
+
+// 예제 #2
+function RockBand(members) {
+  this.members = members;
+  this.perform = function() {
+
+      // 아래 this는 RockBand가 아닌 setTimeout의 function을 가르켜서 오류가 발생
+    // setTimeout(function() { // 
+    // this.members.forEach(function(member) { 
+    
+      // 해결법1. arrow function: 애로우는 상위function의 스코프를 참조함
+    setTimeout(() => { // 
+  this.members.forEach(function(member) { 
+
+    // 해결법 2. bind 사용
+    // setTimeout(function() { 
+    //   this.members.forEach(function(member) { 
+    //     member.perform();
+    //   })
+    // }.bind(this), 1000) // bind의 함수 내부의 this를 특정한 this로 변경
+
+      member.perform();
+    })
+  }, 1000)
+}}   
+
+var theOralCigarettes = new RockBand([
+  {
+    name: 'takuya',
+    perform: function() {
+      console.log('Sing: a e i a e u i');
+    }
+  }
+]);
+
+theOralCigarettes.perform();
+
+
+</script>
+  
+</body>
+</html>

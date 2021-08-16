@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 클로져를 이용한 private 효과
+function Counter() {
+  let count = 0;
+
+  function increase() {
+    count++;
+  }
+  function printCount() {
+    console.log(`count: ${count}`);
+  }
+  return { // counter로 아래 2가지 함수만 이용가능
+    increase,
+    printCount 
+  }
+}
+
+const counter = Counter()
+
+counter.increase()
+counter.increase()
+counter.increase()
+counter.increase()
+counter.printCount()
+
+// 외부에서 Counter 함수 내의  counter 접근불가
+console.log(counter.count) // 오류발생
+
+</script>
+</body>
+</html>

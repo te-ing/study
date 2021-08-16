@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+<script src="https://unpkg.com/fxjs/dist/fx.js"></script>
+  <script>
+    
+// function f1(limit, list) {
+//   let acc = 0;
+//   for(const a of L.filter(a=> a % 2, list)) {
+//       const b = a * a;
+//       acc += b;
+//     if (--limit == 0) break;
+//   }
+//   console.log(acc);
+// }
+
+_.go(
+  _.range(1,6),
+  _.map(_.range),
+  _.map(_.map(_=> '*')),
+  _.map(_.reduce((a,b) => `${a}${b}`)),
+  _.reduce((a,b)=> `${a}\n${b}`),
+  console.log
+);
+
+// const obj2 = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+// const pick = (ks, obj)=> _.go(
+//   ks,
+//   _.map(k => [k, obj[k]]),
+//   object
+// );
+console.log(pick(['b','c'],obj2));
+// { b: 2, c: 3}
+
+// f1(3, [1,2,3,4,5,6,7,8,9,10]);
+
+</script>  
+</body>
+</html>
