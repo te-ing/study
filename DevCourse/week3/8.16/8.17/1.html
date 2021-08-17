@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <app>
+  </app>
+<script>
+// TIL 작성내용: 함수형 프로그래밍 실전편, this render에 관하여
+// 선언형 프로그래밍의 확장성
+
+// **
+// 격리되어 파라미터를 통해서만 사용가능하여 외부에서 개입할 수 있는 요소를 최소화하고,
+// 독립적으로 돌아갈 수 있으며 상태를 기반으로 추상화 되어있는 UI
+
+
+
+
+// function double(arr) {
+//   return arr.map(num => num * 2)
+// }
+// document.querySelector('body').innerHTML = double([1, 2, 3])
+/////////////////////////////////////////////////////////////
+// const $button1 = document.createElement("button");
+// $button1.textContent = 'Button1'
+
+// const $button2 = document.createElement("button");
+// $button2.textContent = 'Button2'
+
+// const $button3 = document.createElement("button");
+// $button3.textContent = 'Button3'
+
+// const $main = document.querySelector("app")
+
+// $main.appendChild($button1)
+// $main.appendChild($button2)
+// $main.appendChild($button3)
+
+// document.querySelectorAll('button').forEach(($button)=>{
+//   $button.addEventListener('click', (e)=>{
+//     const {target} = e
+//   if (target.style.textDecoration === 'line-through') {
+//     target.style.textDecoration = 'none'
+//   } else target.style.textDecoration = 'line-through'
+// })
+// })
+
+function ToggleButton({
+  $target,
+  text
+}) {
+  const $button = document.createElement('button')
+
+  $target.appendChild($button)
+
+  $button.addEventListener('click', ()=>{
+    if ($button.style.textDecoration === 'line-through') {
+      $button.style.textDecoration = 'none'
+    } else $button.style.textDecoration = 'line-through'
+  })
+
+  this.render = () => { // render는 렌더링이 필요한 부분을 다시 그림
+    $button.textContent = text
+  }
+  this.render()
+}
+
+const $app = document.querySelector('app')
+
+new ToggleButton({
+  $target: $app,
+  text: 'Button1'
+})
+
+new ToggleButton({
+  $target: $app,
+  text: 'Button2'
+})
+
+</script>
+  
+</body>
+</html>
