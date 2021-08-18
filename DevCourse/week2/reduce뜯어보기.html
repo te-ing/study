@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<!-- <script src="index.js"></script> -->
+
+<script>
+const log = (t)=>console.log(t);
+
+const nums = [1,2,3,4,5];
+
+
+let total = 0;
+for (const n of nums) {
+  total = total + n;
+}
+
+const reduce = (f, acc, iter ) => { // f는 보조함수, nums=>iter
+  for (const a of iter) { // total => acc(누적값)으로 추상
+    acc = f(acc, a); // add를 보조함수f로 위임
+  }
+  return acc // return으로 외부를 변경하지 않음
+};
+
+const add = (a, b) => a + b;
+
+log(reduce((a,b)=>a+b, 0, [1,2,3,4,5]));
+log(reduce(add, 0, [1,2,3,4,5]));
+
+// log(add(0,1))
+// log(add(add(0,1),2))
+// log(add(add(add(0,1),2),3))
+// log(add(add(add(add(0,1),2),3),4))
+log(add(add(add(add(add(0,1),2),3),4),5))
+
+const reduce2 = (f, acc, iter ) => { // f는 보조함수, nums=>iter
+  if(!iter) { 
+    iter = acc[Symbol.iterator](); // iter가 없으면 acc가 iter역할을 하도록
+    acc = iter.next().value; // acc는 iter의 첫번째 값이 되도록
+  }
+  for (const a of iter) { // total => acc(누적값)으로 추상
+    acc = f(acc, a); // add를 보조함수f로 위임
+  }
+  return acc // return으로 외부를 변경하지 않음
+};
+log(reduce2(add,  [1,2,3,4,5]));
+log(reduce2(add, 1, [2,3,4,5]));
+
+
+</script>
+
+
+
+</body>
+</html>
