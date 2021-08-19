@@ -8,9 +8,30 @@
 </head>
 <body>
   
-<!-- <script src="index.js"></script> -->
+<script src="work_index.js"></script>
+<script>
+  const featureCount = periods => // [5, 10, 1, 1, 20, 1]
+    reduce(([counts, total_period], period) =>
+        total_period < period
+            ? [inc(counts, counts.length), period]
+            : [inc(counts, counts.length-1), total_period])([[], 0], periods);
+
+const solution = (progresses, speeds) => go(
+    zip(progresses)(speeds),
+    map(([progress, speed]) => Math.ceil((100 - progress) / speed)),
+    featureCount,
+    head
+);
+
+const progresses = [95, 90, 99, 99, 80, 99];
+const speeds = [1, 1, 1, 1, 1, 1];
+
+console.log(solution(progresses, speeds)) 
+</script>
 
 <script>
+  /*
+
 const log = (t)=>console.log(t);
 
 const nums = [1,2,3,4,5];
@@ -52,7 +73,7 @@ const reduce2 = (f, acc, iter ) => { // f는 보조함수, nums=>iter
 log(reduce2(add,  [1,2,3,4,5]));
 log(reduce2(add, 1, [2,3,4,5]));
 
-
+*/
 </script>
 
 
