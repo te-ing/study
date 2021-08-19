@@ -1,4 +1,4 @@
-function TodoForm({ $target, onSubmit }) {
+export default function TodoForm({ $target, onSubmit }) {
   const $form = document.createElement('form');
 
   $target.appendChild($form)

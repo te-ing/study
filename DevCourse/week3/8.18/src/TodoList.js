@@ -1,4 +1,4 @@
-function TodoList({ $target, initialState }) {
+export default function TodoList({ $target, initialState }) {
   // $todoList: $는 DOM 엘리먼트를 담고 있다는 의미. todoListEliment로도 쓰임
   const $todoList = document.createElement('div'); // $todoList = div
   $target.appendChild($todoList); // target에 div 추가
