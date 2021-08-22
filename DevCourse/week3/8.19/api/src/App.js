@@ -21,19 +21,24 @@ export default function App({ $target }) {
   const todoList = new TodoList({ 
     $target, 
     initialState: this.state.todos,
-    onClick: (id) => {
+    onClick: async (id) => {
       const selectedTodo = this.state.todos.find(todo => todo.id === id)
       this.setState({
         ...this.state,
         selectedTodo
       })
 
-      request(`https://kdt.roto.codes/comments?todo.id=${id}`, (data) =>{
-        this.setState({
-          ...this.state,
-          comments: data
-        })
+      try{
+      const data = await request(`https://kdt.roto.codes/comments?todo.id=${id}`)
+      this.setState({
+        ...this.state,
+        comments: data
       })
+    } catch(e) {
+      // promise의 .catch와 비슷한 역할
+    } finally{
+      // promise .finally와 비슷한 역할
+    } 
     }
   })
 
@@ -45,12 +50,11 @@ export default function App({ $target }) {
     },
   })
 
-  const init = () => {
-    request('https://kdt.roto.codes/todos', (data) => {
-      this.setState({
-        ...this.state,
-        todos: data
-      })
+  const init = async() => {
+    const data = await request('https://kdt.roto.codes/todos')
+    this.setState({
+      ...this.state,
+      todos: data
     })
   }
 

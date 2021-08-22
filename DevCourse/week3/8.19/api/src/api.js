@@ -1,16 +1,19 @@
-export function request (url, successCallbaack, failCallback) {
-  const xhr = new XMLHttpRequest()
-  xhr.addEventListener("load", (e) => {
+export function request (url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+    xhr.addEventListener("load", (e) => {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        successCallbaack(JSON.parse(xhr.responseText))
+        resolve(JSON.parse(xhr.responseText))
       } else {
-        failCallback(xhr.statusText)
+        reject(xhr.statusText)
       }
     }
   })
-  xhr.addEventListener('error', (e) => failCallback(xhr.status))
+  xhr.addEventListener('error', (e) => reject(xhr.status))
 
   xhr.open('GET', url)
   xhr.send()
+  })
 }
+  
