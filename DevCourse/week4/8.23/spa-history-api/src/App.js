@@ -8,18 +8,19 @@ export default function App ({ $target }) {
   const detailPage = new DetailPage({ $target })
 
   this.render = () => {
-    const { hash } = window.location
+    const { pathname } = location
+
     $target.innerHTML = ''
 
-    if (hash === ''){
+    if (pathname === '/'){
       homePage.render()
       return
-    } else if (hash === '#list'){
+    } else if (pathname === '/list'){
       listPage.render()
       return
       // List rendering
-    } else if (hash.includes('#detatil') === '#detail'){
-      DetailPage.render()
+    } else if (pathname.includes('#detatil') === '/detail'){
+      detailPage.render()
       return
       // Detail rendering
     } else {
@@ -30,7 +31,15 @@ export default function App ({ $target }) {
 
   this.render()
 
-  window.addEventListener('hashchange', () => {
-    this.render()
+  window.addEventListener('click', e => {
+    if (e.target.className === 'link') {
+      const href = e.target.getAttribute('href')
+      history.pushState(null, null, href)
+
+      console.log(href);
+      e.preventDefault()
+      
+      this.render()
+    }
   })
 }

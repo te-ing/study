@@ -48,11 +48,14 @@
 
 function ToggleButton({
   $target,
-  text
+  text,
+  test
 }) {
   const $button = document.createElement('button')
+  const $test = document.createElement('div')
 
   $target.appendChild($button)
+  $target.appendChild($test)
 
   $button.addEventListener('click', ()=>{
     if ($button.style.textDecoration === 'line-through') {
@@ -62,6 +65,7 @@ function ToggleButton({
 
   this.render = () => { // render는 렌더링이 필요한 부분을 다시 그림
     $button.textContent = text
+    $test.textContent = test
   }
   this.render()
 }
@@ -70,7 +74,8 @@ const $app = document.querySelector('app')
 
 new ToggleButton({
   $target: $app,
-  text: 'Button1'
+  text: 'Button1',
+  test: '으아'
 })
 
 new ToggleButton({

@@ -1,33 +1,44 @@
-export default function TodoList({ $target, initialState }) {
+export default function TodoList({ $target, initialState, test }) {
   const $todoList = document.createElement('div'); 
+  const $test = document.createElement('div')
+
   $target.appendChild($todoList); 
+  $target.appendChild($test)
 
   this.state = initialState; 
-  this.isCompleted = false // TodoList 완료 여부
 
   this.setState = nextState => {
     this.state = nextState 
     this.render()
   }
   
-  $todoList.addEventListener('click', ()=>{ // isCompleted 토글
-    // this.style.textDecoration = 'line-through'
-    console.log(this.state);
-    $todoList.style.textDecoration = 'line-through'
-    this.render();
-  })
-  
   this.render = () => {
     $todoList.innerHTML = `
     <ul>
-    ${this.state.map(({text}) => `<li style="text-decoration: none>${text}</li>`).join('')}
+    ${this.state.map(({text}) => `<li id="list">${text}<button class="complete">🛒</button></li>`).join('')}
     </ul>
     `
-    // isCompleted 상태에 따른 삭선처리
-    // if(this.isCompleted) $todoList.style.textDecoration = 'line-through'
-    // else $todoList.style.textDecoration = 'none'
-    
-  }
-    this.render();
+    // const list = document.querySelectorAll('#list')
+    // list.forEach(($list)=>{
+    //   $list.addEventListener('click', (e)=>{
+    //     const {target} = e
+    //   if (target.style.textDecoration === 'line-through') {
+    //     target.style.textDecoration = 'none'
+    //   } else target.style.textDecoration = 'line-through'
+    // })
+    // })
   }
   
+  
+
+  // document.getElementById("list").addEventListener('click', ()=>{
+  //     console.log("test");
+  //   })
+  // const btn = document.querySelector('.delete')
+  // console.log(btn);
+  // btn.addEventListener('click', ()=>{
+  //   // $todoList.removeChild(document.querySelector('button'))
+  // })
+  
+  this.render();
+}

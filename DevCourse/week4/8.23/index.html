@@ -1,8 +1,37 @@
-<html>
-  <head><title>Hash</title></head>
-  <body>
-    <main id="app"></main>
-    <script src="./src/main.js" type="module"></script>
-    
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SPA History Link 처리</title>
+</head>
+<body>
+  <nav>
+    <a class = "link" href="/" >Home</a>
+    <a class = "link" href="/list" >List</a>
+  </nav>
+  <div id="app"></div>
+  <script>
+    const onPushState = () => {
+      const url = location.pathname
+
+      console.log(url);
+      // routring 처리
+      if (url === '/') {
+        document.querySelector('#app').innerHTML = '<h1>Home</h1>'
+      } else if (url === '/list') {
+        document.querySelector('#app').innerHTML = '<h1>List</h1>'
+      }
+    }
+
+    window.addEventListener('click', e=> {
+      if (e.target.className === 'link') {
+        e.preventDefault()
+        history.pushState(null, null, e.target.href)
+        onPushState(e.target.href.replace())
+      }
+    })
+
+    onPushState()
+  </script>
+  
+</body>
 </html>
