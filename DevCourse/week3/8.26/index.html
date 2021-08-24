@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <main id="app"></main>
+  <script src="./src/main.js" type="module"></script>
+  <script>
+    /*
+    const data = fetch('https://kdt.roto.codes/todos')
+      .then(res=> {
+        return res.json()
+      })
+      .then(data => {
+        console.log(data);
+      })
+    */
+  </script>
+  <script> // 이미지
+    /*
+    const $image = document.createElement('img')
+    const imageUrl = 'https://indistreet.com/_next/image?'
+
+    fetch(imageUrl)
+      .then(res => {
+        return res.blob();
+      })
+      .then(data => {
+        console.log(data);
+      })
+    */
+    </script>
+    <script> // 에러시 결과
+    /*
+      fetch('https://kdt.roto.codes/undefined-api')
+        .then(res => {
+          if (res.ok) {
+            return res.json()
+          }
+          throw new Error(`Status: ${res.status} 요청을 처리하지 못했습니다.`)
+        })
+        .then(data => {
+          console.log(data);
+        })
+        .catch(e => {
+          document.querySelector('body').innerHTML = e.message
+        })
+    */
+    </script>
+  
+</body>
+</html>
