@@ -1,3 +1,6 @@
+import { setItem, getItem, removeItem } from './storage.js'
+
+const TODO_TEMP_SAVE_KEY = 'TODO_TEMP_SAVE_KEY' // 오타방지
 export default function TodoForm({
   $target,
   onSubmit
@@ -21,7 +24,17 @@ export default function TodoForm({
     const content = $input.value
 
     onSubmit(content)
+
     $input.value= ''
+    removeItem(TODO_TEMP_SAVE_KEY)
   })
+
   this.render()
+
+  const $input = $form.querySelector('input')
+  $input.value =  getItem(TODO_TEMP_SAVE_KEY, '') // 키에 해당하는 값이 없으면 빈 문자열
+
+  $input.addEventListener('keyup', (e) => {
+    setItem(TODO_TEMP_SAVE_KEY, e.target.value)
+  })
 }
