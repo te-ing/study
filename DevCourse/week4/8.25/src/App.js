@@ -1,5 +1,6 @@
 import PostsPage from "./PostPage.js";
 import PostEditPage from "./PostEditPage.js";
+import { initRouter } from "./router.js";
 
 /* url 규칙
 * 루트: postsPage 그리기
@@ -8,8 +9,12 @@ import PostEditPage from "./PostEditPage.js";
 */
 
 export default function App ({ $target }) {
-  const postsPage = new PostsPage({ $target })
-  const postEditPage = new PostEditPage({ $target, initialState: {
+  const postsPage = new PostsPage({ 
+    $target,
+   })
+  const postEditPage = new PostEditPage({ 
+    $target, 
+    initialState: {
     postId: 'new',
     post: {
       title: '',
@@ -18,10 +23,11 @@ export default function App ({ $target }) {
   }})
 
   this.route = () => {
+    $target.innerHTML = ''
     const { pathname } = window.location
 
     if (pathname === '/') {
-      postsPage.render()
+      postsPage.setState()
     } else if (pathname.indexOf('/posts/') === 0 ) {
       const [, , postId] = pathname.split('/')
       postEditPage.setState({ postId })
@@ -29,4 +35,6 @@ export default function App ({ $target }) {
   }
 
   this.route()
+
+  initRouter(() => this.route())
 }

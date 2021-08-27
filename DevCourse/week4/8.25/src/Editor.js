@@ -19,10 +19,10 @@ export default function Editor({ $target, initialState={
     this.render()
   }
   this.render = () => {
-    if (!isinitialState) { // 한번만 실행
+    if (!isinitialState) { // 한번만 실행 // contentEditable="true" 
       $editor.innerHTML = `
       <input type="text" name="title" style='width:400px;' value="${this.state.title}"/>
-      <textarea name="content" style='width:400px; height:200px;'>${this.state.content}</textarea>
+      <div name="content" contentEditable="true" style='width:400px; height:200px;'>${this.state.content}</div>
       `
       isinitialState = true
     }
