@@ -4,42 +4,53 @@ export default function Editor({ $target, initialState={
 }, onEditing }) {
   const $editor = document.createElement('div') 
 
-  let isinitialState = false
-  this.state = initialState
+  $editor.innerHTML = `
+  <input type="text" name="title" style='width:400px;'/>
+  <div name="content" contentEditable="true" style='width:400px; height:200px; border: 1px black solid; margin: 4px 0px;'></div>
+  `
 
-  $editor.style.width = '400px'
-  $editor.style.height = '200px'
+  this.state = initialState
 
   $target.appendChild($editor)
 
   this.setState = (nextState) => {
     this.state = nextState
-    $editor.querySelector('[name=title').value = this.state.title
-    $editor.querySelector('[name=content').value = this.state.content
+    
     this.render()
   }
   this.render = () => {
-    if (!isinitialState) { // 한번만 실행 // contentEditable="true" 
-      $editor.innerHTML = `
-      <input type="text" name="title" style='width:400px;' value="${this.state.title}"/>
-      <div name="content" contentEditable="true" style='width:400px; height:200px;'>${this.state.content}</div>
-      `
-      isinitialState = true
-    }
+    const richContent = this.state.content.split('\n').map(line => {
+      if (line.indexOf('# ') === 0) {
+        return `<h1>${line.substr(2)}</h1>`
+      } else if (line.indexOf('## ') === 0) {
+        return `<h2>${line.substr(3)}</h2>`
+      } else if (line.indexOf('### ') === 0) {
+        return `<h3>${line.substr(3)}</h3>`
+      }
+      return line
+    }).join('<br>')
+
+    $editor.querySelector('[name=title]').value = this.state.title
+    $editor.querySelector('[name=content]').innerHTML = richContent
   }
   this.render()
 
-  $editor.addEventListener('keyup', (e)=>{
-    const { target } = e
+  $editor.querySelector('[name=title]').addEventListener('keyup', e => {
+    const nextState = {
+      ...this.state,
+      title: e.target.value
+    }
     
-    const name = target.getAttribute('name')
-    if(this.state[name] !== undefined) { // 방어코드 this.state[name]이 있는지
-      const nextState = {
-        ...this.state,
-        [name]: target.value
-      }
-      this.setState(nextState)
-      onEditing(this.state)
-    } 
+    this.setState(nextState)
+    onEditing(this.state)
+  })
+
+  $editor.querySelector('[name=content]').addEventListener('input', e =>{ // value가 아닌 innerHtml이기 때문에
+    const nextState = {
+      ...this.state,
+      content: e.target.innerHTML
+    }
+    this.setState(nextState)
+    onEditing(this.state)
   })
 }
