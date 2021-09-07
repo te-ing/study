@@ -1,0 +1,59 @@
+article{
+  margin: 20px;
+}
+
+.articleTitle{
+  height: 30px;
+  width: 300px;
+  padding: 5px;
+
+  border: none;
+  border-bottom: gainsboro solid 2px;
+  resize: none;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.articleDate{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.articleContent{
+  margin: 10px 0px;
+  padding: 5px;
+  height: 300px;
+  width: 300px;
+  border: gainsboro solid 2px;
+  resize: none;
+
+}
+
+.articleCreatedDate,
+.articleEditedDate
+{
+  font-size: 15px;
+}
+
+.articleDate{
+  display: flex;
+}
+
+.editContainer{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.foldupBtn,
+.newBtn,
+.editBtn,
+.removeBtn
+ {
+  background-color: rgba(255, 255, 255, 0);
+  border: gainsboro solid 1px;
+  border-radius: 25px;
+  font-size: 10px;
+  cursor: pointer;
+}
