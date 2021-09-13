@@ -1,4 +1,4 @@
-export default function TodoList ({ $target, initialState }) {
+export default function TodoList ({ $target, initialState, onDrop }) {
   const $todoList = document.createElement('div')
   $todoList.setAttribute('droppable', 'true')
   $target.appendChild($todoList)
@@ -27,11 +27,9 @@ export default function TodoList ({ $target, initialState }) {
   $todoList.addEventListener('dragstart', e => {
     const $li = e.target.closest('li')
 
-    e.dataTransfer.setData('todo', JSON.stringify({
-      id: $li.dataset.id,
-      content: $li.textContent
-    }))
-  })
+    e.dataTransfer.setData('todoId', $li.dataset.id)
+    })
+
   $todoList.addEventListener('dragover', (e) => {
     e.preventDefault()
     e.dataTransfer.dropEffect = 'move'
@@ -39,6 +37,12 @@ export default function TodoList ({ $target, initialState }) {
 
   $todoList.addEventListener('drop', e => {
     e.preventDefault()
-    console.log(JSON.parse(e.dataTransfer.getData('todo')));
+    const droppedTodoId = e.dataTransfer.getData('todoId')
+
+    const { todos } = this.state
+
+    if (!todos.find(todo => todo._id === droppedTodoId)) {
+      onDrop(droppedTodoId)
+    }
   })
 }
