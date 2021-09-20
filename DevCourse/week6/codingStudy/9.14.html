@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+<script>
+    const isPalindrome = function (s) {
+  let answer = true;
+  if(s.length===1) return true
+
+  for(let i=0; i<Math.floor(s.length/2); i++){
+    if(s[i] !== s[s.length-1-i]) return false
+  }
+
+  return answer
+}
+
+const validPalindrome = function(s) {
+  if(s[0]!==s[s.length-1] && s[1]!==s[s.length-1] && s[0]!==s[s.length-2]) return false
+
+  let answer = false
+  if(isPalindrome(s)) return true
+  for(i=0; i<s.length; i++){
+    let tmp = [...s]
+    tmp.splice(i,1)
+    if(isPalindrome(tmp.join('')))
+    return true
+  }
+  return answer
+};
+
+/*
+한글자씩 빼면서 확인
+*/
+
+console.log(validPalindrome("abca")); // true
+console.log(validPalindrome("aba")); // true
+console.log(validPalindrome("abc")); // false
+console.log(validPalindrome("cbbcc")); // true
+
+</script>
+</body>
+</html>
