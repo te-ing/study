@@ -1,0 +1,8 @@
+@import "./mixins"; 
+@use "./variables" as var;  // 
+
+.main { // @use를 통해 nameSpace(variables)를 사용할 수 있음 mixin, 함수에서도 사용할 수 있으며, 이렇게 모듈화 한다면 함수명이 중복되어 생기는 충돌을 막을 수 있음
+  background-color: var.$primary;
+  border: 4px solid var.$succesee;
+  @include square
+}

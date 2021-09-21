@@ -1,0 +1,8 @@
+@use "../your-style/main";
+
+.my-style { 
+  position: relative;
+  border: 4px solid var.$primary;
+}
+
+//your-style의 main.scss 범위에서만 사용하기 때문에 var.$primary를 사용하기 위해서는 your-style의 main.scss에서 @forward  "./variables";를 해줘야 한다
