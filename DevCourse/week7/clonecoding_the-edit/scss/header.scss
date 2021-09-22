@@ -1,5 +1,39 @@
+@import "variables";
+
+.header{
+  width: 100vw;
+}
+
 .header__bar{
   height: 60px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.header__bar--search,
+.header__bar--menu {
+  @include button;
+}
+
+.header__banner{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: #de003a;
+}
+
+.header__banner--img {
+  width: 600px;
+  @media (max-width: 992px) {
+    width: 400px;
+  }
+  @media (max-width: 576px) {
+    width: 200px;
+  }
+}
+
+.header__logo--img{
+  width: 70vw;
+  padding: 10vw 15vw;
 }
