@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+.header__bar {
+  height: 100px;
+  background-color: red;
+}
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+/*# sourceMappingURL=style.css.map */
