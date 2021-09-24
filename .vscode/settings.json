@@ -2,5 +2,6 @@
   "files.associations": {
     "stdio.h": "c",
     "week6": "c"
-  }
+  },
+  "liveServer.settings.port": 4001
 }

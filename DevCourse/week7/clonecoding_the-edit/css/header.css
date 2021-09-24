@@ -1,10 +1,8 @@
-@import "variables";
-
-.header{
+.header {
   width: 100vw;
 }
 
-.header__bar{
+.header__bar {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -13,17 +11,20 @@
 
 .header__bar--search,
 .header__bar--menu {
-  @include button;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.header__banner{
+.header__banner {
   display: flex;
   justify-content: center;
   width: 100vw;
   background-color: #de003a;
 }
 
-.header__logo{
+.header__logo {
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -33,20 +34,30 @@
 
 .header__banner--image {
   width: 500px;
-  @media (max-width: 992px) {
+}
+@media (max-width: 992px) {
+  .header__banner--image {
     width: 300px;
   }
-  @media (max-width: 576px) {
+}
+@media (max-width: 576px) {
+  .header__banner--image {
     width: 200px;
   }
 }
 
-.header__logo--image{
+.header__logo--image {
   width: 500px;
-  @media (max-width: 992px) {
+}
+@media (max-width: 992px) {
+  .header__logo--image {
     width: 300px;
   }
-  @media (max-width: 576px) {
+}
+@media (max-width: 576px) {
+  .header__logo--image {
     width: 200px;
   }
 }
+
+/*# sourceMappingURL=header.css.map */
