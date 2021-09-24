@@ -88,6 +88,11 @@
   font-size: 40px;
   font-weight: 800;
   @include hover-paint();
+  @media (max-width: 767px) {
+    & {
+      font-size: 30px;
+    }
+  }
 }
 
 .article__image{

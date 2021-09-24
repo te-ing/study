@@ -111,6 +111,11 @@
 .article__main--title:hover {
   color: #ff6700;
 }
+@media (max-width: 767px) {
+  .article__main--title {
+    font-size: 30px;
+  }
+}
 
 .article__image {
   object-fit: cover;
