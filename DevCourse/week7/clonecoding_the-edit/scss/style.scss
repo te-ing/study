@@ -4,6 +4,10 @@
 @import 'footer.scss';
 @import 'top-button.scss';
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   font-family: 'Nanum Gothic', sans-serif;
 }

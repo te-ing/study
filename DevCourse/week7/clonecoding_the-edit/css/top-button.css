@@ -1,8 +1,4 @@
 .top-button {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,9 +8,18 @@
   bottom: 15vh;
   width: 45px;
   height: 45px;
+  border: 0;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
+  cursor: pointer;
+}
+.top-button:visited {
+  text-decoration: none;
+  color: black;
+}
+.top-button:link {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=top-button.css.map */

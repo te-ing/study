@@ -1,7 +1,6 @@
 @import "variables";
 
 .top-button{
-  @include button;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +10,16 @@
   bottom: 15vh;
   width: 45px;
   height: 45px;
+  border: 0;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
+  cursor: pointer;
+  &:visited{ 
+    text-decoration: none; 
+    color: black;
+  }
+  &:link {
+    text-decoration: none;
+  }
 }
