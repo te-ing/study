@@ -1,0 +1,36 @@
+@import "variables";
+
+.footer--page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+
+.footer--page__button{
+  @include button;
+  margin: 20px 7px;
+  padding: 6px 12px;
+  border: solid 1px lightgrey;
+  background-color: whitesmoke;
+  color: dimgrey;
+  font-weight: 700;
+  font-size: 16px;
+  transition:ease-out 0.3s;
+  
+  &:hover {
+    background-color: #ff6700;
+    color: white;
+  }
+  &:first-child {
+    border: 0;
+    cursor: default;
+    background-color:#ff6700;
+    color: white;
+  }
+}
+
+.footer__endline {
+  height: 65px;
+  border-top: solid .5px rgba(211, 211, 211, .5);
+}

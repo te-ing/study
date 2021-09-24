@@ -1,0 +1,38 @@
+.footer--page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+
+.footer--page__button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 20px 7px;
+  padding: 6px 12px;
+  border: solid 1px lightgrey;
+  background-color: whitesmoke;
+  color: dimgrey;
+  font-weight: 700;
+  font-size: 16px;
+  transition: ease-out 0.3s;
+}
+.footer--page__button:hover {
+  background-color: #ff6700;
+  color: white;
+}
+.footer--page__button:first-child {
+  border: 0;
+  cursor: default;
+  background-color: #ff6700;
+  color: white;
+}
+
+.footer__endline {
+  height: 65px;
+  border-top: solid 0.5px rgba(211, 211, 211, 0.5);
+}
+
+/*# sourceMappingURL=footer.css.map */

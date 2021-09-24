@@ -4,3 +4,10 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
 }
+
+@mixin hover-paint {
+  transition:ease-out 0.3s;
+  &:hover {
+    color: #ff6700;
+  }
+}

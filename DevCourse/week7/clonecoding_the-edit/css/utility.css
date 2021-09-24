@@ -1,0 +1,16 @@
+.top-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 0;
+  right: 1vw;
+  bottom: 15vh;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=utility.css.map */
