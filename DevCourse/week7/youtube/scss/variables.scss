@@ -3,4 +3,16 @@
   outline: 0;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
+  font-size: 30px;
 }
+
+@mixin overlay ($top :none) {
+  display: flex;
+  position: absolute;
+  top: ($top);
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+}
+
+$border: solid 2px lightgray;

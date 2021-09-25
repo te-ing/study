@@ -1,1 +1,19 @@
-@import "../scss/header"
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import "../scss/header";
+@import "../scss/section.scss";
+@import "../scss/article.scss";
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+h5 {
+  font-size: 15px;
+  line-height: 1.2;
+  color: dimgray;
+}

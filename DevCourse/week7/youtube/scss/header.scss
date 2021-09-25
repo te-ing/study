@@ -1,9 +1,17 @@
+@import "variables";
+
+.material-icons{
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 28px;
+}
+
 .header {
   position: fixed;
+  top: 0;
   width: 100%;
-  & button{
-    font-size: 30px;
-  }
 }
 
 .header--topbar{
@@ -12,38 +20,131 @@
   align-items: center;
   height: 60px;
   width: 100%;
-  background-color: blanchedalmond;
 }
 
-.header--topbar__searchcontainer{
-  display: flex;
-  &__searchbar{
+
+.header--topbar__container{
+  &__menu{
     display: flex;
     align-items: center;
-    height: 45px;
-    width: 50vw;
-    background-color: white;
-    &__input{
-      width: 100%;
-      height: 90%;
-      border: none;
+
+    &__button{
+      margin: 0 10px;
+    }
+
+    &__logo{
+      width: auto;
+      height: 22px;
+      margin: 0 10px;
     }
   }
 }
 
 
+.header--topbar__searchcontainer{
+  display: flex;
+  align-items: center;
+}
 
+.header--topbar__searchcontainer__searchbar{
+  display: flex;
+  align-items: center;
+  height: 45px;
+  width: 50vw;
+  border: $border;
+  background-color: white;
 
+  &__input{
+    width: 100%;
+    height: 90%;
+    margin-left: 3px;
+    border: none;
+    font-size: 18px;
+  }
 
+  &__keyboard{
+    margin: 12px;
+    font-size: 25px;
+    color: dimgray;
+  }
+}
 
+.header--topbar__searchcontainer{
+  &__search{
+    width: 85px;
+    height: 100%;
+    border-left: $border;
+    background-color: whitesmoke;
+  }
+  
+  &__mic{
+  width: 45px;
+  height: 45px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  }
+}
 
-.header--topbar__container__logo{
-  width: auto;
-  height: 20px;
+.header--topbar__tools{
+  display: flex;
+  margin-right: 25px;
+
+  & .material-icons{
+    margin: 0 5px;
+  }
+  &__search,
+  &__mic{
+    display: none;
+  }
+  &__profile{
+    height: 40px;
+    width: 40px;;
+    border-radius: 50%;
+    background-color: violet;
+    margin-right: 50px;
+  }
 }
 
 .header--genres{
   display: flex;
+  align-items: center;
   height: 60px;
-  background-color: skyblue;
+  width: 100%;
+  padding: 0 20px;
+  border-top: $border;
+  border-bottom: $border;
+  position: absolute;
+  overflow: hidden;
+
+  &__genre{
+    min-width: fit-content;
+    height: 35px;
+    margin: 0 8px;
+    padding: 0 15px;
+    border: $border;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: 0;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+    &:hover{
+      filter: brightness(0.9);
+    }
+    &:first-child{
+      border: black;
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 665px) {
+  .header--topbar__searchcontainer{
+    display: none;
+  }
+  .header--topbar__tools__search,
+  .header--topbar__tools__mic{
+    display: block;
+  }
 }
