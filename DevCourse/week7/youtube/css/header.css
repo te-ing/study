@@ -4,10 +4,6 @@
 }
 
 .header button {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
   font-size: 30px;
 }
 
