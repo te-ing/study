@@ -1,0 +1,34 @@
+.aside--bar {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 80px;
+  height: 100%;
+  overflow: hidden;
+}
+.aside--bar__menu, .aside--bar__home, .aside--bar__explore, .aside--bar__subscriptions, .aside--bar__originals, .aside--bar__music, .aside--bar__library {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  width: 100%;
+}
+.aside--bar__menu:first-child, .aside--bar__home:first-child, .aside--bar__explore:first-child, .aside--bar__subscriptions:first-child, .aside--bar__originals:first-child, .aside--bar__music:first-child, .aside--bar__library:first-child {
+  min-height: 60px;
+}
+.aside--bar__menu__text, .aside--bar__home__text, .aside--bar__explore__text, .aside--bar__subscriptions__text, .aside--bar__originals__text, .aside--bar__music__text, .aside--bar__library__text {
+  font-size: 11px;
+  padding: 5px 0;
+}
+
+/*# sourceMappingURL=aside.css.map */

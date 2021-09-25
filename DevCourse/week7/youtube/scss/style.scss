@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 @import "../scss/header";
-@import "../scss/section.scss";
-@import "../scss/article.scss";
+@import "../scss/aside";
+@import "../scss/section";
+@import "../scss/article";
 
 body {
   font-family: 'Nanum Gothic', sans-serif;
@@ -16,4 +17,12 @@ h5 {
   font-size: 15px;
   line-height: 1.2;
   color: dimgray;
+}
+
+.material-icons{
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 28px;
 }
