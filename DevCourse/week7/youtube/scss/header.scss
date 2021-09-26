@@ -12,7 +12,7 @@
   background-color: white;
 }
 
-.header__topbar{
+.header__topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,22 +24,22 @@
 .header__topbar--container--menu { 
   display: flex;
   align-items: center;
-  &--button{
+  &--button {
     margin: 0 10px;
   }
 
-  &--logo{
+  &--logo {
     padding-right: 20px;
     width: auto;
     height: 22px;
   }
 }
 
-.header__topbar--searchcontainer{
+.header__topbar--searchcontainer {
   display: flex;
   align-items: center;
 
-  &--mic{
+  &--mic {
   width: 45px;
   height: 45px;
   margin: 0 10px;
@@ -69,7 +69,7 @@
     font-size: 25px;
     color: dimgray;
   }
-  &--search{
+  &--search {
     width: 85px;
     height: 100%;
     border-left: $border;
@@ -97,7 +97,7 @@
   }
 }
 
-.header__genres{
+.header__genres {
   display: flex;
   align-items: center;
   height: 60px;
@@ -109,7 +109,7 @@
   overflow: hidden;
   background-color: white;
 
-  &--genre{
+  &--genre {
     min-width: fit-content;
     height: 35px;
     margin: 0 8px;
