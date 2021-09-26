@@ -1,5 +1,9 @@
 @import "variables";
 
+.material-icons {
+  @include icons;
+}
+
 .header {
   position: fixed;
   top: 0;

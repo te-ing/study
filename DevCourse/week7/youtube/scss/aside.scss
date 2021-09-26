@@ -1,5 +1,9 @@
 @import "variables";
 
+.material-icons {
+  @include icons;
+}
+
 .aside--bar {
   display: none;
   flex-direction: column;

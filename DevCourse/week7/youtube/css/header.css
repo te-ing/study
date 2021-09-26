@@ -1,3 +1,11 @@
+.material-icons {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 28px;
+}
+
 .header {
   position: fixed;
   top: 0;

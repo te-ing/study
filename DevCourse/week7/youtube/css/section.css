@@ -17,7 +17,7 @@
 }
 @media (min-width: 888px) {
   .section {
-    grid-template-columns: repeat(3, 30vw);
+    grid-template-columns: repeat(3, 28vw);
   }
 }
 

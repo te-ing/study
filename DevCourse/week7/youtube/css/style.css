@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+.material-icons {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 28px;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -129,6 +137,14 @@
     display: block;
   }
 }
+.material-icons {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 28px;
+}
+
 .aside--bar {
   display: none;
   flex-direction: column;
@@ -181,7 +197,7 @@
 }
 @media (min-width: 888px) {
   .section {
-    grid-template-columns: repeat(3, 30vw);
+    grid-template-columns: repeat(3, 28vw);
   }
 }
 
@@ -210,6 +226,10 @@
 .article:hover .article--video__play {
   visibility: visible;
 }
+.article:hover .article--video__after__button,
+.article:hover .article--video__add__button {
+  background-color: rgba(0, 0, 0, 0.75);
+}
 
 .article--video {
   position: relative;
@@ -220,9 +240,9 @@
 }
 .article--video__play {
   position: absolute;
-  top: 7.5vw;
-  left: 17.5vw;
-  font-size: 7vw;
+  font-size: 10vw;
+  top: calc(50% - 5vw);
+  left: calc(50% - 5.5vw);
   color: rgba(255, 255, 255, 0.7);
   visibility: hidden;
 }
@@ -253,10 +273,9 @@
   background-color: black;
 }
 .article--video__after__button, .article--video__add__button {
-  width: 30px;
+  width: 35px;
   height: 32px;
   color: white;
-  background-color: rgba(0, 0, 0, 0.75);
   font-size: 22px;
   visibility: hidden;
 }
@@ -318,14 +337,6 @@ h5 {
   font-size: 15px;
   line-height: 1.2;
   color: dimgray;
-}
-
-.material-icons {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
-  font-size: 28px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -10,6 +10,10 @@
 .article:hover .article--video__play {
   visibility: visible;
 }
+.article:hover .article--video__after__button,
+.article:hover .article--video__add__button {
+  background-color: rgba(0, 0, 0, 0.75);
+}
 
 .article--video {
   position: relative;
@@ -20,9 +24,9 @@
 }
 .article--video__play {
   position: absolute;
-  top: 7.5vw;
-  left: 17.5vw;
-  font-size: 7vw;
+  font-size: 10vw;
+  top: calc(50% - 5vw);
+  left: calc(50% - 5.5vw);
   color: rgba(255, 255, 255, 0.7);
   visibility: hidden;
 }
@@ -53,10 +57,9 @@
   background-color: black;
 }
 .article--video__after__button, .article--video__add__button {
-  width: 30px;
+  width: 35px;
   height: 32px;
   color: white;
-  background-color: rgba(0, 0, 0, 0.75);
   font-size: 22px;
   visibility: hidden;
 }
