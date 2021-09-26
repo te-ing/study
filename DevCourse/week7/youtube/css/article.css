@@ -4,25 +4,25 @@
   width: 100%;
   height: 100%;
 }
-.article:hover .article--info__button,
-.article:hover .article--video__after__button,
-.article:hover .article--video__add__button,
-.article:hover .article--video__play {
+.article:hover .article__info--button,
+.article:hover .article__video--after--button,
+.article:hover .article__video--add--button,
+.article:hover .article__video--play {
   visibility: visible;
 }
-.article:hover .article--video__after__button,
-.article:hover .article--video__add__button {
+.article:hover .article__video--after--button,
+.article:hover .article__video--add--button {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-.article--video {
+.article__video {
   position: relative;
   cursor: pointer;
 }
-.article--video__thumbnail {
+.article__video--thumbnail {
   width: 100%;
 }
-.article--video__play {
+.article__video--play {
   position: absolute;
   font-size: 10vw;
   top: calc(50% - 5vw);
@@ -30,7 +30,7 @@
   color: rgba(255, 255, 255, 0.7);
   visibility: hidden;
 }
-.article--video__time {
+.article__video--time {
   display: flex;
   position: absolute;
   top: none;
@@ -43,7 +43,7 @@
   font-size: 12px;
   font-weight: 800;
 }
-.article--video__after, .article--video__add {
+.article__video--after, .article__video--add {
   display: flex;
   position: absolute;
   top: 5px;
@@ -56,44 +56,44 @@
   visibility: hidden;
   background-color: black;
 }
-.article--video__after__button, .article--video__add__button {
+.article__video--after--button, .article__video--add--button {
   width: 35px;
   height: 32px;
   color: white;
   font-size: 22px;
   visibility: hidden;
 }
-.article--video__after:hover, .article--video__add:hover {
+.article__video--after:hover, .article__video--add:hover {
   visibility: visible;
 }
-.article--video__add {
+.article__video--add {
   top: 40px;
 }
 
-.article--info {
+.article__info {
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
   height: 85px;
   width: 100%;
 }
-.article--info__image {
+.article__info--image {
   width: 45px;
   height: 45px;
   border-radius: 50%;
 }
-.article--info__button {
+.article__info--button {
   display: flex;
   visibility: hidden;
 }
 
-.article--info__container {
+.article__info--container {
   display: flex;
   flex-direction: column;
   padding: 0 10px;
   width: 100%;
 }
-.article--info__container__title {
+.article__info--container--title {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -101,10 +101,10 @@
   -webkit-box-orient: vertical;
   width: 100%;
 }
-.article--info__container__uploader {
+.article__info--container--uploader {
   padding-top: 10px;
 }
-.article--info__container__info {
+.article__info--container--info {
   display: flex;
   margin-right: -30px;
 }

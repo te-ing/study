@@ -6,26 +6,26 @@
   width: 100%;
   height: 100%;
   &:hover {
-    .article--info__button,
-    .article--video__after__button,
-    .article--video__add__button,
-    .article--video__play {
+    .article__info--button,
+    .article__video--after--button,
+    .article__video--add--button,
+    .article__video--play {
       visibility: visible;
     }
-    .article--video__after__button,
-    .article--video__add__button {
+    .article__video--after--button,
+    .article__video--add--button {
       background-color: rgba(0, 0, 0, 0.75);
     }
   }
 }
 
-.article--video {
+.article__video {
   position: relative;
   cursor: pointer;
-  &__thumbnail {
+  &--thumbnail {
     width: 100%;
   }
-  &__play {
+  &--play {
     position: absolute;
     font-size: 10vw;
     top: calc(50% - 5vw);
@@ -33,7 +33,7 @@
     color: rgba(255, 255, 255, 0.7);
     visibility: hidden;
   }
-  &__time {
+  &--time {
     @include overlay();
     bottom: 5px;
     right: 5px;
@@ -41,15 +41,15 @@
     font-size: 12px;
     font-weight: 800;
   }
-  &__after,
-  &__add {
+  &--after,
+  &--add {
     @include overlay(5px);
     right: 5px;
     padding-left: 7px;
     font-size: 14px;
     visibility: hidden;
     background-color: rgb(0, 0, 0);
-    &__button {
+    &--button {
       width: 35px;
       height: 32px;
       color: white;
@@ -60,34 +60,34 @@
       visibility: visible;
     }
   }
-  &__add {
+  &--add {
     top: 40px;
   }
 }
 
-.article--info {
+.article__info {
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
   height: 85px;
   width: 100%;
-  &__image {
+  &--image {
     width: 45px;
     height: 45px;
     border-radius: 50%;
   }
-  &__button {
+  &--button {
     display: flex;
     visibility: hidden;
   }
 }
 
-.article--info__container {
+.article__info--container {
   display: flex;
   flex-direction: column;
   padding: 0 10px;
   width: 100%;
-  &__title {
+  &--title {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -95,10 +95,10 @@
     -webkit-box-orient: vertical;
     width: 100%;
   }
-  &__uploader {
+  &--uploader {
     padding-top: 10px;
   }
-  &__info {
+  &--info {
     display: flex;
     margin-right: -30px;
   }

@@ -12,7 +12,7 @@
   background-color: white;
 }
 
-.header--topbar{
+.header__topbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,25 +21,25 @@
 }
 
 
-.header--topbar__container__menu { 
+.header__topbar--container--menu { 
   display: flex;
   align-items: center;
-  &__button{
+  &--button{
     margin: 0 10px;
   }
 
-  &__logo{
+  &--logo{
     padding-right: 20px;
     width: auto;
     height: 22px;
   }
 }
 
-.header--topbar__searchcontainer{
+.header__topbar--searchcontainer{
   display: flex;
   align-items: center;
 
-  &__mic{
+  &--mic{
   width: 45px;
   height: 45px;
   margin: 0 10px;
@@ -48,7 +48,7 @@
   }
 }
 
-.header--topbar__searchcontainer__searchbar {
+.header__topbar--searchcontainer--searchbar {
   display: flex;
   align-items: center;
   height: 45px;
@@ -57,19 +57,19 @@
   border: $border;
   background-color: white;
 
-  &__input {
+  &--input {
     width: 100%;
     height: 90%;
     margin-left: 3px;
     border: none;
     font-size: 18px;
   }
-  &__keyboard {
+  &--keyboard {
     margin: 12px;
     font-size: 25px;
     color: dimgray;
   }
-  &__search{
+  &--search{
     width: 85px;
     height: 100%;
     border-left: $border;
@@ -77,18 +77,18 @@
   }
 }
 
-.header--topbar__tools {
+.header__topbar--tools {
   display: flex;
   width: 300px;
 
   & .material-icons {
     margin: 0 5px;
   }
-  &__search,
-  &__mic {
+  &--search,
+  &--mic {
     display: none;
   }
-  &__profile {
+  &--profile {
     height: 40px;
     width: 40px;;
     border-radius: 50%;
@@ -97,7 +97,7 @@
   }
 }
 
-.header--genres{
+.header__genres{
   display: flex;
   align-items: center;
   height: 60px;
@@ -109,7 +109,7 @@
   overflow: hidden;
   background-color: white;
 
-  &__genre{
+  &--genre{
     min-width: fit-content;
     height: 35px;
     margin: 0 8px;
@@ -132,11 +132,11 @@
 }
 
 @media (max-width: 665px) {
-  .header--topbar__searchcontainer{
+  .header__topbar--searchcontainer{
     display: none;
   }
-  .header--topbar__tools__search,
-  .header--topbar__tools__mic{
+  .header__topbar--tools--search,
+  .header__topbar--tools--mic{
     display: block;
   }
 }

@@ -1,4 +1,4 @@
-.aside--bar {
+.aside__bar {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -10,14 +10,14 @@
   height: 100%;
   overflow: hidden;
 }
-.aside--bar .material-icons {
+.aside__bar .material-icons {
   border: 0;
   outline: 0;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
   font-size: 28px;
 }
-.aside--bar__menu, .aside--bar__home, .aside--bar__explore, .aside--bar__subscriptions, .aside--bar__originals, .aside--bar__music, .aside--bar__library {
+.aside__bar--menu, .aside__bar--home, .aside__bar--explore, .aside__bar--subscriptions, .aside__bar--originals, .aside__bar--music, .aside__bar--library {
   border: 0;
   outline: 0;
   cursor: pointer;
@@ -30,10 +30,10 @@
   min-height: 80px;
   width: 100%;
 }
-.aside--bar__menu:first-child, .aside--bar__home:first-child, .aside--bar__explore:first-child, .aside--bar__subscriptions:first-child, .aside--bar__originals:first-child, .aside--bar__music:first-child, .aside--bar__library:first-child {
+.aside__bar--menu:first-child, .aside__bar--home:first-child, .aside__bar--explore:first-child, .aside__bar--subscriptions:first-child, .aside__bar--originals:first-child, .aside__bar--music:first-child, .aside__bar--library:first-child {
   min-height: 60px;
 }
-.aside--bar__menu__text, .aside--bar__home__text, .aside--bar__explore__text, .aside--bar__subscriptions__text, .aside--bar__originals__text, .aside--bar__music__text, .aside--bar__library__text {
+.aside__bar--menu--text, .aside__bar--home--text, .aside__bar--explore--text, .aside__bar--subscriptions--text, .aside__bar--originals--text, .aside__bar--music--text, .aside__bar--library--text {
   font-size: 11px;
   padding: 5px 0;
 }

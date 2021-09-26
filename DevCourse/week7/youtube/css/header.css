@@ -14,7 +14,7 @@
   background-color: white;
 }
 
-.header--topbar {
+.header__topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,24 +22,24 @@
   width: 100%;
 }
 
-.header--topbar__container__menu {
+.header__topbar--container--menu {
   display: flex;
   align-items: center;
 }
-.header--topbar__container__menu__button {
+.header__topbar--container--menu--button {
   margin: 0 10px;
 }
-.header--topbar__container__menu__logo {
+.header__topbar--container--menu--logo {
   padding-right: 20px;
   width: auto;
   height: 22px;
 }
 
-.header--topbar__searchcontainer {
+.header__topbar--searchcontainer {
   display: flex;
   align-items: center;
 }
-.header--topbar__searchcontainer__mic {
+.header__topbar--searchcontainer--mic {
   width: 45px;
   height: 45px;
   margin: 0 10px;
@@ -47,7 +47,7 @@
   background-color: whitesmoke;
 }
 
-.header--topbar__searchcontainer__searchbar {
+.header__topbar--searchcontainer--searchbar {
   display: flex;
   align-items: center;
   height: 45px;
@@ -56,36 +56,36 @@
   border: solid 2px lightgray;
   background-color: white;
 }
-.header--topbar__searchcontainer__searchbar__input {
+.header__topbar--searchcontainer--searchbar--input {
   width: 100%;
   height: 90%;
   margin-left: 3px;
   border: none;
   font-size: 18px;
 }
-.header--topbar__searchcontainer__searchbar__keyboard {
+.header__topbar--searchcontainer--searchbar--keyboard {
   margin: 12px;
   font-size: 25px;
   color: dimgray;
 }
-.header--topbar__searchcontainer__searchbar__search {
+.header__topbar--searchcontainer--searchbar--search {
   width: 85px;
   height: 100%;
   border-left: solid 2px lightgray;
   background-color: whitesmoke;
 }
 
-.header--topbar__tools {
+.header__topbar--tools {
   display: flex;
   width: 300px;
 }
-.header--topbar__tools .material-icons {
+.header__topbar--tools .material-icons {
   margin: 0 5px;
 }
-.header--topbar__tools__search, .header--topbar__tools__mic {
+.header__topbar--tools--search, .header__topbar--tools--mic {
   display: none;
 }
-.header--topbar__tools__profile {
+.header__topbar--tools--profile {
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -93,7 +93,7 @@
   margin-right: 50px;
 }
 
-.header--genres {
+.header__genres {
   display: flex;
   align-items: center;
   height: 60px;
@@ -105,7 +105,7 @@
   overflow: hidden;
   background-color: white;
 }
-.header--genres__genre {
+.header__genres--genre {
   min-width: fit-content;
   height: 35px;
   margin: 0 8px;
@@ -117,22 +117,22 @@
   cursor: pointer;
   transition: 0.1s ease-out;
 }
-.header--genres__genre:hover {
+.header__genres--genre:hover {
   filter: brightness(0.9);
 }
-.header--genres__genre:first-child {
+.header__genres--genre:first-child {
   border: black;
   background-color: black;
   color: white;
 }
 
 @media (max-width: 665px) {
-  .header--topbar__searchcontainer {
+  .header__topbar--searchcontainer {
     display: none;
   }
 
-  .header--topbar__tools__search,
-.header--topbar__tools__mic {
+  .header__topbar--tools--search,
+.header__topbar--tools--mic {
     display: block;
   }
 }
