@@ -252,6 +252,7 @@
 }
 .top-button:link {
   text-decoration: none;
+  color: black;
 }
 
 html {
