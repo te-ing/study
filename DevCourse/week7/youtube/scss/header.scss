@@ -21,20 +21,17 @@
 }
 
 
-.header--topbar__container{
-  &__menu{
-    display: flex;
-    align-items: center;
+.header--topbar__container__menu { 
+  display: flex;
+  align-items: center;
+  &__button{
+    margin: 0 10px;
+  }
 
-    &__button{
-      margin: 0 10px;
-    }
-
-    &__logo{
-      padding-right: 20px;
-      width: auto;
-      height: 22px;
-    }
+  &__logo{
+    padding-right: 20px;
+    width: auto;
+    height: 22px;
   }
 }
 
@@ -55,7 +52,8 @@
   display: flex;
   align-items: center;
   height: 45px;
-  width: 50vw;
+  min-width: 40vw;
+  max-width: 50vw;
   border: $border;
   background-color: white;
 
@@ -79,18 +77,18 @@
   }
 }
 
-.header--topbar__tools{
+.header--topbar__tools {
   display: flex;
-  margin-right: 25px;
+  width: 300px;
 
-  & .material-icons{
+  & .material-icons {
     margin: 0 5px;
   }
   &__search,
-  &__mic{
+  &__mic {
     display: none;
   }
-  &__profile{
+  &__profile {
     height: 40px;
     width: 40px;;
     border-radius: 50%;
