@@ -8,6 +8,6 @@
 @mixin hover-paint {
   transition:ease-out 0.3s;
   &:hover {
-    color: #ff6700;
+    color: rgb(255, 103, 0);
   }
 }

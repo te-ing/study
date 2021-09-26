@@ -19,13 +19,13 @@
   transition:ease-out 0.3s;
   
   &:hover {
-    background-color: #ff6700;
+    background-color: rgb(255, 103, 0);
     color: white;
   }
   &:first-child {
     border: 0;
     cursor: default;
-    background-color:#ff6700;
+    background-color:rgb(255, 103, 0);
     color: white;
   }
 }
