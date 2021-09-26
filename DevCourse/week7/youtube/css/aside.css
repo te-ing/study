@@ -1,11 +1,3 @@
-.material-icons {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
-  font-size: 28px;
-}
-
 .aside--bar {
   display: none;
   flex-direction: column;
@@ -17,6 +9,13 @@
   width: 80px;
   height: 100%;
   overflow: hidden;
+}
+.aside--bar .material-icons {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 28px;
 }
 .aside--bar__menu, .aside--bar__home, .aside--bar__explore, .aside--bar__subscriptions, .aside--bar__originals, .aside--bar__music, .aside--bar__library {
   border: 0;

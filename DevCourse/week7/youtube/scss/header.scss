@@ -34,18 +34,24 @@
       padding-right: 20px;
       width: auto;
       height: 22px;
-      
     }
   }
 }
 
-
 .header--topbar__searchcontainer{
   display: flex;
   align-items: center;
+
+  &__mic{
+  width: 45px;
+  height: 45px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  }
 }
 
-.header--topbar__searchcontainer__searchbar{
+.header--topbar__searchcontainer__searchbar {
   display: flex;
   align-items: center;
   height: 45px;
@@ -53,35 +59,23 @@
   border: $border;
   background-color: white;
 
-  &__input{
+  &__input {
     width: 100%;
     height: 90%;
     margin-left: 3px;
     border: none;
     font-size: 18px;
   }
-
-  &__keyboard{
+  &__keyboard {
     margin: 12px;
     font-size: 25px;
     color: dimgray;
   }
-}
-
-.header--topbar__searchcontainer{
   &__search{
     width: 85px;
     height: 100%;
     border-left: $border;
     background-color: whitesmoke;
-  }
-  
-  &__mic{
-  width: 45px;
-  height: 45px;
-  margin: 0 10px;
-  border-radius: 50%;
-  background-color: whitesmoke;
   }
 }
 

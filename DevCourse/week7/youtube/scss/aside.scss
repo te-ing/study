@@ -1,9 +1,5 @@
 @import "variables";
 
-.material-icons {
-  @include icons;
-}
-
 .aside--bar {
   display: none;
   flex-direction: column;
@@ -16,7 +12,10 @@
   height: 100%;
   overflow: hidden;
 
-  
+  .material-icons {
+    @include icons;
+  }
+
   &__menu,
   &__home,
   &__explore,
@@ -31,7 +30,6 @@
     align-items: center;
     min-height: 80px;
     width: 100%;
-
 
     &:first-child {
       min-height: 60px;

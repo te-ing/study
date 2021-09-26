@@ -106,6 +106,7 @@
 }
 .article--info__container__info {
   display: flex;
+  margin-right: -30px;
 }
 
 /*# sourceMappingURL=article.css.map */

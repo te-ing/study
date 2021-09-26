@@ -39,6 +39,13 @@
   display: flex;
   align-items: center;
 }
+.header--topbar__searchcontainer__mic {
+  width: 45px;
+  height: 45px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+}
 
 .header--topbar__searchcontainer__searchbar {
   display: flex;
@@ -60,18 +67,10 @@
   font-size: 25px;
   color: dimgray;
 }
-
-.header--topbar__searchcontainer__search {
+.header--topbar__searchcontainer__searchbar__search {
   width: 85px;
   height: 100%;
   border-left: solid 2px lightgray;
-  background-color: whitesmoke;
-}
-.header--topbar__searchcontainer__mic {
-  width: 45px;
-  height: 45px;
-  margin: 0 10px;
-  border-radius: 50%;
   background-color: whitesmoke;
 }
 

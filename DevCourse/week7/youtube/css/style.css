@@ -40,6 +40,13 @@
   display: flex;
   align-items: center;
 }
+.header--topbar__searchcontainer__mic {
+  width: 45px;
+  height: 45px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+}
 
 .header--topbar__searchcontainer__searchbar {
   display: flex;
@@ -61,18 +68,10 @@
   font-size: 25px;
   color: dimgray;
 }
-
-.header--topbar__searchcontainer__search {
+.header--topbar__searchcontainer__searchbar__search {
   width: 85px;
   height: 100%;
   border-left: solid 2px lightgray;
-  background-color: whitesmoke;
-}
-.header--topbar__searchcontainer__mic {
-  width: 45px;
-  height: 45px;
-  margin: 0 10px;
-  border-radius: 50%;
   background-color: whitesmoke;
 }
 
@@ -137,14 +136,6 @@
     display: block;
   }
 }
-.material-icons {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
-  font-size: 28px;
-}
-
 .aside--bar {
   display: none;
   flex-direction: column;
@@ -156,6 +147,13 @@
   width: 80px;
   height: 100%;
   overflow: hidden;
+}
+.aside--bar .material-icons {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 28px;
 }
 .aside--bar__menu, .aside--bar__home, .aside--bar__explore, .aside--bar__subscriptions, .aside--bar__originals, .aside--bar__music, .aside--bar__library {
   border: 0;
@@ -322,6 +320,7 @@
 }
 .article--info__container__info {
   display: flex;
+  margin-right: -30px;
 }
 
 body {
