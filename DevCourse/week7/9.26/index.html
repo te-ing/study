@@ -5,74 +5,50 @@
   <meta charset="utf-8">
   </head>
 </html>
-
-
   <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
   <style>
   </style>
   <div id="app">
-    <form @submit="addNewTodo">
-      <label for="new-todo">Add a todo</label>
-      <input v-model="newTodoText"
-             id="new-todo" 
-             placeholder="E.g. Feed a cat">
-      <button>Add</button>
-    </form>
-    <ul>
-      <todo-item v-for="todo in todos" 
-                :key="todo.id"
-                :todo="todo"
-                @remov="removeTodo" />
-                <!-- @romov를 통해 $emit으로 정의했던 removeTodo 함수를 받는다. -->
-    </ul>
+    <upper-name v-for="fruit in fruits" 
+                :key="fruit.id"
+                :name="fruit.name"
+                @to-upper="toUpper(fruit, $event)"></upper-name>
+  <!-- $emit은 첫번째 인자만 받을 수 있기 때문에 $event를 넣어줌 -->
   </div>
   
   <script>
-    function generateId() {
-      return `${Date.now()}${Math.random()}`
-    }
-
-    const TodoItem = {
-      template: `
-      <li >
-          {{ todo.title }}
-          <button @click="$emit('remov', todo.id)">Remove</button>
-      </li>
-      `,
-      props: ['todo'] // 컴포넌트 밖에서 todo 데이터를 받는다.
-    }
-
     const App = {
-      components: {
-        TodoItem
-      },
-      data () {
+      data() {
         return {
-          newTodoText: '',
-          todos: []
+          fruits: [
+            { id: '1', name: 'apple'},
+            { id: '2', name: 'banana'},
+            { id: '3', name: 'cherry'},
+          ]
         }
       },
       methods: {
-        addNewTodo(e) {
-          e.preventDefault()
-          this.todos.push({
-            id: generateId(),
-            title: this.newTodoText
-          })
-          this.newTodoText = ''
-          console.log(this.todos);
-        },
-        removeTodo(todoId) {
-          this.todos = this.todos.filter(todo => {
-            return todo.id !== todoId
-          })
+        toUpper(fruit, upperName) {
+          console.log(fruit, upperName);
+          fruit.name = upperName
         }
       }
-  }
+    }
 
-    const vm = Vue.createApp(App).mount('#app')
+    const app = Vue.createApp(App)
+    app.component('upper-name', {
+      template: `<div @click="capitalize">{{ name }}</div>`,
+      props: ['name'], // 데이터가 내려갈 땐 props, 올라갈 땐 $emit
+      methods: {
+        capitalize() {
+          // this.name = this.name.toUpperCase() // 쓰기권한 없음
+          this.$emit('to-upper', this.name.toUpperCase())
+        }
+      }
+    })
+    const vm = app.mount('#app')
   </script>
 </body>
 </html>
