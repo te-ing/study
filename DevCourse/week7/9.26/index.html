@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Document</title>
+  <meta charset="utf-8">
+  </head>
+</html>
+
+
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <style>
+  </style>
+  <div id="app">
+    <form @submit="addNewTodo">
+      <label for="new-todo">Add a todo</label>
+      <input v-model="newTodoText"
+             id="new-todo" 
+             placeholder="E.g. Feed a cat">
+      <button>Add</button>
+    </form>
+    <ul>
+      <todo-item v-for="todo in todos" 
+                :key="todo.id"
+                :todo="todo"
+                @remov="removeTodo" />
+                <!-- @romov를 통해 $emit으로 정의했던 removeTodo 함수를 받는다. -->
+    </ul>
+  </div>
+  
+  <script>
+    function generateId() {
+      return `${Date.now()}${Math.random()}`
+    }
+
+    const TodoItem = {
+      template: `
+      <li >
+          {{ todo.title }}
+          <button @click="$emit('remov', todo.id)">Remove</button>
+      </li>
+      `,
+      props: ['todo'] // 컴포넌트 밖에서 todo 데이터를 받는다.
+    }
+
+    const App = {
+      components: {
+        TodoItem
+      },
+      data () {
+        return {
+          newTodoText: '',
+          todos: []
+        }
+      },
+      methods: {
+        addNewTodo(e) {
+          e.preventDefault()
+          this.todos.push({
+            id: generateId(),
+            title: this.newTodoText
+          })
+          this.newTodoText = ''
+          console.log(this.todos);
+        },
+        removeTodo(todoId) {
+          this.todos = this.todos.filter(todo => {
+            return todo.id !== todoId
+          })
+        }
+      }
+  }
+
+    const vm = Vue.createApp(App).mount('#app')
+  </script>
+</body>
+</html>
