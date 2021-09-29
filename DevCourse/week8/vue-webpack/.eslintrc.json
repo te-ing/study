@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true, // 브라우저에서 eslintrc 확인
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended", // eslint는 추천규칙을 사용
+    "plugin:vue/vue3-recommended" // plugin에 해당하는 것은 vue3추천 사용
+  ],
+  "rules": {
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }],
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "always",
+        "normal": "never",
+        "component": "always"
+      },
+      "svg": "always",
+      "math": "always"
+    }]
+  }
+}
