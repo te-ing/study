@@ -459,7 +459,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _appVue = require("./App.vue");
 var _appVueDefault = parcelHelpers.interopDefault(_appVue);
-_vue.createApp().mount('#app');
+_vue.createApp(_appVueDefault.default).mount('#app');
 
 },{"vue":"eg0LR","./App.vue":"6LWQO","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"eg0LR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -9534,6 +9534,7 @@ let initialize = ()=>{
     script = require('script:./App.vue');
     if (script.__esModule) script = script.default;
     script.render = require('template:./App.vue').render;
+    script.__cssModules = require('style:./App.vue').default;
     require('custom:./App.vue').default(script);
     script.__scopeId = 'data-v-f5a8a9';
     script.__file = "C:\\Program Files\\Workspace\\study\\DevCourse\\week8\\9.28\\src\\App.vue";
@@ -9550,7 +9551,7 @@ if (module.hot) {
 }
 exports.default = script;
 
-},{"script:./App.vue":"etHbE","template:./App.vue":"bY6cb","custom:./App.vue":"fpKtJ","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"etHbE":[function(require,module,exports) {
+},{"script:./App.vue":"etHbE","template:./App.vue":"bY6cb","style:./App.vue":"errH0","custom:./App.vue":"fpKtJ","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"etHbE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {
@@ -9574,7 +9575,7 @@ if (module.hot) module.hot.accept(()=>{
     __VUE_HMR_RUNTIME__.rerender('f5a8a9-hmr', render);
 });
 
-},{"vue":"eg0LR","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"fpKtJ":[function(require,module,exports) {
+},{"vue":"eg0LR","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"errH0":[function() {},{}],"fpKtJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{

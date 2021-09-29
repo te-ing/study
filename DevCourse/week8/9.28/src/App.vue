@@ -11,3 +11,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss"> 
+$color: orange;
+h1 {
+  color: $color;
+}
+</style>
