@@ -1,31 +1,39 @@
 <template>
-  <div style="transform: scale(1);">
-    <Modal
-      v-model="isShow"
-      width="300px">
-      <template #activator>
-        <button>On Modal!</button>        
-      </template>
-      <h3>App.vue</h3>
-    </Modal>
-    <Hello />
-  </div>  
+  <h1>
+    {{ msg }}
+  </h1>
+  <Hello />
+  <button @click="increaseCount">
+    Increase!
+  </button>
+  <World />
+  <button @click="$store.dispatch('fetchTodo')"> 
+    Update Msg!!
+  </button>
 </template>
 
 <script>
-import Hello from '~/components/Hello'
-
+import Hello from '~/components/Hello' 
+import World from '~/components/World' 
 
 export default {
   components: {
     Hello,
+    World
   },
-  data() {
+   data() {
     return {
-      isShow: false,
       msg: 'Hello Vue!'
     }
   },
+  methods: {
+    increaseCount() {
+      this.$store.commit('increaseCount') // mutation은 $store.commit을 통해 실행
+    },
+    fetchTodo() {
+      this.$store.dispatch('fetchTodo')
+    }
+  }
 }
 </script>
 

@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 import App from '~/App'
-import Modal from '~/components/Modal'
+import store from '~/store'
+
 
 const app = createApp(App)
-app.component('Modal', Modal)
+app.use(store) // $store로 사용
 app.mount('#app')
