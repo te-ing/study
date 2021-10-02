@@ -1,39 +1,38 @@
 <template>
-  <h1>
-    {{ msg }}
-  </h1>
-  <Hello />
-  <button @click="increaseCount">
-    Increase!
+  <RouterLink to="/">
+    Home
+  </RouterLink>
+  <RouterLink to="/about">
+    About
+  </RouterLink>
+  <RouterLink
+    :to="{ 
+      name: 'docsId',
+      params: { id: '7777'},
+      query: { name: '태중', age: 26, email: 'TJ@abc.com' }
+    }">
+    Documents ID
+  </RouterLink>
+  <button
+    @click="
+      $router.push({
+        name:
+          'home'})">
+    Home
   </button>
-  <World />
-  <button @click="$store.dispatch('fetchTodo')"> 
-    Update Msg!!
+  <button @click="$router.push('/about')">
+    About
   </button>
+  <RouterView />
 </template>
 
 <script>
-import Hello from '~/components/Hello' 
-import World from '~/components/World' 
-
 export default {
-  components: {
-    Hello,
-    World
-  },
-   data() {
+  data() {
     return {
       msg: 'Hello Vue!'
     }
   },
-  methods: {
-    increaseCount() {
-      this.$store.commit('increaseCount') // mutation은 $store.commit을 통해 실행
-    },
-    fetchTodo() {
-      this.$store.dispatch('fetchTodo')
-    }
-  }
 }
 </script>
 
