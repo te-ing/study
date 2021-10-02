@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 import App from '~/App'
-import router from '~/routes'  // index는 생략 가능
+import router from '~/routes'
+
 
 const app = createApp(App)
-app.use(router) // 플러그인 등록
+app.use(router)
 app.mount('#app')

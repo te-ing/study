@@ -13,6 +13,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     clean: true
   },
   module: {
@@ -41,6 +42,8 @@ module.exports = {
         {from:'static', to:''} // to 위치생략시 output의 위치로 설정됨
       ]
     })
-  ]
-  
-}
+  ],
+  devServer:{
+    historyApiFallback: true
+  }
+  }
