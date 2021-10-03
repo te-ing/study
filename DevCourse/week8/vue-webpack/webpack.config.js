@@ -19,6 +19,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/, // (?!(a||b||c)) a,b,c를 제외한
+        use: 'babel-loader',
+      },
+      {
         test: /\.vue$/, // 정규표현식으로 vue확장자를 모두 선택
         use: 'vue-loader', // vue 해석을 도와주는 패키지
       },
@@ -27,6 +32,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
+          'postcss-loader',
           'sass-loader'
         ]
       }

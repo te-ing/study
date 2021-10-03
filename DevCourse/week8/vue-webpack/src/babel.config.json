@@ -1,0 +1,8 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    ["@babel/plugin-transform-runtime", { // plugin에서 옵션 적용하기
+      "corejs":3
+    }]
+  ]
+}
