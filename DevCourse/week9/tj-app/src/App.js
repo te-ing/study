@@ -1,32 +1,24 @@
-import './App.css';
-import Logo from './components/Logo';
-import Paragraph from './components/Paragraph';
+import { useCallback, useState } from "react";
+import Checkbox from "./components/Checkbox";
 
 function App() {
-  const name = '리액트'
+  const [foodOn, setFoodOn] = useState(false);
+  const [clothesOn, setClothesOn] = useState(false);
+  const [shelterOn, setShelterOn] = useState(false);
+
+  // const foodChange = (e) => setFoodOn(e.target.checked);
+  const foodChange = useCallback((e) => setFoodOn(e.target.checked), []);
+  const clothesChange = useCallback((e) => setClothesOn(e.target.checked), []);
+  const shelterChange = useCallback((e) => setShelterOn(e.target.checked), []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Logo size={100} />
-        <Logo />
-
-        <Paragraph>
-          Edit <code>src/App.js</code> and save to reload.
-        </Paragraph>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn {name}
-        </a>
-
-      </header>
+    <div>
+      <Checkbox label="Food" on={foodOn} onChange={foodChange} />
+      <Checkbox label="Clothes" on={clothesOn} onChange={clothesChange} />
+      <Checkbox label="Shelter" on={shelterOn} onChange={shelterChange} />
     </div>
   );
 }
 
 export default App;
+
