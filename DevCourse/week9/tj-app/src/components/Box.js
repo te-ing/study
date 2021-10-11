@@ -1,13 +1,9 @@
-import React from 'react'
+import styled from '@emotion/styled'
 
-const Box = () => {
-  console.log("Render box");
-  const style = {
-    width: 100,
-    height: 100,
-    backgroundColor: "red",
-  };
-  return <div style={style} />;
-};
+const Box = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: red;
+`;
 
 export default Box;
