@@ -52,12 +52,14 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.3.0",
+    "@emotion/react": "^11.4.1",
     "@storybook/addon-actions": "^6.3.10",
     "@storybook/addon-essentials": "^6.3.10",
     "@storybook/addon-links": "^6.3.10",
     "@storybook/node-logger": "^6.3.10",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.10",
+    "axios": "^0.23.0",
     "prettier": "^2.4.1"
   }
 }
