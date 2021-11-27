@@ -1,10 +1,15 @@
-import Practice from "./components/Practice";
+import ReactDOM from "react-dom";
+import BoilingVerdict from "./components/Practice/BoilingVerdict";
+import TemperatureInput from "./components/Practice/TemperatureInput";
 
 function App() {
   return (
     <div>
-      <Practice />
-      <h2>It is </h2>
+      <BoilingVerdict scale={"c"} />
+      <BoilingVerdict scale={"f"} />
+      -------------------------------------------------------------
+      <br />
+      <TemperatureInput />
     </div>
   );
 }
