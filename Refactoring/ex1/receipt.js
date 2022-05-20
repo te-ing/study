@@ -30,7 +30,7 @@ function statement(invoice, plays) {
         thisAmount += 300 * perf.audience;
         break;
       default:
-        throw new Error(`알 수 없는 장루: ${play.type}`);
+        throw new Error(`알 수 없는 장르: ${play.type}`);
     }
     // 포인트를 적립한다.
     volumeCredits += Math.max(perf.audience - 30, 0);
